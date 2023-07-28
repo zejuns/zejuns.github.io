@@ -1,0 +1,92 @@
+.menu.active {
+    display: block;
+    position: absolute;
+    padding: 13px 0px;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #333;
+    width: 100%;
+}
+.menu.active li {
+    position: relative;
+    top: 20px;
+    display: block;
+    padding: 14px 16px;
+    color: rgb(220, 220, 220);
+    text-align: center;
+    margin: auto;
+}
+.menu li:hover {background-color: transparent;}
+
+.hide-on-main {
+    display: none;
+}
+.home{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    width: 300px;
+    min-width: none;
+}
+.homeimage{
+    order: 2;
+    float: none;
+
+    width: 300px;
+}
+.home article{
+    order: 1;
+
+}
+
+.home article {
+    display: block;
+    align-items: center;
+    padding: 20px;
+    width: 300px;
+    max-width: fit-content;
+    min-width: none;
+}
+
+.home article div {
+    width:300px;
+    margin: 0px;
+}
+
+.home img {
+    float: none;
+    margin-bottom: 20px;
+}
+
+.portfolio h2 {
+    padding-top: 30px;
+}
+
+.portfolio p {
+    padding-bottom: 20px;
+}
+
+.portfolio-class img {
+    width: 300px;
+    padding: 10px;
+}
+
+.about-words {
+    padding: 100px 0;
+}
+
+footer img {
+    width: 100%;
+    height: auto;
+}
+
+.footer-spacer {
+    margin-top: -100px;
+}
+
+.footer-spacer div {
+    padding: 10px 0;
+}
