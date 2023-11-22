@@ -114,7 +114,7 @@ button:hover{background: linear-gradient(to right, #265eac, #bd6130);}
 }
 .portfolio p {
     padding: 20px 0px 90px;
-    width: 70%;
+    width: 85%;
     line-height: 26px;
     text-align: center; /* 将文字居中对齐 */
     margin: 0 auto; /* 设置左右外边距为 auto，使元素水平居中 */
