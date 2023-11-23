@@ -56,8 +56,8 @@ header{
 }
 .home{
     height: 550px;
-    margin-top: 54px;
     border: 70px solid transparent;
+    border-top: 124px solid transparent;
     display: flex;
 } 
 .home article{
@@ -72,9 +72,12 @@ header{
 }
 .home article div{
     min-width: 400px;
-    max-width: 650px;
+    max-width: 750px;
 }
-.home h1{margin: 0px;}
+.home h1{
+    margin: 0px;
+    color: #3a70bb;
+}
 .homeimage{
     min-width: 30%;
     margin-left: auto;
@@ -231,5 +234,27 @@ footer{
 }
 #myAudio {display:flex;}
 
+@keyframes siz {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes siz-move {
+    from {
+        transform: translateY(15%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+.text {
+    animation: siz 2s ease-in-out forwards, siz-move 1s ease-in-out forwards;
+}
 
+.homeimage {
+    animation: siz 2s ease-in-out forwards;
+}
   
