@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Khula:700);
 html {scroll-behavior: smooth;}
 body{
     background-color: black;
@@ -55,16 +56,16 @@ header{
     margin: 0px 10px;
 }
 .home{
-    height: 550px;
-    border: 70px solid transparent;
-    border-top: 124px solid transparent;
+    height: 70vh;
+    border: calc(15vh - 28px) solid transparent;
+    border-top: calc(15vh + 28px) solid transparent;
     display: flex;
 } 
 .home article{
     margin: 0%;
     border: 0px;
     padding: 0px 40px 0px 0px;
-    height: 550px;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,11 +73,14 @@ header{
 }
 .home article div{
     min-width: 400px;
-    max-width: 750px;
+    max-width: 850px;
 }
 .home h1{
     margin: 0px;
     color: #3a70bb;
+}
+.home h2{
+    margin: 10px 0px 25px 0px;
 }
 .homeimage{
     min-width: 30%;
@@ -156,7 +160,7 @@ button:hover{background: linear-gradient(to right, #265eac, #bd6130);}
     color: white;
 }
 .about article{
-    padding: 100px 50px 340px;
+    padding: 120px 50px 340px;
     margin: 34px 0px 0px;
     width: 90%;
 }
@@ -257,4 +261,15 @@ footer{
 .homeimage {
     animation: siz 2s ease-in-out forwards;
 }
-  
+.hidden {
+    opacity:0;
+}
+.console-container {
+    font-family:Khula;
+    font-size: 42px;
+    color:#3a70bb;
+}
+.console-underscore {
+    display:inline;
+    position:relative;
+}

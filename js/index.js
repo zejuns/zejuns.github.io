@@ -18,19 +18,4 @@ menuItems.forEach(item => {
   });
 });
 
-var xhr = new XMLHttpRequest();
-xhr.open('GET', '../loading.html', true);
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-            // 加载成功，隐藏“加载中”页面
-            document.getElementById('loading').style.display = 'none';
-        } else {
-            // 加载失败，显示“加载中”页面
-            document.getElementById('loading').style.display = 'block';
-        }
-    }
-};
-xhr.send();
-
 
