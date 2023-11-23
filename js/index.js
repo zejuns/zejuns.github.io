@@ -18,10 +18,4 @@ menuItems.forEach(item => {
   });
 });
 
-window.addEventListener('load', function() {
-  var loading = document.getElementById('loading');
-  var content = document.getElementById('home');
-  loading.style.display = 'none';
-  content.style.display = 'block';
-});
 
