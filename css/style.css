@@ -23,9 +23,9 @@ h3{
 }
 header{
     height: 54px;
-    background-color: rgb(0, 0, 0, 0.8);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgb(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: saturate(180%) blur(15px);
+    backdrop-filter: saturate(180%) blur(15px);
     font-size: 16px;
     position: fixed;
     top: 0;
@@ -56,16 +56,17 @@ header{
     margin: 0px 10px;
 }
 .home{
-    height: 70vh;
-    border: calc(15vh - 28px) solid transparent;
-    border-top: calc(15vh + 28px) solid transparent;
+    height: 600px;
+    border: 100px solid transparent;
+    border-top: 124px solid transparent;
+    border-bottom: 124px solid transparent;
     display: flex;
 } 
 .home article{
     margin: 0%;
     border: 0px;
     padding: 0px 40px 0px 0px;
-    height: 70vh;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +110,7 @@ button:hover{background: linear-gradient(to right, #2c84ff, #ff7d38);}
 }
 .portfolio h1{
     margin: 0px;
-    padding: 100px 0px 0px;
+    padding: 130px 0px 0px;
 }
 .portfolio p {
     padding: 20px 0px 90px;
@@ -118,8 +119,6 @@ button:hover{background: linear-gradient(to right, #2c84ff, #ff7d38);}
     text-align: center; /* 将文字居中对齐 */
     margin: 0 auto; /* 设置左右外边距为 auto，使元素水平居中 */
   }
-  
-
 .image-container {
     position: relative;
     display:inline-flex;
@@ -156,7 +155,7 @@ button:hover{background: linear-gradient(to right, #2c84ff, #ff7d38);}
     color: white;
 }
 .about article{
-    padding: 120px 50px 340px;
+    padding: 120px 50px 150px;
     margin: 34px 0px 0px;
     width: 90%;
 }
@@ -182,16 +181,16 @@ button:hover{background: linear-gradient(to right, #2c84ff, #ff7d38);}
     background-position: center;
 }
 footer{
-    height: 100px;
-    margin-top: -200px;
+    height: 200px;
+    margin-top: -50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .footer-spacer{
-    background-color: rgb(0, 0, 0, 0.5) ;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgb(0, 0, 0, 0.3) ;
+    -webkit-backdrop-filter: saturate(180%) blur(15px);
+    backdrop-filter: saturate(180%) blur(15px);
     padding: 20px 0px;
     border-radius: 28px;
     width: 70%;
@@ -268,4 +267,30 @@ footer{
 .console-underscore {
     display:inline;
     position:relative;
+}
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700');
+.bottom-container{
+  font-family: 'Poppins', sans-serif;
+}
+.bottom-container h1{
+  margin: 200px 30px;
+  padding: 0px;
+  font-size: 60px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-transform: uppercase;
+}
+.bottom-container h1 span{
+  display: inline-flex;
+  color: #2c84ff;
+}
+.bottom-container h1 span:nth-child(even){
+  overflow: hidden;
+  transition: ease-in-out 0.5s;
+  color: #fff;
+  letter-spacing: -1em;
+}
+.bottom-container h1:hover span:nth-child(even){
+  letter-spacing: 0em;
 }

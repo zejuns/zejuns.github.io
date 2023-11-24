@@ -44,7 +44,7 @@ main{
     height: 500px;
 }
 .home article{
-    margin: 30px 0px;
+    margin: 54px 0px;
 }
 .home article div {
     text-align: left;
@@ -62,12 +62,12 @@ button {
 }
 .portfolio{width: 90%;}
 .portfolio h1 {
-    padding: 80px 0px 0px;
+    padding: 100px 0px 0px;
 }
 
 .portfolio p {
-    padding: 20px 10px 40px;
-    width: 95%;
+    padding: 20px 0px 40px;
+    width: 100%;
 }
 .portfolio-class img {
     width: 100%;
@@ -87,6 +87,7 @@ button {
 .about article {
     padding: 50px 0px 160px;
     margin: auto;
+    width: 100%;
 }
 .about button{
     float: none;
@@ -116,3 +117,20 @@ footer{
 .console-container {
     font-size: 32px;
 }
+.bottom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bottom-container h1 {
+    margin: 0px 10px 200px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 48px;
+  }
+
+  
+  
+
+  
