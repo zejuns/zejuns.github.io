@@ -65,7 +65,7 @@ function draw() {
 setInterval(draw, 10)
 
 // function([string1, string2],target id,[color1,color2])    
-consoleText(['[ Hello ]'], 'text',['#3a70bb']);
+consoleText(['[ Hello ]'], 'text',['#2c84ff']);
 
 function consoleText(words, id, colors) {
   if (colors === undefined) colors = ['#fff'];
