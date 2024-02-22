@@ -3,107 +3,122 @@
   <head>
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/mobilestyle.css"media="(max-width: 768px)">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/font-icon.css">
+    <link rel="stylesheet" href="css/animate.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
+
     <meta name="baidu-site-verification" content="codeva-zmr4wHwNhT" />
 	  <title>Home | Zejun Huang</title>
   </head>
   <body>
-    <header> 
-      <ul class="menu">
-        <label>ZEJUN HUANG</label>
-        <a href="#home" class="hide-on-main"><li>Home</li></a>
-        <a href="#portfolio" class="hide-on-main"><li>Portfolio</li></a>
-        <a href="#about" class="hide-on-main"><li>About</li></a>
-        <a href="#contact" class="hide-on-main"><li>Contact</li></a>
-      </ul>
-	  </header>
-    <main>
-      <section class="home" id="home"> 
-        <article>
-          <div class="text">
-            <div class='console-container'>
-              <span id='text'></span>
-              <div class='console-underscore' id='console'>&#95;</div>
-            </div>
-            <h2>I am Zejun Huang</h2>
-            <p>I am a product designer and undergraduate student in Guangdong, studying a double degree in product design and computer science at South China University of Technology.</p>
-            <button><a href="#portfolio">See my portfolio</a></button> 
-          </div>    
-        </article>
-        <div class="homeimage"> </div>
-      </section>
-      <section class="portfolio" id="portfolio">
-        <article>
-          <h1>My Portfolio</h1>
-		      <h2>Creativity. User Experience. Sustainability.</h2>
-          <p>I am engaged in a diverse range of creative practices, encompassing product design, interaction design and 3D printing, etc.</p>
-        </article>
-        <div class="portfolio-items">
-          <div class="portfolio-class">
-            <a href="project4.html">
-              <div class="image-container">
-                <div class="image-box"><img src="./files/image4.webp" alt=""></div>
-                <div class="image-name">
-                  <h3>Ceramic Aesthetic Education</h3>
-                </div>
-              </div>
-            </a>
-            <a href="project3.html">
-              <div class="image-container">
-                <div class="image-box"><img src="./files/image3.webp" alt=""></div>
-                <div class="image-name">
-                  <h3>Accessible vehicle seats</h3>
-                </div>
-              </div>
-            </a>
-          </div>
-          
-          <div class="portfolio-class">
-            <a href="loading.html">
-              <div class="image-container">
-                <div class="image-box"><img src="./files/image2.webp" alt=""></div>
-                <div class="image-name">
-                  <h3>Secetar (secure ice tartar)</h3>
-                </div>
-              </div>
-            </a>  
-            
-            <a href="project1.html">
-              <div class="image-container">
-                <div class="image-box"><img src="./files/image1.webp" alt=""></div>
-                <div class="image-name">
-                  <h3>Clothing Fabric Redesign</h3>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>        
-      </section>
-      <section class="about" id="about">
-        <article>
-          <h1>About</h1>
-          <p>Zejun Huang is an experienced product designer with a strong passion for the field and extensive experience. Proficient in various design software, including Shapr3d, KeyShot, Unity, and Blender, Zejun can transform ideas into tangible products through modeling, rendering, animation, and interactive experience design for VR and AR. With programming skills in HTML, CSS, JavaScript, C++, and Python, Zejun excels in designing products with exceptional UI/UX.</p>
-          <a href="./files/CV_zejun_huang.pdf"><button>Curriculum Vitae</button></a>
-        </article>
-      </section>
-    </main>
-    <div class="bottom-container" id="contact">
-      <h1>
-        <span>W</span><span>elcome</span>
-        <span>T</span><span>o</span>
-        <span>C</span><span>ontact</span>
-        <span>M</span><span>e</span>
-      </h1>
+    <section class="banner" role="banner">
+      <header id="header">
+        <div class="header-content clearfix"> <a class="logo" href="index.html">Zejun</a>
+          <nav class="navigation" role="navigation">
+            <ul class="primary-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="work.html">Work</a></li>
+              <li><a href="publication.html">Publication</a></li> 
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <a href="#" class="nav-toggle">Menu<span></span></a> </div>
+      </header>
+
+    </section>
+
+    <!-- banner text --> 
+    <div class="banner" id="banner"> 
+      <div class="slider-banner">
+        <div data-lazy-background="files/slides/1.jpg"> </div>
+        <div data-lazy-background="files/slides/2.jpg"> </div>
+      </div>
+    <!-- banner text --> 
     </div>
-    <footer>
-      <div class="footer-spacer">
-        <a href="mailto:hzj020117@icloud.com">Email</a>
-        <a href="./files/CV_zejun_huang.pdf">Curriculum Vitae</a>
-        <a href="https://www.facebook.com/profile.php?id=100046179534151">Facebook</a>
+
+
+    <section id="content-3-10" class="content-block data-section nopad content-3-10">
+      <div class="image-container col-sm-4 col-xs-12 pull-left">
+        <div class="background-image-holder">
+    
+        </div>
+      </div>
+    
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-4 col-xs-12 content">
+            <div class="editContent">
+              <h3>Hi, I am Zejun.</h3>
+            </div>
+            <div class="editContent">
+              <p>I am a undergraduate student, studying a double degree in product design and computer science at South China University of Technology.</p>
+              <p>My interests are virtual reality and human-computer interaction.</p>
+              <a href="./work.html" class="btn btn-outline btn-outline outline-dark">See my works</a>
+          </div>
+        </div><!-- /.row-->
+      </div><!-- /.container -->
+    </section>
+
+    <footer class="footer-distributed">
+      <div class="footer-contain">
+        <div class="footer-left">
+
+          <p class="footer-company-name">© 2024 by Zejun Huang</p>
+        </div>
+
+        <div class="footer-center">
+          <div class="footer-center-box">
+            <div>
+              <i class="fa fa-map-marker"></i>
+              <p><span>No.382, Daxuecheng Outer Ring East Road</span> Guangzhou, Guangdong</p>
+            </div>
+
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+86 16623080861</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-right">
+
+          <div class="footer-icons">
+
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+
+          </div>
+
+        </div>
       </div>
     </footer>
-    <script src="./js/index.js"></script>
     <script src="./js/home.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="js/jquery.min.js"></script> 
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/jquery.flexslider-min.js"></script> 
+    <script src="js/jquery.fancybox.pack.js"></script>  
+    <script src="js/modernizr.js"></script> 
+    <script src="js/main.js"></script> 
+    <script type="text/javascript" src="js/jquery.contact.js"></script> 
+    <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.slider-banner').DrSlider({
+            'transition': 'fade',
+            showNavigation: false,
+            progressColor: "#FFFFFF"
+          });
+        });
+      </script> 
+    
   </body>
 </html>
