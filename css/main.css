@@ -367,7 +367,8 @@ Common Styles
 	 Serives
 -------------------------------------------------------------------------------*/
 .service-section {
-	padding-top: 200px;
+	padding-top: 30px;
+	margin-top: 110px;
 }
 .services {
 	margin-bottom: 50px;
@@ -384,7 +385,7 @@ Common Styles
 }
 .services-content:before {
     content: '';
-    background: black;
+    background: rgba(72, 72, 72, 0.34);
     padding: 2px;
     width: 100%;
     top: -6px;
@@ -392,9 +393,6 @@ Common Styles
     position: absolute;
     z-index: -1;
     bottom: 4px;
-    -ms-transform: rotate(3deg); /* IE 9 */
-    -webkit-transform: rotate(3deg); /* Safari */
-    transform: rotate(3deg);
 }
 .services .icon {
 	color: black;
@@ -409,6 +407,9 @@ Common Styles
 	left: 12px;
 	/* border-top: 1px solid #03a9f4; */
 	z-index: 9;
+}
+.services-im{
+	background: url('../files/image7.jpg') no-repeat center center;
 }
 /* ------------------------------------------------------------------------------
 	 gallery
