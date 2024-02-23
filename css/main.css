@@ -80,9 +80,6 @@ ul, ol {
 ul li {
 	list-style: none;
 }
-.section {
-	padding: 100px 0;
-}
 .no-padding {
 	padding: 0;
 }
@@ -519,8 +516,8 @@ address {
     line-height: 24px;
 }
 .gallery {
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    padding-top: 30px;
+	margin-top: 110px;
 }
 /* ---------------------------------------------------------------------------
 About

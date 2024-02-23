@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animate.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
     <link rel="stylesheet" href="./css/project.css">
-    <link rel="stylesheet" href="./css/project4.css">
-    <link rel="stylesheet" href="./css/mobilestyle.css"media="(max-width: 768px)">
+    <meta name="baidu-site-verification" content="codeva-zmr4wHwNhT" />
     <title>Portfolio | Zejun Huang</title>
 </head>
 <body>
-    <header> 
-      <ul class="menu">
-        <label>ZEJUN HUANG</label>
-        <a href="index.html" class="hide-on-main"><li>Home</li></a>
-        <a href="work.html" class="hide-on-main"><li>Work</li></a>
-        <a href="about.html" class="hide-on-main"><li>About</li></a>
-        <a href="contact.html" class="hide-on-main"><li>Contact</li></a>
-      </ul>
-    </header>
+    <section class="banner" role="banner">
+      <header id="header" style="background-color: black;">
+        <div class="header-content clearfix"> <a class="logo" href="index.html">Zejun</a>
+          <nav class="navigation" role="navigation">
+            <ul class="primary-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="works.html">Works</a></li>
+              <li><a href="publications.html">Publications</a></li> 
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <a href="#" class="nav-toggle">Menu<span></span></a> </div>
+      </header>
+    </section>
     <main>
         <div class="project">
           <div class="project-placeholder"></div>
@@ -34,6 +45,25 @@
         </div>
         
     </main>
+    <script src="./js/home.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="js/jquery.min.js"></script> 
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/jquery.flexslider-min.js"></script> 
+    <script src="js/jquery.fancybox.pack.js"></script>  
+    <script src="js/modernizr.js"></script> 
+    <script src="js/main.js"></script> 
+    <script type="text/javascript" src="js/jquery.contact.js"></script> 
+    <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.slider-banner').DrSlider({
+            'transition': 'fade',
+            showNavigation: false,
+            progressColor: "#FFFFFF"
+          });
+        });
+      </script> 
 </body>
-<script src="./js/index.js"></script>
+
 </html>
