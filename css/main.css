@@ -149,14 +149,14 @@ ul li {
 	display: inline-block;
 }
 .navigation a {
-	color: rgb(206, 206, 206);
+	color: #ffffff;
 	font-size: 14px;
 	font-weight: 700;
 	margin-right: 50px;
 	text-transform: uppercase;
 }
 .navigation a:hover, .navigation a.active {
-	color: #ffffff;
+	color: rgb(206, 206, 206);
 }
 .nav-toggle {
 	display: none;
