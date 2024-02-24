@@ -1,9 +1,7 @@
-@media screen and (min-width: 1024px) {
-	#header .logo {
-		margin-left: 50px;
-	}
-}
 @media screen and (max-width: 1024px) {
+#header .logo {
+	margin-left: 0px;
+}
 .col-md-6 a{
 	margin-bottom: 88px;
 }
@@ -103,6 +101,20 @@
 }
 .slider-banner h3{
 	display:none !important;
+}
+.services{
+	padding: 0px, 10px;
+}
+.services img{
+	width: 100%;
+	height: auto;
+}
+.services-content {
+	display: inline-block;
+	margin-bottom: 0px;
+}
+.gallery {
+	margin-bottom: 0px;
 }
 }
 @media screen and (max-width: 640px) {
