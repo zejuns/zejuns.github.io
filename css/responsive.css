@@ -116,6 +116,12 @@
 .gallery {
 	margin-bottom: 0px;
 }
+.work {
+	flex: 0 0 100%;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
 }
 @media screen and (max-width: 640px) {
  .banner-text {
