@@ -1,4 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700); 
+body.preloader_active{overflow:hidden}
+#preloader{position:fixed;top:0;left:0;right:0;bottom:0;background-color:#111;z-index:99999999}
+.loader-xbox{position:absolute;top:calc(50% - 25px);left:calc(50% - 25px)}
+.loader-xbox,.loader-xbox:before,.loader-xbox:after{position:absolute;border:3px solid transparent;border-top:3px solid #2c84ff;border-radius:50%;animation:rotate linear infinite;content:''}
+
+.loader-xbox{height:100px;width:100px;animation-duration:1.05s}
+.loader-xbox:before{height:75px;width:75px;top:10px;left:10px;animation-duration:10s}
+.loader-xbox:after{height:50px;width:50px;top:22px;left:22px;animation-duration:4s}
+@keyframes rotate{from{transform:rotateZ(360deg)}to{transform:rotateZ(0deg)}}
 p {
 	font-size: 14px;
 	line-height: 22.4px;
