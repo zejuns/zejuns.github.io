@@ -12,13 +12,12 @@ img {
 .filters-wrap a {
   display: inline-block;
   margin: 0 15px;
-  font-size: 13px;
-  text-transform: uppercase;
+  font-size: 14px;
   cursor: pointer;
   line-height: 1em;
-  letter-spacing: 2px;
   transition: all 0.4s ease-in-out;
   position:relative;
+  color: #6c7279;
 }
 .filters-wrap a::before {
   color: rgba(0, 0, 0, 0);
@@ -32,8 +31,8 @@ img {
   transition: text-shadow 0.3s ease 0s, color 0.3s ease 0s;
 }
 .filters-wrap a:hover::before,.filters-wrap a.active::before,.filters-wrap a:focus::before {
-  color: #222222;
-  text-shadow: 7px 0 #222222, 14px 0 #222222;
+  color: #6c7279;
+  text-shadow: 7px 0 #6c7279, 14px 0 #6c7279;
 }
 .hover-style-one li:hover > a::before, .hover-style-one li.active > a::before, .hover-style-one li a:focus::before {
   color: #222222;
