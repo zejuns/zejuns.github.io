@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animate.min.css"> 
+    <link rel="stylesheet" href="css/style.css"> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
     <meta name="format-detection" content="telephone=no">
 	  <title>Works | Zejun Huang</title>
@@ -29,90 +30,151 @@
           <a href="#" class="nav-toggle">Menu<span></span></a> </div>
       </header>
     </section>
-    <!-- gallery section -->
-    <section id="gallery" class="gallery section">
+    <div id="gallery" class="gallery section">
       <div class="container">
         <div class="section-header">
-            <h2 class="wow fadeInDown animated">Selected Works</h2>
-            <p class="wow fadeInDown animated">I am engaged in a diverse range of creative practices, encompassing product design and interaction design, etc.</p>
+          <h2 class="wow fadeInDown animated">Selected Works</h2>
         </div>
-        <div class="row no-gutter">
-          <div class="col-lg-6 col-md-6 col-sm-6 work"> <a href="./project4.html" class="work-box"> <img src="files/project4.webp" alt="">
-            <div class="overlay">
-              <div class="overlay-caption">
-                <p><span>Ceramic Aesthetic Education</span></p>
+        <div class="filters-wrap">
+          <div class="text-center">
+            <a class="active" href="#" data-filter="*">All</a>
+            <a href="#" data-filter=".f_Design">Design</a>
+            <a href="#" data-filter=".f_Code">Code</a>
+            <a href="#" data-filter=".f_Photography">Photography</a>
+          </div>
+        </div>
+        <!-- End filters-wrap -->
+        <div class="portfolio-masonry-wrapper" data-col="3" data-gutter="30">
+          <div class="portfolio-list">
+            <article class="portfolio-item-wrap f_Design">
+              <div class="portfolio-item">
+                <div class="portfolio-img">
+                  <img src="files/project4.webp" alt="">
+                </div>
+                <div class="portfolio-content-wrap">
+                  <div class="potfolio-content">
+                    <h6 class="portfolio-title">
+                      <a href="project4.html" class="animsition-link">Ceramic Aesthetic Education</a>
+                    </h6>
+                    <div class="portfolio-categories">
+                      Design
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          <!-- overlay --> 
-          </a> </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 work"> <a href="./project3.html" class="work-box"> <img src="files/project3.webp" alt="">
-            <div class="overlay">
-              <div class="overlay-caption">
-                <p><span>Accessible Vehicle Seat</span></p>
+            </article>
+            <!-- End portfolio-item-wrap -->
+            <article class="portfolio-item-wrap f_Code">
+              <div class="portfolio-item">
+                <div class="portfolio-img">
+                  <img src="files/project5.webp" alt="">
+                </div>
+                <div class="portfolio-content-wrap">
+                  <div class="potfolio-content">
+                    <h6 class="portfolio-title">
+                      <a href="project5.html" class="animsition-link">Library Management System</a>
+                    </h6>
+                    <div class="portfolio-categories">
+                      Code
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          <!-- overlay --> 
-          </a> </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 work"> <a href="./files/project2.pdf" class="work-box"> <img src="files/project2.webp" alt="">
-            <div class="overlay">
-              <div class="overlay-caption">
-                <p><span>WakeSense</span></p>
+            </article>
+            <!-- End portfolio-item-wrap -->
+            <article class="portfolio-item-wrap f_Design">
+              <div class="portfolio-item">
+                <div class="portfolio-img">
+                  <img src="files/project3.webp" alt="">
+                </div>
+                <div class="portfolio-content-wrap">
+                  <div class="potfolio-content">
+                    <h6 class="portfolio-title">
+                      <a href="project3.html" class="animsition-link">Accessible Vehicle Seat</a>
+                    </h6>
+                    <div class="portfolio-categories">
+                      Design
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          <!-- overlay --> 
-          </a> </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 work"> <a href="./project1.html" class="work-box"> <img src="files/image1.webp" alt="">
-            <div class="overlay">
-              <div class="overlay-caption"> 
-                <p><span>Clothing Fabric Redesign</span></p>
+            </article>
+            <!-- End portfolio-item-wrap -->
+            <article class="portfolio-item-wrap f_Design">
+              <div class="portfolio-item">
+                <div class="portfolio-img">
+                  <img src="files/project2.webp" alt="">
+                </div>
+                <div class="portfolio-content-wrap">
+                  <div class="potfolio-content">
+                    <h6 class="portfolio-title">
+                      <a href="./files/project2.pdf" class="animsition-link">WakeSense</a>
+                    </h6>
+                    <div class="portfolio-categories">
+                      Design
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          <!-- overlay --> 
-          </a> </div>
-
+            </article>
+            <!-- End portfolio-item-wrap -->
+            <article class="portfolio-item-wrap f_Design">
+              <div class="portfolio-item">
+                <div class="portfolio-img">
+                  <img src="files/project1.webp" alt="">
+                </div>
+                <div class="portfolio-content-wrap">
+                  <div class="potfolio-content">
+                    <h6 class="portfolio-title">
+                      <a href="project1.html" class="animsition-link">Clothing Fabric Redesign</a>
+                    </h6>
+                    <div class="portfolio-categories">
+                      Design
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <!-- End portfolio-item-wrap -->
+          </div>
         </div>
       </div>
-    </section>
-    <!-- gallery section --> 
+    </div>
+    <!-- End section -->
     
     <footer class="footer-distributed">
       <div class="footer-contain">
         <div class="footer-left">
-
           <p class="footer-company-name">© 2024 by Zejun Huang</p>
         </div>
-
         <div class="footer-center">
           <div class="footer-center-box">
             <div>
               <i class="fa fa-map-marker"></i>
               <p><span>No.382, Daxuecheng Outer Ring E Rd</span> Guangzhou, Guangdong</p>
             </div>
-
             <div>
               <i class="fa fa-phone"></i>
               <p>+86 16623080861</p>
             </div>
           </div>
         </div>
-
         <div class="footer-right">
-
           <div class="footer-icons">
-
             <a href="https://www.facebook.com/profile.php?id=100046179534151"><i class="fa fa-facebook"></i></a>
             <a href="https://x.com/zejun176?s=21"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="https://github.com/zej-h"><i class="fa fa-github"></i></a>
-
           </div>
-
         </div>
       </div>
     </footer>
+
     <script src="./js/home.js"></script>
     <script src="./js/index.js"></script>
     <script src="js/jquery.min.js"></script> 
+    <script src="js/libs.js"></script>
+    <script src="js/works.js"></script>
     <script src="js/bootstrap.min.js"></script> 
     <script src="js/jquery.flexslider-min.js"></script> 
     <script src="js/jquery.fancybox.pack.js"></script>  
