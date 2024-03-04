@@ -87,16 +87,13 @@
         </div>
       </div>
     </footer>
-    <script src="./js/home.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/jquery.min.js"></script> 
     <script src="js/bootstrap.min.js"></script> 
     <script src="js/jquery.flexslider-min.js"></script> 
     <script src="js/jquery.fancybox.pack.js"></script>  
     <script src="js/modernizr.js"></script> 
     <script src="js/main.js"></script> 
-    <script type="text/javascript" src="js/jquery.contact.js"></script> 
-    <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
           $('.slider-banner').DrSlider({
@@ -109,11 +106,9 @@
     <script>
       document.getElementById("submit").addEventListener("click", function(event) {
         event.preventDefault(); // 阻止表单提交
-      
         // 获取输入框中的内容
         var email = document.getElementById("email").value;
-        var comments = document.getElementById("comments").value;
-        
+        var comments = document.getElementById("comments").value;     
         // 发送邮件
         window.open("mailto:hzj020117@outlook.com?subject=" + email + "&body=" + comments);
       });
