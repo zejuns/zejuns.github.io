@@ -52,6 +52,14 @@
       </div>
     </section>
     <!-- package section --> 
+    <!-- banner text --> 
+    <div class="banner" id="banner" style="width: 50%;"> 
+      <div class="slider-banner">
+        <div data-lazy-background="files/project1/project1_1.webp"> </div>
+        <div data-lazy-background="files/project1/project1_2.webp"> </div>
+      </div>
+    <!-- banner text --> 
+    </div>
     
     <footer class="footer-distributed">
       <div class="footer-contain">
@@ -87,6 +95,16 @@
     <script src="js/jquery.fancybox.pack.js"></script>  
     <script src="js/modernizr.js"></script> 
     <script src="js/main.js"></script> 
+    <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.slider-banner').DrSlider({
+          'transition': 'fade',
+          showNavigation: false,
+          progressColor: "#FFFFFF"
+        });
+      });
+    </script> 
 </body>
 
 </html>
