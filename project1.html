@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
     <meta name="format-detection" content="telephone=no">
     <title>Portfolio | Zejun Huang</title>
 </head>
@@ -52,15 +53,76 @@
       </div>
     </section>
     <!-- package section --> 
-    <!-- banner text --> 
-    <div class="banner" id="banner" style="width: 50%;"> 
-      <div class="slider-banner">
-        <div data-lazy-background="files/project1/project1_1.webp"> </div>
-        <div data-lazy-background="files/project1/project1_2.webp"> </div>
+    <!-- package section -->
+    <section class="video-section" style="margin: 0px; padding: 0px 0px 88px;">
+      <div class="container"> 
+        <div class="row">  
+          <div id="content24" data-section="content-24" class="data-section"> 
+            <div class="col-md-4">
+              <!-- banner text --> 
+              <div class="banner" id="banner"> 
+                <div class="slider-banner">
+                  <div data-lazy-background="files/project1/project1_1.webp"> </div>
+                  <div data-lazy-background="files/project1/project1_2.webp"> </div>
+                  <div data-lazy-background="files/project1/project1_3.webp"> </div>
+                  <div data-lazy-background="files/project1/project1_4.webp"> </div>
+                </div>
+              <!-- banner text -->   
+              </div>
+            </div>
+            <div class="col-md-8">
+              <h3 class="eidtContent">Clothing Fabric Redesign</h3>
+              <p class="eidtContent">When the jellyfish moves, it is like hot air balloons swelling one by one, stretching and aimless swimming, which is extremely beautiful. I use a pneumatic device to achieve a feeling similar to the breathing of marine organisms, which includes two air pumps, silicone trachea, an electronic valve and an arduino uno control board.</p>
+            </div> 
+          </div>
+        </div><!-- end row -->    
       </div>
-    <!-- banner text --> 
-    </div>
-    
+    </section>
+    <!-- package section --> 
+    <section id="gallery" class="gallery section" style="margin: 0px; padding: 0px 0px 88px;">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="wow fadeInDown animated">Apply</h3>
+          <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+        </div>
+        <div class="row no-gutter" style="padding: 15px;">
+          <div class="col-md-4 col-sm-6 project1">
+            <a data-fancybox="gallery" data-src="files/project1/project1_5.webp" data-caption="Optional caption,&lt;br /&gt;that can contain &lt;em&gt;HTML&lt;/em&gt; code">
+              <img src="files/project1/project1_5.webp" style="width: 100%;"></img>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 project1">
+            <a data-fancybox="gallery" data-src="files/project1/project1_6.webp" data-caption="Optional caption,&lt;br /&gt;that can contain &lt;em&gt;HTML&lt;/em&gt; code">
+              <img src="files/project1/project1_6.webp" style="width: 100%;"></img>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 project1">
+            <a data-fancybox="gallery" data-src="files/project1/project1_7.webp" data-caption="Optional caption,&lt;br /&gt;that can contain &lt;em&gt;HTML&lt;/em&gt; code">
+              <img src="files/project1/project1_7.webp" style="width: 100%;"></img>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 project1">
+            <a data-fancybox="gallery" data-src="files/project1/project1_8.webp" data-caption="Optional caption,&lt;br /&gt;that can contain &lt;em&gt;HTML&lt;/em&gt; code">
+              <img src="files/project1/project1_8.webp" style="width: 100%;"></img>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 project1">
+            <a data-fancybox="gallery" data-src="files/project1/project1_9.webp" data-caption="Optional caption,&lt;br /&gt;that can contain &lt;em&gt;HTML&lt;/em&gt; code">
+              <img src="files/project1/project1_9.webp" style="width: 100%;"></img>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 project1">
+            <a data-fancybox="gallery" data-src="files/project1/project1_10.webp" data-caption="Optional caption,&lt;br /&gt;that can contain &lt;em&gt;HTML&lt;/em&gt; code">
+              <img src="files/project1/project1_10.webp" style="width: 100%;"></img>
+            </a>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
     <footer class="footer-distributed">
       <div class="footer-contain">
         <div class="footer-left">
@@ -92,7 +154,15 @@
     <script src="js/jquery.min.js"></script> 
     <script src="js/bootstrap.min.js"></script> 
     <script src="js/jquery.flexslider-min.js"></script> 
-    <script src="js/jquery.fancybox.pack.js"></script>  
+    <script src="js/jquery.fancybox.pack.js"></script> 
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        //
+      });    
+    </script>
+
     <script src="js/modernizr.js"></script> 
     <script src="js/main.js"></script> 
     <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
