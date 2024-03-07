@@ -125,7 +125,7 @@
 }
 .navigation a:hover, .navigation a.active {
 	color: rgb(206, 206, 206);
-	background-color: #313131;
+	background-color: #000000;
 }
 .navigation li:last-child a {
 	margin-right: 0px;
@@ -135,7 +135,7 @@
     float: none;
     width: auto;
     margin-top: 0;
-	background-color: #313131;
+	background-color: #000000;
 }
 .agile_short_dropdown li a {
     color: #FFFFFF;
