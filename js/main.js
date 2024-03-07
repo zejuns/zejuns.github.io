@@ -19,6 +19,47 @@
     });
 })(jQuery);
 
+document.addEventListener('DOMContentLoaded', function() {
+    var navigationLinks = document.querySelectorAll('.navigation a');
+    var dropdownMenus = document.querySelectorAll('.dropdown-menu');
+    var timeoutId;
+
+    navigationLinks.forEach(function(link, index) {
+        link.addEventListener('mouseover', function() {
+            clearTimeout(timeoutId); // 清除之前的延迟隐藏计时器
+
+            // 隐藏其他子菜单
+            dropdownMenus.forEach(function(menu) {
+                menu.style.display = 'none';
+            });
+
+            // 显示当前主菜单对应的子菜单
+            var subMenu = link.nextElementSibling;
+            if (subMenu) {
+                subMenu.style.display = 'block';
+            }
+        });
+
+        link.addEventListener('mouseout', function() {
+            timeoutId = setTimeout(function() {
+                dropdownMenus.forEach(function(menu) {
+                    menu.style.display = 'none';
+                });
+            }, 500);
+        });
+    });
+
+    dropdownMenus.forEach(function(menu) {
+        menu.addEventListener('mouseover', function() {
+            menu.style.display = 'block';
+        });
+
+        menu.addEventListener('mouseout', function() {
+            menu.style.display = 'none';
+        });
+    });
+});
+
 $(document).ready(function() {
     // Header Scroll
     $(window).on('scroll', function() {
@@ -39,29 +80,4 @@ $(document).ready(function() {
         animation: "fade",
         directionNav: false,
     });
-
-    // Page Scroll
-    var sections = $('section'),
-        nav = $('nav[role="navigation"]');
-
-    $(window).on('scroll', function() {
-        var cur_pos = $(this).scrollTop();
-        sections.each(function() {
-            var top = $(this).offset().top - 76,
-                bottom = top + $(this).outerHeight();
-            if (cur_pos >= top && cur_pos <= bottom) {
-                nav.find('a').removeClass('active');
-                nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
-            }
-        });
-    });
-
-    nav.find('a').on('click', function() {
-        var $el = $(this),
-            id = $el.attr('href');
-        $('html, body').animate({
-            scrollTop: $(id).offset().top - 75
-        }, 500);
-        return false;
-    });
-});
+}); 

@@ -14,7 +14,7 @@ body.preloader_active {
 .loader-xbox {
     position: absolute;
 	top: calc(50% - 55px);
-	left: calc(50% - 55px)
+	left: calc(50% - 55px);
 }
 .loader-xbox,
 .loader-xbox:before,
@@ -188,6 +188,9 @@ ul li {
 	top: 18px;
 	color: #000;
 }
+.primary-nav{
+	padding: 5px 0px;
+}
 .navigation.open {
 	opacity: 0.9;
 	visibility: visible;
@@ -206,11 +209,15 @@ ul li {
 	color: #ffffff;
 	font-size: 14px;
 	font-weight: 700;
-	margin-right: 50px;
 	text-transform: uppercase;
+	padding: 5.5px 18px;
+	margin: 0px 7px;
 }
-.navigation a:hover, .navigation a.active {
-	color: rgb(206, 206, 206);
+.navigation li:last-child a {
+	margin-right: 32px;
+}
+.dropdown-menu a {
+	margin: 0px;
 }
 .nav-toggle {
 	display: none;
@@ -348,6 +355,41 @@ ul li {
 	-ms-transform: translateY(0) rotate(-45deg);
 	-webkit-transform: translateY(0) rotate(-45deg);
 	transform: translateY(0) rotate(-45deg);
+}
+.agile_short_dropdown {
+    border-radius: 0;
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 0;
+    border: none;
+    min-width: 0;
+    width: 258px; /* 调整子菜单宽度 */
+	margin: 20px 7px 0px;
+}
+
+.agile_short_dropdown li {
+    display: block; /* 修改为块级元素，让子菜单项独占一行 */
+}
+
+.agile_short_dropdown li a {
+    color: #000000;
+    text-transform: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px; /* 调整子菜单项的上下内边距 */
+	border-bottom: 1px solid #ececef;
+    white-space: nowrap; /* 防止文字换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+}
+.agile_short_dropdown li:last-child a {
+    border-bottom: none; /* 取消最后一个子菜单项的底部边框 */
+}
+.agile_short_dropdown>li>a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #000000;
+    position: relative;
 }
 /* ------------------------------------------------------------------------------
 	Banner

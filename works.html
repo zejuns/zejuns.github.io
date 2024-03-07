@@ -23,8 +23,15 @@
         <div class="header-content clearfix"> <a class="logo" href="index.html">Zejun</a>
           <nav class="navigation" role="navigation">
             <ul class="primary-nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="works.html">Works</a></li>
+              <li class="dropdown">
+                <a href="works.html" class="dropdown-toggle active">Works <b class="caret"></b></a>
+                <ul class="dropdown-menu agile_short_dropdown">
+                  <li><a href="project4.html" class="scroll">Ceramic Aesthetic Education</a></li>
+                  <li><a href="project1.html" class="scroll">Clothing Fabric Redesign</a></li>
+                  <li><a href="project3.html" class="scroll">Accessible Vehicle Seat</a></li>
+                  <li><a href="project5.html" class="scroll">Library Management System</a></li>
+                </ul>
+              </li>
               <li><a href="publications.html">Publications</a></li> 
               <li><a href="about.html">About</a></li>
               <li><a href="contact.html">Contact</a></li>
@@ -36,12 +43,12 @@
     <div id="gallery" class="gallery section">
       <div class="container">
         <div class="section-header">
-          <h2 class="wow fadeInDown animated">Selected Works</h2>
+          <h3 class="wow fadeInDown animated">Selected Works</h3>
           <div class="filters-wrap">
-            <div class="text-center">
-              <a class="active" href="#" data-filter="*">All</a>
-              <a href="#" data-filter=".f_Design">Design</a>
-              <a href="#" data-filter=".f_Code">Code</a>
+            <div class="text-center" style="margin-top: 30px;">
+              <a href="#" data-filter="*" class="btn btn-outline btn-outline outline-dark">All</a>
+              <a href="#" data-filter=".f_Design" class="btn btn-outline btn-outline outline-dark">Design</a>
+              <a href="#" data-filter=".f_Code" class="btn btn-outline btn-outline outline-dark">Code</a>
             </div>
           </div>
           <!-- End filters-wrap -->
@@ -126,7 +133,7 @@
                 <div class="portfolio-img">
                   <img src="files/project2.webp" alt="">
                 </div>
-                <a href="./files/project2.pdf">
+                <a href="files/project2.pdf">
                   <div class="portfolio-content-wrap">
                     <div class="potfolio-content">    
                         <h6 class="portfolio-title">
