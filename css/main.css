@@ -175,9 +175,7 @@ ul li {
 	margin-left: 50px;
 }
 #header.fixed {
-    background-color: rgb(0, 0, 0, 0.3) ;
-    -webkit-backdrop-filter: saturate(180%) blur(15px);
-    backdrop-filter: saturate(180%) blur(15px);
+	background-color: black;
 }
 #header.fixed a {
 	/* color: #000; */
