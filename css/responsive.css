@@ -1,12 +1,8 @@
 @media screen and (max-width: 1024px) {
-#header .logo {
-	margin-left: 0px;
-}
 .col-md-6 a{
 	margin-bottom: 88px;
 }
  #header .header-content {
- width: 90%;
  padding: 40px 0;
  align-items: center; /* 垂直居中 */
 }
@@ -36,10 +32,6 @@
 .flex-control-nav {
 	width: 100%;
 	margin-top: 50px;
-}
-.navigation li:last-child a {
-	margin-right: 0px;
-	padding-right: 0px;
 }
 }
 @media screen and (max-width: 768px) { 

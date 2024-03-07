@@ -165,13 +165,12 @@ ul li {
 }
 #header .logo {
 	float: left;
-	font-size: 28px;
+	font-size: 21px;
 	font-weight: bolder;
 	color: #ffffff;
 	text-decoration:none;
 	text-transform:uppercase;
 	letter-spacing: 3px;
-	margin-top: -10px;
 	margin-left: 50px;
 }
 #header.fixed {
@@ -218,7 +217,7 @@ ul li {
 	background-color: #FFFFFF;
 }
 .navigation li:last-child a {
-	margin-right: 32px;
+	margin-right: 50px;
 }
 .dropdown-menu a {
 	margin: 0px;
