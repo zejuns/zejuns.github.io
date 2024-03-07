@@ -13,10 +13,6 @@
  #header.fixed a {
  color: #FFFFFF;
 }
-.navigation a:hover, .navigation a.active {
-	color: #000000;
-	background-color: #FFFFFF;
-}
  .person {
  margin: 0 auto 50px;
 }
@@ -40,7 +36,11 @@
 .flex-control-nav {
 	width: 100%;
 	margin-top: 50px;
-   }
+}
+.navigation li:last-child a {
+	margin-right: 0px;
+	padding-right: 0px;
+}
 }
 @media screen and (max-width: 768px) { 
 #header.fixed a {
@@ -124,11 +124,31 @@
 	color: #fff;
 }
 .navigation a:hover, .navigation a.active {
-	color: #FFFFFF;
+	color: rgb(206, 206, 206);
 	background-color: #313131;
 }
 .navigation li:last-child a {
 	margin-right: 0px;
+}
+.dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+	background-color: #313131;
+}
+.agile_short_dropdown li a {
+    color: #FFFFFF;
+	border-bottom: 0px;
+	font-size: 18px;
+	margin: 0;
+	text-align: center;
+	padding: 17px 0;
+}
+.agile_short_dropdown>li>a:hover {
+    text-decoration: none;
+    background-color: #313131;
+    position: relative;
 }
 }
 @media screen and (max-width: 640px) {

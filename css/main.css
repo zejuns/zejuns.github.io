@@ -213,6 +213,10 @@ ul li {
 	padding: 5.5px 18px;
 	margin: 0px 7px;
 }
+.navigation a:hover, .navigation a.active {
+	color: #000000;
+	background-color: #FFFFFF;
+}
 .navigation li:last-child a {
 	margin-right: 32px;
 }
@@ -366,11 +370,9 @@ ul li {
     width: 258px; /* 调整子菜单宽度 */
 	margin: 20px 7px 0px;
 }
-
 .agile_short_dropdown li {
     display: block; /* 修改为块级元素，让子菜单项独占一行 */
 }
-
 .agile_short_dropdown li a {
     color: #000000;
     text-transform: none;
@@ -383,6 +385,7 @@ ul li {
     text-overflow: ellipsis; /* 超出部分显示省略号 */
 }
 .agile_short_dropdown li:last-child a {
+	margin-right: 0px;
     border-bottom: none; /* 取消最后一个子菜单项的底部边框 */
 }
 .agile_short_dropdown>li>a:hover {
