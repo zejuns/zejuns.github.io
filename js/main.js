@@ -9,15 +9,32 @@
         $('.nav-toggle').on('click', function() {
             $(this).toggleClass('close-nav');
             $('nav[role="navigation"]').toggleClass('open');
+            
+            // 切换全屏菜单时禁止或恢复页面滚动
+            if ($('nav[role="navigation"]').hasClass('open')) {
+                $('.fullscreen-menu').css('display', 'block');
+                $('body').css('overflow', 'hidden');
+            } else {
+                $('.fullscreen-menu').css('display', 'none');
+                $('body').css('overflow', 'auto');
+            }
+            
             return false;
         });
 
         $('nav[role="navigation"]').find('a').on('click', function() {
             $('.nav-toggle').toggleClass('close-nav');
             $('nav[role="navigation"]').toggleClass('open');
+
+            // 关闭全屏菜单时恢复页面滚动
+            if (!$('nav[role="navigation"]').hasClass('open')) {
+                $('.fullscreen-menu').css('display', 'none');
+                $('body').css('overflow', 'auto');
+            }
         });
     });
 })(jQuery);
+
 
 document.addEventListener('DOMContentLoaded', function() {
     var navigationLinks = document.querySelectorAll('.navigation a');
