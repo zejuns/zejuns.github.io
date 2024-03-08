@@ -1,6 +1,13 @@
 * {
 	font-family: 'Times New Roman', Times, serif;
 }  
+input, textarea {
+    font-size: 16px; /* 设置输入框的字体大小 */
+    -webkit-text-size-adjust: 100%; /* 禁止 Safari 和 Chrome 浏览器自动放大文本 */
+    -ms-text-size-adjust: 100%; /* 禁止 IE 浏览器自动放大文本 */
+    -moz-text-size-adjust: 100%; /* 禁止 Firefox 浏览器自动放大文本 */
+    -o-text-size-adjust: 100%; /* 禁止 Opera 浏览器自动放大文本 */
+}
 body.preloader_active {
     overflow: hidden;
 }
