@@ -48,7 +48,8 @@
               </div>
             </div>
             <div class="col-md-6">
-              <div class="embed-responsive embed-responsive-16by9" id="youtube-video">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/QLfCxlf48Ew?si=-7-3fyj7CmcND_FB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
             </div> 
           </div>
@@ -90,22 +91,5 @@
     <script src="js/jquery.flexslider-min.js"></script> 
     <script src="js/jquery.fancybox.pack.js"></script>  
     <script src="js/main.js"></script> 
-    <script>
-      window.onload = function() {
-        // 隐藏预加载动画
-        document.getElementById("preloader").style.display = "none";
-      
-        // 动态加载YouTube视频
-        var iframe = document.createElement("iframe");
-        iframe.className = "embed-responsive-item";
-        iframe.src = "https://www.youtube.com/embed/QLfCxlf48Ew?si=-7-3fyj7CmcND_FB";
-        iframe.title = "YouTube video player";
-        iframe.frameborder = "0";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen = true;
-      
-        document.getElementById("youtube-video").appendChild(iframe);
-      };
-    </script>
 </body>
 </html>
