@@ -66,7 +66,7 @@
               <p>My interests are human-computer interaction and media arts.</p>
               <div style="  display: flex; flex-wrap: wrap;">
                 <a href="./works.html" class="btn btn-outline btn-outline outline-dark" style="margin-right: 20px; margin-bottom: 20px;">See my works</a>
-                <audio id="myAudio" src="./files/Pop Stardom 83bpm song.mp3" controls autoplay style="height: 42px; margin-bottom: 20px;"></audio>
+                <audio id="myAudio" src="./files/Pop Stardom 83bpm song.mp3" controls autoplay loop style="height: 42px; margin-bottom: 20px;"></audio>
               </div>
             </div>
           </div><!-- /.row-->
@@ -117,7 +117,7 @@
       });
     </script> 
     <script>
-      document.addEventListener("touchstart", function() {
+      window.addEventListener("scroll", function() {
           var audio = document.getElementById("myAudio");
           audio.play();
       });
