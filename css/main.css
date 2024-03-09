@@ -1,6 +1,9 @@
 * {
 	font-family: 'Times New Roman', Times, serif;
 }  
+a[href^="tel"] {
+	text-decoration: none;
+}
 body.preloader_active {
     overflow: hidden;
 }
