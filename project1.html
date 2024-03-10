@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
     <meta name="format-detection" content="telephone=no">
     <title>Works | Zejun Huang</title>
 </head>
@@ -95,32 +94,32 @@
         </div>
         <div class="row no-gutter" style="padding: 15px;">
           <div class="col-md-4 col-sm-6">
-            <a data-fancybox="gallery" data-src="files/project1/project1_5.webp" data-caption="">
+            <a rel="gallery" href="files/project1/project1_5.webp" title="">
               <img src="files/project1/project1_5.webp" style="width: 100%;"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a data-fancybox="gallery" data-src="files/project1/project1_6.webp" data-caption="">
+            <a rel="gallery" href="files/project1/project1_6.webp" title="">
               <img src="files/project1/project1_6.webp" style="width: 100%;"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a data-fancybox="gallery" data-src="files/project1/project1_7.webp" data-caption="The experiment compared the effects of covering balloons with different fabrics and different degrees of inflation. After the experiment, I chose a lighter yarn fabric and selected an inflation time of 8000 milliseconds, which can better reflect the feeling of breathing.">
+            <a rel="gallery" href="files/project1/project1_7.webp" title="Comparison of fabric types and inflation levels">
               <img src="files/project1/project1_7.webp" style="width: 100%;"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a data-fancybox="gallery" data-src="files/project1/project1_8.webp" data-caption="">
+            <a rel="gallery" href="files/project1/project1_8.webp" title="">
               <img src="files/project1/project1_8.webp" style="width: 100%;"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a data-fancybox="gallery" data-src="files/project1/project1_9.webp" data-caption="">
+            <a rel="gallery" href="files/project1/project1_9.webp" title="">
               <img src="files/project1/project1_9.webp" style="width: 100%;"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a data-fancybox="gallery" data-src="files/project1/project1_10.webp" data-caption="Optional caption,&lt;br /&gt;that can contain &lt;em&gt;HTML&lt;/em&gt; code">
+            <a rel="gallery" href="files/project1/project1_10.webp" title="">
               <img src="files/project1/project1_10.webp" style="width: 100%;"></img>
             </a>
           </div>
@@ -159,25 +158,8 @@
     <script src="js/bootstrap.min.js"></script> 
     <script src="js/jquery.flexslider-min.js"></script> 
     <script src="js/jquery.fancybox.pack.js"></script> 
-
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-    <script>
-      Fancybox.bind('[data-fancybox="gallery"]', {
-        //
-      });    
-    </script>
-
     <script src="js/main.js"></script> 
     <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.slider-banner').DrSlider({
-          'transition': 'fade',
-          showNavigation: false,
-          progressColor: "#FFFFFF"
-        });
-      });
-    </script>
     <script>
       window.onload = function() {
         // 隐藏预加载动画
@@ -194,6 +176,23 @@
       
         document.getElementById("youtube-video").appendChild(iframe);
       };
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.slider-banner').DrSlider({
+          'transition': 'fade',
+          showNavigation: false,
+          progressColor: "#FFFFFF"
+        });
+        $("a[rel=gallery]").fancybox({
+          'transitionIn'		: 'none',
+          'transitionOut'		: 'none',
+          'titlePosition' 	: 'over',
+          'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+            return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+          }
+        });
+      });
     </script>
 </body>
 </html>
