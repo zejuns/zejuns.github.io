@@ -130,10 +130,6 @@
 	background-position: 0 -72px;
 }
 
-.fancybox-nav:hover span {
-	visibility: visible;
-}
-
 .fancybox-tmp {
 	position: absolute;
 	top: -99999px;
@@ -184,7 +180,6 @@
 
 .fancybox-title {
 	visibility: hidden;
-	font: times;
 	position: relative;
 	text-shadow: none;
 	z-index: 8050;
