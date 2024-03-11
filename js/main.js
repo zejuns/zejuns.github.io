@@ -1,27 +1,22 @@
 (function($) {
-    $(document).ready(function() {
-        // Disable scrolling when the page is loading
-        $('body').css('overflow', 'hidden');
-
-        // Display the loading animation
+    $(window).load(function() {
+        // makes sure the whole site is loaded
         $('.loader-xbox').fadeOut(); // will first fade out the loading animation
-        $('#preloader').delay(150).fadeOut('slow', function() {
-            // Enable scrolling after the page has loaded
-            $('body').css('overflow', 'visible');
-        });
+        $('#preloader').delay(150).fadeOut('slow'); // will fade out the white DIV that covers the website
+        $('body').delay(150).css({'overflow':'visible'});
 
         // Mobile Navigation
         $('.nav-toggle').on('click', function() {
             $(this).toggleClass('close-nav');
             $('nav[role="navigation"]').toggleClass('open');
             
-            // Toggle full-screen menu and disable/enable scrolling
+            // 切换全屏菜单时禁止或恢复页面滚动
             if ($('nav[role="navigation"]').hasClass('open')) {
                 $('.fullscreen-menu').css('display', 'block');
                 $('body').css('overflow', 'hidden');
             } else {
                 $('.fullscreen-menu').css('display', 'none');
-                $('body').css('overflow', 'visible');
+                $('body').css('overflow', 'auto');
             }
             
             return false;
@@ -31,16 +26,14 @@
             $('.nav-toggle').toggleClass('close-nav');
             $('nav[role="navigation"]').toggleClass('open');
 
-            // Enable scrolling when closing the full-screen menu
+            // 关闭全屏菜单时恢复页面滚动
             if (!$('nav[role="navigation"]').hasClass('open')) {
                 $('.fullscreen-menu').css('display', 'none');
-                $('body').css('overflow', 'visible');
+                $('body').css('overflow', 'auto');
             }
         });
     });
 })(jQuery);
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
     var navigationLinks = document.querySelectorAll('.navigation a');
