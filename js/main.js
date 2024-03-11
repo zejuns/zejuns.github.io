@@ -1,5 +1,5 @@
 (function($) {
-    $(window).load(function() {
+    $(document).ready(function() {
         // Disable scrolling when the page is loading
         $('body').css('overflow', 'hidden');
 
@@ -21,7 +21,7 @@
                 $('body').css('overflow', 'hidden');
             } else {
                 $('.fullscreen-menu').css('display', 'none');
-                $('body').css('overflow', 'auto');
+                $('body').css('overflow', 'visible');
             }
             
             return false;
@@ -34,11 +34,12 @@
             // Enable scrolling when closing the full-screen menu
             if (!$('nav[role="navigation"]').hasClass('open')) {
                 $('.fullscreen-menu').css('display', 'none');
-                $('body').css('overflow', 'auto');
+                $('body').css('overflow', 'visible');
             }
         });
     });
 })(jQuery);
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
