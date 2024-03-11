@@ -35,7 +35,6 @@
     });
 })(jQuery);
 
-
 document.addEventListener('DOMContentLoaded', function() {
     var navigationLinks = document.querySelectorAll('.navigation a');
     var dropdownMenus = document.querySelectorAll('.dropdown-menu');
