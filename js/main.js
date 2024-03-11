@@ -2,8 +2,11 @@
     $(window).load(function() {
         // makes sure the whole site is loaded
         $('.loader-xbox').fadeOut(); // will first fade out the loading animation
-        $('#preloader').delay(150).fadeOut('slow'); // will fade out the white DIV that covers the website
-        $('body').delay(150).css({'overflow':'visible'});
+        $('#preloader').delay(150).fadeOut('slow', function() {
+            // Fade out the preloader and enable page scrolling
+            $('body').css({'overflow':'visible'});
+            $('body').removeClass('hidden').addClass('scrollable');
+        }); // will fade out the white DIV that covers the website
 
         // Mobile Navigation
         $('.nav-toggle').on('click', function() {
