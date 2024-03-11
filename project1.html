@@ -92,7 +92,7 @@
           <h3 class="wow fadeInDown animated">Apply</h3>
           <p class="wow fadeInDown animated">After experimenting in a 25*25 area, I applied these redesigned fabrics to handbags.</p>
         </div>
-        <div class="row no-gutter" style="padding: 15px;">
+        <div class="row no-gutter">
           <div class="col-md-4 col-sm-6">
             <a rel="gallery" href="files/project1/project1_5.webp" title="">
               <img src="files/project1/project1_5.webp" style="width: 100%;"></img>
@@ -163,8 +163,7 @@
     <script>
       window.onload = function() {
         // 隐藏预加载动画
-        document.getElementById("preloader").style.display = "none";
-      
+        document.getElementById("preloader").style.display = "none";   
         // 动态加载YouTube视频
         var iframe = document.createElement("iframe");
         iframe.className = "embed-responsive-item";
@@ -172,8 +171,7 @@
         iframe.title = "YouTube video player";
         iframe.frameborder = "0";
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen = true;
-      
+        iframe.allowFullscreen = true; 
         document.getElementById("youtube-video").appendChild(iframe);
       };
     </script>

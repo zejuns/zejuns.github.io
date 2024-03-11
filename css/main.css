@@ -490,10 +490,6 @@ Common Styles
 /* ------------------------------------------------------------------------------
 	 gallery
 -------------------------------------------------------------------------------*/
-.gallery .row {
-	display: flex;
-	flex-wrap: wrap;
-}
 .work {
 	-moz-box-shadow: 0 0 0 1px #fff;
 	/* -webkit-box-shadow: 0 0 0 1px #fff; */
@@ -606,6 +602,14 @@ address {
     padding-top: 30px;
 	margin-top: 110px;
 	margin-bottom: 80px;
+}
+.gallery .row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 15px;
+}
+.gallery img{
+	display: block; /* 或者 display: inline-block; */
 }
 /* ---------------------------------------------------------------------------
 About
@@ -979,7 +983,7 @@ ul.list-default li {
 	padding: 105px 50px;
 	display: flex;
     justify-content: center; /* 水平居中 */
-
+	margin-bottom: 0;
 }
 
 .footer-distributed .footer-left,
@@ -1142,9 +1146,7 @@ ul.list-default li {
 	margin-bottom: 5px;
 }
 .footer-distributed .footer-icons a:hover{
-
 	background-color:  #4a4a4a;
-
 }
 .footer-contain{
 	display: flex;
