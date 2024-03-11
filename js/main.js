@@ -1,16 +1,21 @@
-;(function($) {
+(function($) {
     $(window).load(function() {
-        // makes sure the whole site is loaded
+        // Disable scrolling when the page is loading
+        $('body').css('overflow', 'hidden');
+
+        // Display the loading animation
         $('.loader-xbox').fadeOut(); // will first fade out the loading animation
-        $('#preloader').delay(150).fadeOut('slow'); // will fade out the white DIV that covers the website
-        $('body').delay(150).css({'overflow':'visible'});
+        $('#preloader').delay(150).fadeOut('slow', function() {
+            // Enable scrolling after the page has loaded
+            $('body').css('overflow', 'visible');
+        });
 
         // Mobile Navigation
         $('.nav-toggle').on('click', function() {
             $(this).toggleClass('close-nav');
             $('nav[role="navigation"]').toggleClass('open');
             
-            // 切换全屏菜单时禁止或恢复页面滚动
+            // Toggle full-screen menu and disable/enable scrolling
             if ($('nav[role="navigation"]').hasClass('open')) {
                 $('.fullscreen-menu').css('display', 'block');
                 $('body').css('overflow', 'hidden');
@@ -26,7 +31,7 @@
             $('.nav-toggle').toggleClass('close-nav');
             $('nav[role="navigation"]').toggleClass('open');
 
-            // 关闭全屏菜单时恢复页面滚动
+            // Enable scrolling when closing the full-screen menu
             if (!$('nav[role="navigation"]').hasClass('open')) {
                 $('.fullscreen-menu').css('display', 'none');
                 $('body').css('overflow', 'auto');
