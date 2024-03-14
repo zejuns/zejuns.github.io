@@ -42,7 +42,7 @@
       </header>
     </section>
     <!-- package section -->
-    <section class="video-section" style="padding-bottom: 65px;">
+    <section class="video-section">
       <div class="container"> 
         <div class="row">
             <div id="content24" data-section="content-24" class="data-section"> 
@@ -55,9 +55,9 @@
               </div>
             </div>
             <div class="col-md-6">
-              <div class="embed-responsive embed-responsive-16by9" style="height: 100%; padding-bottom: 0px;">
+              <a id="project7" class="embed-responsive embed-responsive-16by9" href="files/works/project7.webp" style="height: 100%; padding-bottom: 0px;">
                 <img src="files/works/project7.webp" style="width: 100%;"></img>
-              </div>
+              </a>
             </div> 
           </div>
         </div><!-- end row -->    
@@ -96,5 +96,10 @@
     <script src="js/jquery.flexslider-min.js"></script> 
     <script src="js/jquery.fancybox.pack.js"></script>  
     <script src="js/main.js"></script> 
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("a#project7").fancybox();
+      });
+    </script>
 </body>
 </html>
