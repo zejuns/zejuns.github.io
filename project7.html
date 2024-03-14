@@ -98,7 +98,14 @@
     <script src="js/main.js"></script> 
     <script type="text/javascript">
       $(document).ready(function() {
-        $("a#project7").fancybox();
+        $("a#project7").fancybox({
+          beforeLoad: function() {
+            $('body').css('overflow', 'hidden');
+          },
+          afterClose: function() {
+            $('body').css('overflow', 'auto');
+          }
+        });
       });
     </script>
 </body>
