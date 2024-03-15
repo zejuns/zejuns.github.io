@@ -161,6 +161,9 @@
     <script src="js/carousel.umd.js"></script>
     <script src="js/carousel.autoplay.umd.js"></script>
     <script> 
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        //
+      });  
       new Carousel(document.getElementById("myCarousel"), {
         transition: "crossfade",
         Autoplay: {
