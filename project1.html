@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/flexslider.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/carousel.css">
     <title>Works | Zejun Huang</title>
+    <style>
+      #myCarousel {
+        --f-progress-color: #ffffffb8;
+      }
+    </style>
 </head>
 <body>
     <!-- Preloader -->
@@ -62,20 +67,16 @@
     </section>
     <!-- package section --> 
     <!-- package section -->
-    <section class="video-section" style="margin: 0px; padding: 0px 0px 65px;">
+    <section class="video-section" style="margin: 0px; padding: 0px 0px 45px;">
       <div class="container"> 
         <div class="row">  
           <div id="content24" data-section="content-24" class="data-section"> 
             <div class="col-md-4">
-              <!-- banner text --> 
-              <div class="banner" id="banner"> 
-                <div class="slider-banner">
-                  <div data-lazy-background="files/project1/project1_1.webp"> </div>
-                  <div data-lazy-background="files/project1/project1_2.webp"> </div>
-                  <div data-lazy-background="files/project1/project1_3.webp"> </div>
-                  <div data-lazy-background="files/project1/project1_4.webp"> </div>
-                </div>
-              <!-- banner text -->   
+              <div class="f-carousel" id="myCarousel">
+                <div class="f-carousel__slide"><img src="files/project1/project1_1.webp" alt="" style="width: 100%;"></div>
+                <div class="f-carousel__slide"><img src="files/project1/project1_2.webp" alt="" style="width: 100%;"></div>
+                <div class="f-carousel__slide"><img src="files/project1/project1_3.webp" alt="" style="width: 100%;"></div>
+                <div class="f-carousel__slide"><img src="files/project1/project1_4.webp" alt="" style="width: 100%;"></div>
               </div>
             </div>
             <div class="col-md-8">
@@ -95,32 +96,32 @@
         </div>
         <div class="row no-gutter">
           <div class="col-md-4 col-sm-6">
-            <a rel="gallery" href="files/project1/project1_5.webp" title="">
+            <a data-fancybox="gallery" data-src="files/project1/project1_5.webp" data-caption="">
               <img src="files/project1/project1_5.webp"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a rel="gallery" href="files/project1/project1_6.webp" title="">
+            <a data-fancybox="gallery" data-src="files/project1/project1_6.webp" data-caption="">
               <img src="files/project1/project1_6.webp"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a rel="gallery" href="files/project1/project1_7.webp" title="Comparison of fabric types and inflation levels">
+            <a data-fancybox="gallery" data-src="files/project1/project1_7.webp" data-caption="Comparison of fabric types and inflation levels">
               <img src="files/project1/project1_7.webp"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a rel="gallery" href="files/project1/project1_8.webp" title="">
+            <a data-fancybox="gallery" data-src="files/project1/project1_8.webp" data-caption="">
               <img src="files/project1/project1_8.webp"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a rel="gallery" href="files/project1/project1_9.webp" title="">
+            <a data-fancybox="gallery" data-src="files/project1/project1_9.webp" data-caption="">
               <img src="files/project1/project1_9.webp"></img>
             </a>
           </div>
           <div class="col-md-4 col-sm-6">
-            <a rel="gallery" href="files/project1/project1_10.webp" title="">
+            <a data-fancybox="gallery" data-src="files/project1/project1_10.webp" data-caption="">
               <img src="files/project1/project1_10.webp"></img>
             </a>
           </div>
@@ -154,13 +155,21 @@
         </div>
       </div>
     </footer>
-    <script src="js/index.js"></script>
     <script src="js/jquery.min.js"></script> 
-    <script src="js/bootstrap.min.js"></script> 
-    <script src="js/jquery.flexslider-min.js"></script> 
-    <script src="js/jquery.fancybox.pack.js"></script> 
     <script src="js/main.js"></script> 
-    <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/carousel.umd.js"></script>
+    <script src="js/carousel.autoplay.umd.js"></script>
+    <script> 
+      new Carousel(document.getElementById("myCarousel"), {
+        transition: "crossfade",
+        Autoplay: {
+          timeout : 3000
+        }
+      }, {
+        Autoplay
+      });
+    </script>
     <script>
       window.onload = function() {
         // 隐藏预加载动画
@@ -175,26 +184,6 @@
         iframe.allowFullscreen = true; 
         document.getElementById("youtube-video").appendChild(iframe);
       };
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.slider-banner').DrSlider({
-          'transition': 'fade',
-          showNavigation: false,
-          progressColor: "#FFFFFF"
-        });
-        $("a[rel=gallery]").fancybox({
-          'transitionIn': 'none',
-          'transitionOut': 'none',
-          'titlePosition': 'over',
-          beforeLoad: function() {
-            $('body').css('overflow', 'hidden');
-          },
-          afterClose: function() {
-            $('body').css('overflow', 'auto');
-          }
-        });
-      });
     </script>
 </body>
 </html>

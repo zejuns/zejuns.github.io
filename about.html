@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	  <meta charset="UTF-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/flexslider.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/carousel.css">
 	  <title>About | Zejun Huang</title>
+    <style>
+      #myCarousel {
+        --f-progress-color: none;
+      }
+    </style>
   </head>
   <body>
     <!-- Preloader -->
@@ -67,42 +72,24 @@
     <!-- Testimonials section -->
     <section id="testimonials" class="section testimonials no-padding">
       <div class="container-fluid">
-        <div class="row no-gutter">
-          <div class="flexslider">
-            <ul class="slides">
-              <li>
-                <div class="col-md-12">
-                  <blockquote>
-                    <h1>"He is a creative and passionate undergraduate student, with a strong love for human-computer interaction and media arts." </h1>
+        <div class="row no-gutter" style="padding: 100px 0px">
+          <div class="f-carousel" id="myCarousel" >
+                <div class="f-carousel__slide" >
+                    <h1 style="padding: 0px 15%; text-align: center;">"He is a creative and passionate undergraduate student, with a strong love for human-computer interaction and media arts." </h1>
                     <p>Jinfu Li</p>
-                  </blockquote>
                 </div>
-              </li>
-              <li>
-                <div class="col-md-12">
-                  <blockquote>
-                    <h1>"As an undergraduate student, he exhibits mature and disciplined qualities, laying a solid foundation for his future development." </h1>
+                <div class="f-carousel__slide">
+                    <h1 style="padding: 0px 15%; text-align: center;">"As an undergraduate student, he exhibits mature and disciplined qualities, laying a solid foundation for his future development." </h1>
                     <p>Kristean velnly</p>
-                  </blockquote>
                 </div>
-              </li>
-              <li>
-                <div class="col-md-12">
-                  <blockquote>
-                    <h1>"His interest in human-computer interaction and media arts gives him unique insights and innovative thinking in this field." </h1>
+                <div class="f-carousel__slide">
+                    <h1 style="padding: 0px 15%; text-align: center;">"His interest in human-computer interaction and media arts gives him unique insights and innovative thinking in this field." </h1>
                     <p>Markus Denny</p>
-                  </blockquote>
                 </div>
-              </li>
-              <li>
-                <div class="col-md-12">
-                  <blockquote>
-                    <h1>"Pursuing a dual degree in product design and computer science technology at South China University of Technology, he has shown exceptional learning capabilities and a diligent work ethic." </h1>
+                <div class="f-carousel__slide">
+                    <h1 style="padding: 0px 15%; text-align: center;">"Pursuing a dual degree in product design and computer science technology at South China University of Technology, he has shown exceptional learning capabilities and a diligent work ethic." </h1>
                     <p>John Doe</p>
-                  </blockquote>
                 </div>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
@@ -135,11 +122,19 @@
         </div>
       </div>
     </footer>
-    <script src="js/index.js"></script>
     <script src="js/jquery.min.js"></script> 
-    <script src="js/bootstrap.min.js"></script> 
-    <script src="js/jquery.flexslider-min.js"></script> 
-    <script src="js/jquery.fancybox.pack.js"></script>  
     <script src="js/main.js"></script> 
+    <script src="js/carousel.umd.js"></script>
+    <script src="js/carousel.autoplay.umd.js"></script>
+    <script> 
+      new Carousel(document.getElementById("myCarousel"), {
+        transition: "crossfade",
+        Autoplay: {
+          timeout : 3000
+        }
+      }, {
+        Autoplay
+      });
+    </script>
   </body>
 </html>

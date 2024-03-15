@@ -3,15 +3,20 @@
   <head>
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="baidu-site-verification" content="codeva-c1cmJqG5X2" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/flexslider.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="baidu-site-verification" content="codeva-c1cmJqG5X2" />
-	  <title>Home | Zejun Huang</title>
+    <link rel="stylesheet" href="css/carousel.css">
+    <title>Home | Zejun Huang</title>
+    <style>
+      #myCarousel {
+        --f-carousel-slide-width: 100%;
+        --f-progress-color: #ffffffb8;
+      }
+    </style>
   </head>
   <body>
     <!-- Preloader -->
@@ -43,13 +48,9 @@
           <a href="#" class="nav-toggle">Menu<span></span></a> </div>
       </header>
     </section>
-    <!-- banner text --> 
-    <div class="banner" id="banner"> 
-      <div class="slider-banner">
-        <div data-lazy-background="files/home/1.webp"> </div>
-        <div data-lazy-background="files/home/2.webp"> </div>
-      </div>
-    <!-- banner text --> 
+    <div class="f-carousel" id="myCarousel">
+      <div class="f-carousel__slide"><img src="files/home/1.webp" alt="" style="width: 100%;"></div>
+      <div class="f-carousel__slide"><img src="files/home/2.webp" alt="" style="width: 100%;"></div>
     </div>
     <section id="content-3-10" class="content-block data-section nopad content-3-10">
       <div class="image-container col-sm-4 col-xs-12 pull-left">
@@ -98,21 +99,20 @@
         </div>
       </div>
     </footer>
-    <script src="js/index.js"></script>
     <script src="js/jquery.min.js"></script> 
-    <script src="js/bootstrap.min.js"></script> 
-    <script src="js/jquery.flexslider-min.js"></script> 
-    <script src="js/jquery.fancybox.pack.js"></script>  
     <script src="js/main.js"></script> 
-    <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.slider-banner').DrSlider({
-          'transition': 'fade',
-          showNavigation: false,
-          progressColor: "#FFFFFF"
-        });
+    <script src="js/carousel.umd.js"></script>
+    <script src="js/carousel.autoplay.umd.js"></script>
+    <script>
+      new Carousel(document.getElementById("myCarousel"), {
+        Dots: false,
+        transition: "crossfade",
+        Autoplay: {
+          timeout : 5000
+        }
+      }, {
+        Autoplay
       });
-    </script> 
+    </script>
   </body>
 </html>
