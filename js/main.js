@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 $(document).ready(function() {
     // 禁止页面滚动
-    $('body').css('overflow', 'hidden');
+    $('html').css('overflow', 'hidden');
     // Header Scroll
     $(window).on('scroll', function() {
         var scroll = $(window).scrollTop();
