@@ -97,8 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 $(document).ready(function() {
-    // 禁止页面滚动
-    $('html').css('overflow', 'hidden');
     // Header Scroll
     $(window).on('scroll', function() {
         var scroll = $(window).scrollTop();
