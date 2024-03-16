@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var playButton = youtubeVideo.querySelector(".play-button");
 
     playButton.addEventListener("click", function() {
-        var youtubeLink = youtubeVideo.getAttribute("data-youtube-link") + "&cc_load_policy=1"; // 添加自动开启字幕参数
+        var youtubeLink = youtubeVideo.getAttribute("data-youtube-link") + "&cc_load_policy=1&cc_lang_pref=en"; // 添加自动开启字幕和英文字幕优先参数
         var iframe = document.createElement("iframe");
         iframe.className = "embed-responsive-item";
         iframe.src = youtubeLink;
