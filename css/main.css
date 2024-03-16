@@ -2,7 +2,7 @@
     font-family: 'Times New Roman', Times, serif
 }
 
-body.preloader_active {
+body {
     overflow: hidden
 }
 
