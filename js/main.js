@@ -5,9 +5,6 @@
         $('#preloader').delay(150).fadeOut('slow'); // will fade out the white DIV that covers the website
         $('body').delay(150).css({'overflow':'visible'});
 
-        // 禁止页面滚动
-        $('body').css('overflow', 'hidden');
-
         // Mobile Navigation
         $('.nav-toggle').on('click', function() {
             $(this).toggleClass('close-nav');

@@ -10,13 +10,18 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <script src="js/main.js"></script> 
     <title>Home | Zejun Huang</title>
     <style>
       #myCarousel {
         --f-progress-color: #ffffffb8;
       }
     </style>
+    <script>
+      $(document).ready(function() {
+          // 禁止页面滚动
+          $('body').css('overflow', 'hidden');
+      });
+    </script>
   </head>
   <body>
     <!-- Preloader -->
@@ -102,6 +107,7 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script>
+    <script src="js/main.js"></script>
     <script>
       new Carousel(document.getElementById("myCarousel"), {
         Dots: false,
