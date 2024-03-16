@@ -5,6 +5,9 @@
         $('#preloader').delay(150).fadeOut('slow'); // will fade out the white DIV that covers the website
         $('body').delay(150).css({'overflow':'visible'});
 
+        // 禁止页面滚动
+        $('body').css('overflow', 'hidden');
+
         // Mobile Navigation
         $('.nav-toggle').on('click', function() {
             $(this).toggleClass('close-nav');
@@ -36,22 +39,6 @@
 })(jQuery);
 
 document.addEventListener('DOMContentLoaded', function() {
-    var preloader = document.getElementById('preloader');
-    
-    // 禁止页面移动
-    document.body.style.overflow = 'hidden';
-
-    // 禁止移动端手指滑动
-    document.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    });
-
-    // 当页面完全加载后隐藏加载动画并恢复页面移动
-    window.addEventListener('load', function() {
-        preloader.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
     var navigationLinks = document.querySelectorAll('.navigation a');
     var dropdownMenus = document.querySelectorAll('.dropdown-menu');
     var timeoutId;
