@@ -36,47 +36,11 @@
 })(jQuery);
 
 document.addEventListener('DOMContentLoaded', function() {
-    var navigationLinks = document.querySelectorAll('.navigation a');
-    var dropdownMenus = document.querySelectorAll('.dropdown-menu');
-    var timeoutId;
-
-    navigationLinks.forEach(function(link, index) {
-        link.addEventListener('mouseover', function() {
-            clearTimeout(timeoutId); // 清除之前的延迟隐藏计时器
-
-            // 隐藏其他子菜单
-            dropdownMenus.forEach(function(menu) {
-                menu.style.display = 'none';
-            });
-
-            // 显示当前主菜单对应的子菜单
-            var subMenu = link.nextElementSibling;
-            if (subMenu) {
-                subMenu.style.display = 'block';
-            }
-        });
-
-        link.addEventListener('mouseout', function() {
-            timeoutId = setTimeout(function() {
-                dropdownMenus.forEach(function(menu) {
-                    menu.style.display = 'none';
-                });
-            }, 500);
-        });
-    });
-
-    dropdownMenus.forEach(function(menu) {
-        menu.addEventListener('mouseover', function() {
-            menu.style.display = 'block';
-        });
-
-        menu.addEventListener('mouseout', function() {
-            menu.style.display = 'none';
-        });
-    });
-
     var youtubeVideo = document.getElementById("youtube-video");
     var playButton = youtubeVideo.querySelector(".play-button");
+    var videoPlaceholder = document.createElement("img");
+    videoPlaceholder.src = "placeholder.jpg"; // 用于显示视频占位图片
+    youtubeVideo.appendChild(videoPlaceholder);
 
     playButton.addEventListener("click", function() {
         var youtubeLink = youtubeVideo.getAttribute("data-youtube-link") + "&cc_load_policy=1&cc_lang_pref=en"; // 添加自动开启字幕和英文字幕优先参数
@@ -105,4 +69,5 @@ $(document).ready(function() {
         }
     });
 });
+
 
