@@ -1,4 +1,4 @@
-;(function($) {
+(function($) {
     $(window).load(function() {
         // makes sure the whole site is loaded
         $('.loader-xbox').fadeOut(); // will first fade out the loading animation
@@ -74,6 +74,23 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.style.display = 'none';
         });
     });
+
+    var youtubeVideo = document.getElementById("youtube-video");
+    var playButton = youtubeVideo.querySelector(".play-button");
+
+    playButton.addEventListener("click", function() {
+        var youtubeLink = youtubeVideo.getAttribute("data-youtube-link") + "&cc_load_policy=1"; // 添加自动开启字幕参数
+        var iframe = document.createElement("iframe");
+        iframe.className = "embed-responsive-item";
+        iframe.src = youtubeLink;
+        iframe.title = "YouTube video player";
+        iframe.frameborder = "0";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+
+        youtubeVideo.innerHTML = ""; // 清空容器
+        youtubeVideo.appendChild(iframe);
+    });
 });
 
 $(document).ready(function() {
@@ -87,5 +104,5 @@ $(document).ready(function() {
             $('#header').removeClass('fixed');
         }
     });
+});
 
-}); 
