@@ -36,6 +36,22 @@
 })(jQuery);
 
 document.addEventListener('DOMContentLoaded', function() {
+    var preloader = document.getElementById('preloader');
+    
+    // 禁止页面移动
+    document.body.style.overflow = 'hidden';
+
+    // 禁止移动端手指滑动
+    document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    });
+
+    // 当页面完全加载后隐藏加载动画并恢复页面移动
+    window.addEventListener('load', function() {
+        preloader.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
     var navigationLinks = document.querySelectorAll('.navigation a');
     var dropdownMenus = document.querySelectorAll('.dropdown-menu');
     var timeoutId;
