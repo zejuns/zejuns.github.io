@@ -6,6 +6,7 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" type="image/x-icon" href="https://s2.loli.net/2024/03/17/JVKoCbm7in6sBPw.webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -49,6 +50,7 @@
                 <h3 class="eidtContent">Library Management System</h3>
                 <p class="eidtContent">The project is developed in Visual Studio Code, using Python 3.9 as the programming language, with MySQL as the database managed and modified using Navicat Premium.</p>
                 <p class="eidtContent">Bootstrap, with a dependency on jQuery, serves as the front-end framework for page creation. The Django ORM functionality is employed for object-oriented operations to manipulate data in the database.</p>
+                <a data-fancybox data-type="pdf" href="files/Library management system.pdf" class="btn btn-outline btn-outline outline-dark" style="margin-right: 20px;">Document</a>
                 <a href="https://github.com/zej-h/Library-Management-System.git" class="btn btn-outline btn-outline outline-dark" target="_blank">Github</a>
               </div>
             </div>
@@ -65,11 +67,6 @@
       </div>
     </section>
     <!-- package section --> 
-    <div class="container" style="padding: 0px 15px 88px;" > 
-      <div class="row">
-        <iframe src="files/Library management system.pdf" width="100%" height="720px"></iframe>
-      </div>
-    </div>
     <footer class="footer-distributed">
       <div class="footer-contain">
         <div class="footer-left">
@@ -97,7 +94,11 @@
         </div>
       </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="js/main.js"></script> 
+    <script type="text/javascript">
+      Fancybox.bind("[data-fancybox]", {});
+    </script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" type="image/x-icon" href="https://s2.loli.net/2024/03/17/JVKoCbm7in6sBPw.webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -53,7 +54,7 @@
             <div class="col-md-6">
               <h3 class="eidtContent">About</h3>
               <p class="eidtContent">I have an interdisciplinary background in art and engineering. My expertise lies in visualizing ideas through modeling, rendering, and animation. I also have programming skills in C++, Python, HTML, CSS and JavaScript, etc. When I came across the MAT program at the UCSB, I was pleasantly surprised by how perfectly it aligns with my background and interests, making it my top choice.</p>
-              <a href="./files/CV_zejun_huang.pdf" class="btn btn-outline btn-outline outline-dark" target="_blank">Curriculum Vitae</a>
+              <a data-fancybox data-type="pdf" href="./files/CV_zejun_huang.pdf" class="btn btn-outline btn-outline outline-dark">Curriculum Vitae</a>
             </div>
             <div class="col-md-6">
               <div class="embed-responsive embed-responsive-16by9" id="youtube-video" data-youtube-link="https://www.youtube.com/embed/UMDlWaWvmlI?si=_-d7d14tVpCq1NA8&autoplay=1">
@@ -122,11 +123,13 @@
         </div>
       </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script>
     <script src="js/main.js"></script> 
     <script> 
+      Fancybox.bind("[data-fancybox]", {});
       new Carousel(document.getElementById("myCarousel"), {
         transition: "crossfade",
         Autoplay: {
