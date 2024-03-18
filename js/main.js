@@ -77,9 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var youtubeVideo = document.getElementById("youtube-video");
     var playButton = youtubeVideo.querySelector(".play-button");
-    var videoPlaceholder = document.createElement("img");
-    videoPlaceholder.src = "placeholder.jpg"; // 用于显示视频占位图片
-    youtubeVideo.appendChild(videoPlaceholder);
 
     playButton.addEventListener("click", function() {
         var youtubeLink = youtubeVideo.getAttribute("data-youtube-link") + "&cc_load_policy=1&cc_lang_pref=en"; // 添加自动开启字幕和英文字幕优先参数
