@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         iframe.frameborder = "0";
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
-
+        iframe.style.backgroundColor = "black";
         youtubeVideo.innerHTML = ""; // 清空容器
         youtubeVideo.appendChild(iframe);
     });
