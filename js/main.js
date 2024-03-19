@@ -74,6 +74,17 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.style.display = 'none';
         });
     });
+
+    const gitalk = new Gitalk({
+        clientID: '2658e1c2a15202f4ea1a',
+        clientSecret: 'efe03ae68db5b4aef7fa72a3aa7bbf249a143383',
+        repo: 'zejuns.github.io',      // The repository of store comments,
+        owner: 'zejuns',
+        admin: ['zejuns'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+    gitalk.render('gitalk-container')
 });
 
 $(document).ready(function() {
