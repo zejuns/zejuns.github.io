@@ -1,40 +1,3 @@
-(function($) {
-    $(window).load(function() {
-        // makes sure the whole site is loaded
-        $('.loader-xbox').fadeOut(); // will first fade out the loading animation
-        $('#preloader').fadeOut('slow'); // will fade out the white DIV that covers the website
-        $('body').css({'overflow':'visible'});
-
-        // Mobile Navigation
-        $('.nav-toggle').on('click', function() {
-            $(this).toggleClass('close-nav');
-            $('nav[role="navigation"]').toggleClass('open');
-            
-            // 切换全屏菜单时禁止或恢复页面滚动
-            if ($('nav[role="navigation"]').hasClass('open')) {
-                $('.fullscreen-menu').css('display', 'block');
-                $('body').css('overflow', 'hidden');
-            } else {
-                $('.fullscreen-menu').css('display', 'none');
-                $('body').css('overflow', 'auto');
-            }
-            
-            return false;
-        });
-
-        $('nav[role="navigation"]').find('a').on('click', function() {
-            $('.nav-toggle').toggleClass('close-nav');
-            $('nav[role="navigation"]').toggleClass('open');
-
-            // 关闭全屏菜单时恢复页面滚动
-            if (!$('nav[role="navigation"]').hasClass('open')) {
-                $('.fullscreen-menu').css('display', 'none');
-                $('body').css('overflow', 'auto');
-            }
-        });
-    });
-})(jQuery);
-
 document.addEventListener('DOMContentLoaded', function() {
     var navigationLinks = document.querySelectorAll('.navigation a');
     var dropdownMenus = document.querySelectorAll('.dropdown-menu');
@@ -86,6 +49,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     gitalk.render('gitalk-container')
 });
+
+(function($) {
+    $(window).load(function() {
+        // makes sure the whole site is loaded
+        $('.loader-xbox').fadeOut(); // will first fade out the loading animation
+        $('#preloader').fadeOut('slow'); // will fade out the white DIV that covers the website
+        $('body').css({'overflow':'visible'});
+
+        // Mobile Navigation
+        $('.nav-toggle').on('click', function() {
+            $(this).toggleClass('close-nav');
+            $('nav[role="navigation"]').toggleClass('open');
+            
+            // 切换全屏菜单时禁止或恢复页面滚动
+            if ($('nav[role="navigation"]').hasClass('open')) {
+                $('.fullscreen-menu').css('display', 'block');
+                $('body').css('overflow', 'hidden');
+            } else {
+                $('.fullscreen-menu').css('display', 'none');
+                $('body').css('overflow', 'auto');
+            }
+            
+            return false;
+        });
+
+        $('nav[role="navigation"]').find('a').on('click', function() {
+            $('.nav-toggle').toggleClass('close-nav');
+            $('nav[role="navigation"]').toggleClass('open');
+
+            // 关闭全屏菜单时恢复页面滚动
+            if (!$('nav[role="navigation"]').hasClass('open')) {
+                $('.fullscreen-menu').css('display', 'none');
+                $('body').css('overflow', 'auto');
+            }
+        });
+    });
+})(jQuery);
 
 $(document).ready(function() {
     // Header Scroll
