@@ -25,12 +25,12 @@
 
 .gt-container .gt-btn-preview:hover {
     background-color: #000;
-    border-color: #fff;
+    color: #fff;
 }
 
 .gt-container .gt-btn-public:hover {
-    background-color: #81a6ed;
-    border-color: #81a6ed;
+    background-color: #fff;
+    color: #000;
 }
 
 #preloader {
