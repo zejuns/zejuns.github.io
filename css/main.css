@@ -2,6 +2,10 @@
     font-family: 'Times New Roman', Times, serif
 }
 
+.gt-container .gt-btn {
+    border-radius: 0px;
+}
+
 #gitalk-container{
     padding-top: 50px;
 }
