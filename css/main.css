@@ -2,28 +2,30 @@
     font-family: 'Times New Roman', Times, serif
 }
 
-#gitalk-container{
+#gitalk-container {
     padding-top: 50px;
 }
 
 .gt-container .gt-btn {
     border-radius: 0px;
     border: 1px solid #000000;
-    background-color: #000000;
+    background-color: #FFFFFF;
 }
 
 .gt-container .gt-btn-preview {
     background-color: #fff;
-    color: #6190e8;
-  }
-  .gt-container .gt-btn-preview:hover {
+    color: #fff;
+}
+
+.gt-container .gt-btn-preview:hover {
     background-color: #f2f2f2;
     border-color: #81a6ed;
-  }
-  .gt-container .gt-btn-public:hover {
+}
+
+.gt-container .gt-btn-public:hover {
     background-color: #81a6ed;
     border-color: #81a6ed;
-  }
+}
 
 #preloader {
     position: fixed;
