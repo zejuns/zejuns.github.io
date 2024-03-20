@@ -6,6 +6,10 @@
     padding-top: 50px;
 }
 
+.gt-container .gt-btn {
+    border-radius: 0px;
+}
+
 #preloader {
     position: fixed;
     top: 0;
