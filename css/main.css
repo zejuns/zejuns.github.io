@@ -8,13 +8,17 @@
 
 .gt-container .gt-btn {
     border-radius: 0px;
-    border: 1px solid #000000;
-    background-color: #FFFFFF;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+.gt-container .gt-btn:hover  {
+    background-color: #000;
 }
 
 .gt-container .gt-btn-preview {
     background-color: #fff;
-    color: #fff;
+    color: #000;
 }
 
 .gt-container .gt-btn-preview:hover {
