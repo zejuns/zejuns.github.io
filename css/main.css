@@ -14,7 +14,9 @@
 }
 
 .gt-container .gt-btn:hover  {
-    border-color: #000;
+    border-color: #282828;
+    background-color: #282828;
+    color: #fff;
 }
 
 .gt-container .gt-btn-preview {
@@ -28,7 +30,7 @@
 }
 
 .gt-container .gt-btn-public:hover {
-    background-color: #fff;
+    background-color: #282828;
     color: #000;
 }
 
