@@ -30,7 +30,9 @@
     color: #fff;
 }
 
-
+.gt-container .gt-btn-public:hover {
+    color: #000;
+}
 
 #preloader {
     position: fixed;
