@@ -93,6 +93,14 @@
     }
 }
 
+a {
+    color: #6190e8;
+}
+
+a:hover {
+    color: #81a6ed;
+}
+
 p {
     font-size: 15px;
     line-height: 22.4px;
