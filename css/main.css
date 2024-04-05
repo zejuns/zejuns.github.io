@@ -40,7 +40,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #111;
+    background-color: #000;
     z-index: 99999999
 }
 
@@ -1005,6 +1005,7 @@ h5 {
 
 .play-button i {
     color: white;
+    margin-left: 5px;
     font-size: 28px;
 }
 
