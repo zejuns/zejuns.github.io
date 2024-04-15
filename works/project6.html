@@ -44,26 +44,47 @@
       </header>
     </section>
     <!-- package section -->
-    <section class="video-section">
+    <section class="video-section" style="padding-bottom: 65px;">
       <div class="container"> 
         <div class="row">
             <div id="content24" data-section="content-24" class="data-section"> 
               <div class="col-md-6">
-                <h3 class="eidtContent">Secetar (Secure Ice Tartar)</h3>
-                <p class="eidtContent">Secetar is designed to test the alcohol level of alcoholic drink and whether it contains date rape drugs, aiming to make sure that alcoholic drink is safe for people, especially women. The surface of it could reflect different colors of light depending on the alcohol level. It will sound an audible alarm when date rape drugs are detected.<br>I am responsible for product scene construction, material design and rendering.</p>
-                <p class="eidtContent" style="margin-bottom: 0px;"><a href="https://www.productdesignaward.eu/winners/epda/2023/11380/" class="scroll" target="_blank">Winner in Beverage and Food/Catering Supplies, European Product Design Award</a></p>
-                <p class="eidtContent"><a href="http://dzzs.cnyisai.com/fzs_show.aspx?id=276598" class="scroll" target="_blank">Bronze Final Level, G-CROSS Award</a></p>
-                <a href="../files/project7.pdf" class="btn btn-outline btn-outline outline-dark" target="_blank">Design Detailed</a>
+                <h3 class="eidtContent">Elderly Body Fat Scale</h3>
+                <p class="eidtContent">This is a home body fat scale designed for the elderly. They can accurately measure various indicators such as body fat without bending over, just by holding onto the handle. The scale is also foldable for easy storage.</p>
               </div>
             </div>
             <div class="col-md-6">
-              <a data-fancybox data-src="../files/works/project7.webp" data-caption="">
-                <img src="../files/works/project7.webp" style="width: 100%;"></img>
-              </a>
+              <div class="embed-responsive embed-responsive-16by9">
+                <a data-fancybox="gallery" data-src="../files/project6/project6_7.webp" data-caption="">
+                  <img src="../files/project6/project6_7.webp" style="width: 100%;"></img>
+                </a>
+              </div>
             </div> 
           </div>
-          <div id="gitalk-container"></div>
-        </div><!-- end row -->
+        </div><!-- end row -->    
+      </div>
+    </section>
+    <!-- package section --> 
+    <section id="gallery" class="gallery section" style="margin: 0px; padding: 0px 0px 88px;">
+      <div class="container">
+        <div class="section-header" style="padding-bottom: 50px;">
+          <h3 class="wow fadeInDown animated" style="margin: 0px;">Design Detailed</h3>
+        </div>
+        <div class="row no-gutter">
+          <a data-fancybox="gallery" data-src="../files/project6/project6_3.webp" data-caption="">
+            <img src="../files/project6/project6_3.webp"></img>
+          </a>
+          <a data-fancybox="gallery" data-src="../files/project6/project6_3.webp" data-caption="">
+            <img src="../files/project6/project6_4.webp"></img>
+          </a>
+          <a data-fancybox="gallery" data-src="../files/project6/project6_3.webp" data-caption="">
+            <img src="../files/project6/project6_5.webp"></img>
+          </a>
+          <a data-fancybox="gallery" data-src="../files/project6/project6_3.webp" data-caption="">
+            <img src="../files/project6/project6_6.webp"></img>
+          </a>
+        </div>
+        <div id="gitalk-container"></div>
       </div>
     </section>
     <footer class="footer-distributed">
@@ -94,11 +115,13 @@
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
     <script src="../js/main.js"></script> 
     <script type="text/javascript">
-      Fancybox.bind("[data-fancybox]", {});
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        //
+      }); 
     </script>
 </body>
 </html>
