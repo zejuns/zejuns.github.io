@@ -3,7 +3,7 @@
 }
 
 .image-zoom {
-    cursor: zoom-in;
+    cursor: pointer;
 }
 
 #gitalk-container {
