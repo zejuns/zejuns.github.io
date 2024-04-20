@@ -2,6 +2,10 @@
     font-family: 'Times New Roman', Times, serif
 }
 
+.image-zoom {
+    cursor: zoom-in;
+}
+
 #gitalk-container {
     padding-top: 50px;
 }
@@ -191,8 +195,7 @@ ul li {
 }
 
 .no-gutter [class*=col-] {
-    padding-right: 0;
-    padding-left: 0
+    padding: 10px;
 }
 
 #header {
@@ -528,20 +531,18 @@ ul li {
     height: 220px
 }
 
-.work {
-    -moz-box-shadow: 0 0 0 1px #fff;
+.workbox{
     overflow: hidden;
-    position: relative
 }
 
 .work .overlay {
     background: rgba(0, 0, 0, .6);
-    height: 100%;
-    left: 0;
     opacity: 0;
     position: absolute;
-    top: 0;
-    width: 100%;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
     -moz-transition: opacity, .3s;
     -o-transition: opacity, .3s;
     -webkit-transition: opacity, .3s;
@@ -599,10 +600,10 @@ ul li {
 }
 
 .work-box:hover img {
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2)
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1)
 }
 
 .work-box:hover .overlay {
@@ -643,7 +644,7 @@ ul li {
 .gallery .row {
     display: flex;
     flex-wrap: wrap;
-    padding: 15px
+    padding: 5px
 }
 
 .gallery img {
