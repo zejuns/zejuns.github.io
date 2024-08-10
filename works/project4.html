@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <title>Works | Zejun Huang</title>
 </head>
 <body>
@@ -22,9 +21,9 @@
         <div class="header-content clearfix"> <a class="logo" href="../index.html">Zejun</a>
           <nav class="navigation" role="navigation">
             <ul class="primary-nav">
-              <li><a href="index.html">Home</a></li> 
+              <li><a href="../index.html">Home</a></li> 
               <li class="dropdown">
-                <a href="works.html" class="dropdown-toggle">Works <b class="caret"></b></a>
+                <a href="../works.html" class="dropdown-toggle">Works <b class="caret"></b></a>
                 <ul class="dropdown-menu agile_short_dropdown">
                   <li><a href="project1.html" class="scroll">Clothing Fabric Redesign</a></li>
                   <li><a href="project3.html" class="scroll">Accessible Vehicle Seat</a></li>
@@ -32,14 +31,14 @@
                   <li><a href="project7.html" class="scroll">Secetar (Secure Ice Tartar)</a></li>
                   <li><a href="project4.html" class="scroll">Ceramic Aesthetic Education</a></li>
                   <li><a href="project5.html" class="scroll">Library Management System</a></li>
-                  <li><a href="project8.html" class="scroll">NFT Marketplace: DFashn</a></li>
+                  <li><a href="works/project8.html" class="scroll">NFT Marketplace: DFashn</a></li>
                   <li><a href="https://ai.zejuns.com" class="scroll">Chat with AI Assistant</a></li>
                   <li><a href="works.html" class="scroll">All works</a></li>
                 </ul>
               </li>
-              <li><a href="publications.html">Publications</a></li> 
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="../publications.html">Publications</a></li> 
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../contact.html">Contact</a></li>
             </ul>
           </nav>
           <a href="#" class="nav-toggle">Menu<span></span></a> </div>
@@ -48,26 +47,28 @@
     <!-- package section -->
     <section class="video-section">
       <div class="container"> 
-        <div class="row">
+        <div class="row">  
             <div id="content24" data-section="content-24" class="data-section"> 
               <div class="col-md-6">
-                <h3 class="eidtContent">NFT Marketplace: <a href="https://dfashn.com" target="_blank">DFashn</a></h3>
-                <p class="eidtContent">Dfashn is an NFT trading market focusing on the field of fashion. Before exploring, you need to download the plug-in MetaMask in chrome or edge browser, and the website will automatically connect to your encrypted wallet and configure the network.</p>
-                <p class="eidtContent">Thanks to <a href="https://www.youtube.com/@daulathussain" target="_blank">Daulat Hussain's</a> course</p>
-
-                <a href="files/project7.pdf" class="btn btn-outline btn-outline outline-dark" target="_blank">Design Detailed</a>
+                <h3 class="eidtContent">Ceramic Aesthetic Education</h3>
+                <p class="eidtContent" style="margin-bottom: 88px;">Unlike traditional aesthetic education products, the application combines interactive games and art learning to provide a variety of artistic experiences to help children better understand and enjoy ceramic art. At the same time, we also provide personalized learning paths and feedback mechanisms and one-on-one assistance to provide personalized guidance according to children's interests and abilities, so that each child can find their own fun in the artistic journey.</p>
               </div>
             </div>
             <div class="col-md-6">
-              <a href="https://dfashn.com" target="_blank">
-                <img src="files/works/project8.webp" class="image-zoom" style="width: 100%;"></img>
-              </a>
-            </div> 
+              <div class="embed-responsive embed-responsive-16by9" id="youtube-video" data-youtube-link="https://www.youtube.com/embed/QLfCxlf48Ew?si=flfuWeTZOek5lKVh&autoplay=1">
+                <div class="play-button">
+                  <i class="fa fa-play"></i>
+                </div>
+                <img src="../files/project4.webp" alt="" id="video-image">
+              </div>
+            </div>   
           </div>
+          <iframe style="border: 0px; padding-top: 88px;" width=100% height="650" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9h21V8qDYonffptqbaQDZb%2F%25E9%2599%25B6%25E7%25AB%25A5%25E4%25B9%2590%25E4%25B9%2590%25E5%25B0%258F%25E7%25A8%258B%25E5%25BA%258F-(Copy)%3Ftype%3Ddesign%26mode%3Ddesign%26t%3DE7LOrlLDkKQGkQUQ-1" allowfullscreen></iframe>
           <div id="gitalk-container"></div>
-        </div><!-- end row -->
+        </div><!-- end row -->    
       </div>
     </section>
+    <!-- package section --> 
     <footer class="footer-distributed">
       <div class="footer-contain">
         <div class="footer-left">
@@ -96,11 +97,8 @@
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <script src="js/main.js"></script> 
-    <script type="text/javascript">
-      Fancybox.bind("[data-fancybox]", {});
-    </script>
+    <script src="../js/main.js"></script>
+    <script src="../js/video.js"></script>
 </body>
 </html>
