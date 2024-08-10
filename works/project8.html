@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -47,30 +48,26 @@
     <!-- package section -->
     <section class="video-section">
       <div class="container"> 
-        <div class="row">  
+        <div class="row">
             <div id="content24" data-section="content-24" class="data-section"> 
               <div class="col-md-6">
-                <h3 class="eidtContent">Library Management System</h3>
-                <p class="eidtContent">The project is developed in Visual Studio Code, using Python 3.9 as the programming language, with MySQL as the database managed and modified using Navicat Premium.</p>
-                <p class="eidtContent">Bootstrap, with a dependency on jQuery, serves as the front-end framework for page creation. The Django ORM functionality is employed for object-oriented operations to manipulate data in the database.</p>
-                <a href="../files/Library management system.pdf" class="btn btn-outline btn-outline outline-dark" style="margin-right: 20px;" target="_blank">Document</a>
-                <a href="https://github.com/zejuns/Library-Management-System.git" class="btn btn-outline btn-outline outline-dark" target="_blank">Github</a>
+                <h3 class="eidtContent">NFT Marketplace: <a href="https://dfashn.com" target="_blank">DFashn</a></h3>
+                <p class="eidtContent">Dfashn is an NFT trading market focusing on the field of fashion. Before exploring, you need to download the plug-in MetaMask in chrome or edge browser, and the website will automatically connect to your encrypted wallet and configure the network.</p>
+                <p class="eidtContent">Thanks to <a href="https://www.youtube.com/@daulathussain" target="_blank">Daulat Hussain's</a> course</p>
+
+                <a href="../files/project7.pdf" class="btn btn-outline btn-outline outline-dark" target="_blank">Design Detailed</a>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="embed-responsive embed-responsive-16by9" id="youtube-video" data-youtube-link="https://www.youtube.com/embed/ZDfcFHDLyFQ?si=HQLwnRtRA_D4-6PN&autoplay=1">
-                <div class="play-button">
-                  <i class="fa fa-play"></i>
-                </div>
-                <img src="../files/works/project5.webp" alt="" id="video-image">
-              </div>
-            </div>   
+              <a href="https://dfashn.com" target="_blank">
+                <img src="../files/works/project8.webp" class="image-zoom" style="width: 100%;"></img>
+              </a>
+            </div> 
           </div>
           <div id="gitalk-container"></div>
-        </div><!-- end row -->    
+        </div><!-- end row -->
       </div>
     </section>
-    <!-- package section --> 
     <footer class="footer-distributed">
       <div class="footer-contain">
         <div class="footer-left">
@@ -99,8 +96,11 @@
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/video.js"></script>
+    <script src="../js/main.js"></script> 
+    <script type="text/javascript">
+      Fancybox.bind("[data-fancybox]", {});
+    </script>
 </body>
 </html>
