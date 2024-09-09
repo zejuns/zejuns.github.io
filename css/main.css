@@ -283,8 +283,7 @@ ul li {
 }
 
 .dropdown-menu a {
-    margin: 0;
-    background-color: #fff
+    margin: 0
 }
 
 .nav-toggle {
@@ -458,7 +457,6 @@ ul li {
 
 .agile_short_dropdown li a {
     color: #000;
-    background-color: #fff;
     text-transform: none;
     font-size: 13px;
     font-weight: 500;
