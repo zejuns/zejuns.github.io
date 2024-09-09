@@ -77,11 +77,10 @@
         visibility: hidden;
         opacity: 0;
         -webkit-transition: opacity .5s, visibility 0s .5s;
-        transition: opacity .5s, visibility 0s .5s
-    }
-
-    .navigation .primary-nav {
-        margin-top: 100px
+        transition: opacity .5s, visibility 0s .5s;
+        display: grid;
+        place-items: center; /* 水平和垂直居中 */
+        height: 100vh; /* 使父容器占满视口高度 */
     }
 
     .navigation li {
