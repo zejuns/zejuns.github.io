@@ -1,0 +1,196 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.300 --> 00:00:03.500
+This is a library management system I made.
+
+00:00:03.500 --> 00:00:05.700
+This project is based on Django and Mysql.
+
+00:00:05.700 --> 00:00:07.866
+The front-end uses the Bootstrap framework
+
+00:00:08.300 --> 00:00:10.066
+Navicat is used for database management.
+
+00:00:10.666 --> 00:00:12.733
+This project implements the login function of two identities,
+
+00:00:12.733 --> 00:00:15.966
+reader identity and administrator identity.
+
+00:00:16.666 --> 00:00:17.366
+We first
+
+00:00:17.366 --> 00:00:17.900
+log in
+
+00:00:17.900 --> 00:00:20.433
+with the reader identity to this book management system
+
+00:00:21.533 --> 00:00:22.666
+we entered Navicat
+
+00:00:22.666 --> 00:00:25.900
+and copied a reader id
+
+00:00:26.266 --> 00:00:27.866
+reader card,
+
+00:00:29.866 --> 00:00:31.300
+then entered the password
+
+00:00:32.066 --> 00:00:33.666
+and clicked reader login
+
+00:00:33.733 --> 00:00:35.900
+to log in to this management system as a reader.
+
+00:00:36.133 --> 00:00:38.466
+This management system is mainly designed with two functions:
+
+00:00:38.500 --> 00:00:41.300
+book query and borrowing books.
+
+00:00:41.300 --> 00:00:43.133
+We can Enter the book number,
+
+00:00:43.133 --> 00:00:46.466
+book title, author, and publisher to search for books.
+
+00:00:46.466 --> 00:00:49.233
+For example, if we search for Shanghai Translation Publishing House
+
+00:00:52.500 --> 00:00:53.500
+and click Search,
+
+00:00:53.866 --> 00:00:56.166
+we can query two books from
+
+00:00:56.166 --> 00:00:57.433
+Shanghai Translation Publishing House.
+
+00:00:59.000 --> 00:01:01.400
+We copy the book number of the book Midnight Terror
+
+00:01:01.400 --> 00:01:03.266
+and click to borrow or return the book
+
+00:01:06.466 --> 00:01:08.266
+Enter the book number we just copied
+
+00:01:08.333 --> 00:01:11.600
+and enter the borrowing period and estimated return period.
+
+00:01:11.600 --> 00:01:14.133
+Click on the borrowed book and the borrowing will be successful.
+
+00:01:14.133 --> 00:01:16.733
+We return to the main page of the borrowed book
+
+00:01:16.733 --> 00:01:19.800
+and you can see that the book Midnight Terror has been
+
+00:01:19.933 --> 00:01:22.033
+successfully borrowed.
+
+00:01:25.500 --> 00:01:26.833
+Click on the returned book
+
+00:01:27.566 --> 00:01:30.066
+and the same operation
+
+00:01:32.266 --> 00:01:34.200
+We can see that book just now
+
+00:01:34.200 --> 00:01:36.000
+has been returned.
+
+00:01:36.900 --> 00:01:40.566
+We use the administrator account to log in.
+
+00:01:45.933 --> 00:01:47.366
+We can see that the administrator account
+
+00:01:47.366 --> 00:01:48.900
+has two more functions.
+
+00:01:48.900 --> 00:01:50.933
+One is book storage
+
+00:01:50.933 --> 00:01:52.700
+and the second is library card management.
+
+00:01:53.000 --> 00:01:55.100
+First, click on the book storage
+
+00:01:55.500 --> 00:01:56.833
+input Book number,
+
+00:01:58.166 --> 00:01:59.000
+category,
+
+00:01:59.900 --> 00:02:00.833
+book title,
+
+00:02:02.366 --> 00:02:04.433
+publisher, author,
+
+00:02:04.466 --> 00:02:06.800
+year, price,
+
+00:02:07.166 --> 00:02:11.066
+quantity, click on the book to be stored and it will be successfully stored
+
+00:02:11.400 --> 00:02:15.700
+When we query the book just now in the book query,
+
+00:02:17.933 --> 00:02:18.733
+we can see
+
+00:02:18.733 --> 00:02:21.800
+that Sadako's book has been successfully added to the library. 
+
+00:02:22.700 --> 00:02:24.666
+Then click to borrow and return books.
+
+00:02:25.666 --> 00:02:27.366
+Because you are logged in with an administrator account,
+
+00:02:27.366 --> 00:02:29.366
+So when borrowing and returning books,
+
+00:02:29.366 --> 00:02:31.633
+We need to enter the library card number.
+
+00:02:35.100 --> 00:02:36.266
+Click to search
+
+00:02:37.300 --> 00:02:39.800
+You can see all the books
+
+00:02:39.800 --> 00:02:42.066
+ borrowed under this library card number.
+
+00:02:42.266 --> 00:02:43.666
+Click on library card management
+
+00:02:43.666 --> 00:02:46.400
+We can delete the library card
+
+00:02:46.400 --> 00:02:48.033
+or create a new one.
+
+00:02:49.200 --> 00:02:50.200
+Enter the card number,
+
+00:02:50.200 --> 00:02:53.100
+name, department, password and category
+
+00:02:53.366 --> 00:02:54.866
+, then click Create
+
+00:02:55.366 --> 00:02:58.966
+to create a new library card.
+
