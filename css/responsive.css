@@ -11,6 +11,10 @@
     .testimonials p {
         font-size: 12px
     }
+
+    .services img {
+        height: 250px;
+    }
 }
 
 @media screen and (max-width:768px) {
