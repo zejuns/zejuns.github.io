@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const gitalk = new Gitalk({
         clientID: '2658e1c2a15202f4ea1a',
         clientSecret: 'efe03ae68db5b4aef7fa72a3aa7bbf249a143383',
-        repo: 'zejun-gitalk',
+        repo: 'zejuns.github.io',
         owner: 'zejuns',
         admin: ['zejuns'],
         id: location.pathname,
