@@ -1,5 +1,5 @@
 * {
-    font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .image-zoom {
@@ -696,7 +696,7 @@ ul li {
 
     .content-3-10 .content {
         margin-top: 0;
-        padding: 80px 15px 80px 80px;
+        padding: 80px 30px 80px 70px;
         background: #fff
     }
 }
