@@ -1,107 +1,116 @@
-document.addEventListener('DOMContentLoaded', function() {
+// 初始化导航菜单功能
+function initNavigation() {
     var navigationLinks = document.querySelectorAll('.navigation a');
     var dropdownMenus = document.querySelectorAll('.dropdown-menu');
     var timeoutId;
 
-    function showDropdown(index) {
+    function handleMouseOverLink(link, dropdownMenus) {
+        clearTimeout(timeoutId); // 清除之前的延迟隐藏计时器
+
+        // 隐藏其他子菜单
+        dropdownMenus.forEach(function(menu) {
+            menu.style.display = 'none';
+        });
+
         // 显示当前主菜单对应的子菜单
-        var subMenu = navigationLinks[index].nextElementSibling;
+        var subMenu = link.nextElementSibling;
         if (subMenu) {
             subMenu.style.display = 'block';
         }
     }
 
-    function hideDropdown() {
-        dropdownMenus.forEach(function(menu) {
-            menu.style.display = 'none';
-        });
+    function handleMouseOutLink() {
+        timeoutId = setTimeout(function() {
+            dropdownMenus.forEach(function(menu) {
+                menu.style.display = 'none';
+            });
+        }, 500);
     }
 
-    navigationLinks.forEach(function(link, index) {
-        link.addEventListener('mouseover', function() {
-            if (window.innerWidth > 768) { // 仅在视口宽度大于768px时显示下拉框
-                clearTimeout(timeoutId); // 清除之前的延迟隐藏计时器
-                hideDropdown();
-                showDropdown(index);
-            }
-        });
+    function handleMouseOverMenu(menu) {
+        menu.style.display = 'block';
+    }
 
-        link.addEventListener('mouseout', function() {
-            if (window.innerWidth > 768) { // 仅在视口宽度大于768px时隐藏下拉框
-                timeoutId = setTimeout(hideDropdown, 500);
-            }
-        });
+    function handleMouseOutMenu(menu) {
+        menu.style.display = 'none';
+    }
+
+    navigationLinks.forEach(function(link) {
+        if (window.innerWidth > 768) {
+            link.addEventListener('mouseover', function() {
+                handleMouseOverLink(link, dropdownMenus);
+            });
+
+            link.addEventListener('mouseout', handleMouseOutLink);
+        }
     });
 
     dropdownMenus.forEach(function(menu) {
         menu.addEventListener('mouseover', function() {
-            if (window.innerWidth > 768) { // 仅在视口宽度大于768px时显示下拉框
-                menu.style.display = 'block';
-            }
+            handleMouseOverMenu(menu);
         });
 
         menu.addEventListener('mouseout', function() {
-            if (window.innerWidth > 768) { // 仅在视口宽度大于768px时隐藏下拉框
-                menu.style.display = 'none';
-            }
+            handleMouseOutMenu(menu);
         });
     });
+}
 
-    // Gitalk 初始化代码
-    const gitalk = new Gitalk({
-        clientID: '2658e1c2a15202f4ea1a',
-        clientSecret: 'efe03ae68db5b4aef7fa72a3aa7bbf249a143383',
-        repo: 'zejuns.github.io',
-        owner: 'zejuns',
-        admin: ['zejuns'],
-        id: location.pathname,
-        distractionFreeMode: false
+// 初始化页面加载功能
+function initPageLoad() {
+    $('#preloader').fadeOut(0);
+    $('body').css({'overflow':'visible'});
+}
+
+// 初始化移动导航功能
+function initMobileNavigation() {
+    function toggleNav() {
+        $(this).toggleClass('close-nav');
+        $('nav[role="navigation"]').toggleClass('open');
+
+        // 切换全屏菜单时禁止或恢复页面滚动
+        if ($('nav[role="navigation"]').hasClass('open')) {
+            $('.fullscreen-menu').css('display', 'block');
+            $('body').css('overflow', 'hidden');
+        } else {
+            $('.fullscreen-menu').css('display', 'none');
+            $('body').css('overflow', 'auto');
+        }
+        return false;
+    }
+
+    $('.nav-toggle').on('click', toggleNav);
+
+    $('nav[role="navigation"]').find('a').on('click', function() {
+        toggleNav.apply($('.nav-toggle'));
+
+        // 关闭全屏菜单时恢复页面滚动
+        if (!$('nav[role="navigation"]').hasClass('open')) {
+            $('.fullscreen-menu').css('display', 'none');
+            $('body').css('overflow', 'auto');
+        }
     });
-    gitalk.render('gitalk-container');
-});
+}
 
-(function($) {
-    $(window).load(function() {
-        $('.loader-xbox').fadeOut();
-        $('#preloader').fadeOut('slow');
-        $('body').css({'overflow':'visible'});
-
-        // Mobile Navigation
-        $('.nav-toggle').on('click', function() {
-            $(this).toggleClass('close-nav');
-            $('nav[role="navigation"]').toggleClass('open');
-            
-            if ($('nav[role="navigation"]').hasClass('open')) {
-                $('.fullscreen-menu').css('display', 'block');
-                $('body').css('overflow', 'hidden');
-            } else {
-                $('.fullscreen-menu').css('display', 'none');
-                $('body').css('overflow', 'auto');
-            }
-            
-            return false;
-        });
-
-        $('nav[role="navigation"]').find('a').on('click', function() {
-            $('.nav-toggle').toggleClass('close-nav');
-            $('nav[role="navigation"]').toggleClass('open');
-
-            if (!$('nav[role="navigation"]').hasClass('open')) {
-                $('.fullscreen-menu').css('display', 'none');
-                $('body').css('overflow', 'auto');
-            }
-        });
-    });
-})(jQuery);
-
-$(document).ready(function() {
+// 初始化滚动事件监听
+function initHeaderScroll() {
     $(window).on('scroll', function() {
         var scroll = $(window).scrollTop();
-
         if (scroll >= 50) {
             $('#header').addClass('fixed');
         } else {
             $('#header').removeClass('fixed');
         }
     });
+}
+
+// 页面加载后初始化所有功能
+document.addEventListener('DOMContentLoaded', function() {
+    initNavigation();
+    initMobileNavigation();
+    initHeaderScroll();
+});
+
+$(window).on('load', function() {
+    initPageLoad();
 });

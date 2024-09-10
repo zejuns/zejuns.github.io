@@ -49,7 +49,7 @@
           </nav>
           <a href="#" class="nav-toggle">Menu<span></span></a> </div>
       </header>
-    <!-- package section -->
+    </section>
     <section class="video-section" style="padding-bottom: 88;">
       <div class="container"> 
         <div class="row">  
@@ -62,16 +62,14 @@
             <div class="col-md-6">
               <div class="embed-responsive embed-responsive-16by9">
                 <video class="embed-responsive-item" controls playsinline poster="../files/about.webp" style="object-fit: cover;">
-                  <source src="./files/First Practice of Learning Blender.mp4" type="video/mp4">
+                  <source src="./files/about.mp4" type="video/mp4">
                 </video>
               </div>
             </div>      
           </div>
-        </div><!-- end row -->    
+        </div>
       </div>
     </section>
-
-    <!-- Testimonials section -->
     <!-- <section id="testimonials" class="section testimonials no-padding">
       <div class="container-fluid">
         <div class="row no-gutter" style="padding: 100px 0px">
@@ -96,9 +94,6 @@
         </div>
       </div>
     </section> -->
-    <!-- Testimonials section --> 
-    
-    <!-- contact section -->
     <section id="contact" class="contact-section">
       <div class="container">
         <div class="section-header">
@@ -118,7 +113,6 @@
         </div>
       </div>
     </section>
-    <!-- contact section --> 
     <footer class="footer-distributed">
       <div class="footer-contain">
         <div class="footer-left">
@@ -162,11 +156,9 @@
     </script> -->
     <script>
         document.getElementById("submit").addEventListener("click", function(event) {
-        event.preventDefault(); // 阻止表单提交
-        // 获取输入框中的内容
+        event.preventDefault();
         var email = document.getElementById("email").value;
         var comments = document.getElementById("comments").value;     
-        // 发送邮件
         window.open("mailto:hzj020117@outlook.com?subject=" + email + "&body=" + comments);
       });
     </script>
