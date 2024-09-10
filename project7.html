@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <title>Works | Zejun Huang</title>
   </head>
   <body>
+    <div id="preloader">
+      <div class="loader">
+        <div class="loader-dot"></div>
+      </div>
+    </div>
     <section class="banner" role="banner">
       <header id="header" style="background-color: black;">
-        <div class="header-content clearfix"> <a class="logo" href="../index.html">Zejun</a>
+        <div class="header-content clearfix"> <a class="logo" href="index.html">Zejun</a>
           <nav class="navigation" role="navigation">
             <ul class="primary-nav">
-              <li><a href="../index.html">Home</a></li> 
+              <li><a href="index.html">Home</a></li> 
               <li class="dropdown">
-                <a href="../works.html" class="dropdown-toggle">Works <b class="caret"></b></a>
+                <a href="works.html" class="dropdown-toggle">Works <b class="caret"></b></a>
                 <ul class="dropdown-menu agile_short_dropdown">
                   <li><a href="project1.html" class="scroll">Clothing Fabric Redesign</a></li>
                   <li><a href="project3.html" class="scroll">Accessible Vehicle Seat</a></li>
@@ -31,56 +36,47 @@
                   <li><a href="project5.html" class="scroll">Library Management System (Web2)</a></li>
                   <li><a href="project8.html" class="scroll">NFT Marketplace: VoxelTide (Web3)</a></li>
                   <li><a href="https://ai.zejuns.com" class="scroll">Chat with AI Assistant</a></li>
-                  <li><a href="../works.html" class="scroll">All works</a></li>
+                  <li><a href="works.html" class="scroll">All works</a></li>
                 </ul>
               </li>
-              <li><a href="../publications.html">Publications</a></li> 
-              <li><a href="../about.html">About</a></li>
+              <li><a href="publications.html">Publications</a></li> 
+              <li><a href="about.html">About</a></li>
             </ul>
           </nav>
           <a href="#" class="nav-toggle">Menu<span></span></a> </div>
       </header>
     </section>
     <!-- package section -->
-    <section class="video-section">
+    <section class="video-section" style="padding-bottom: 50px;">
       <div class="container"> 
         <div class="row">
-          <div id="content24" data-section="content-24" class="data-section"> 
-            <div class="col-md-6">
-              <h3 class="eidtContent">Yunxian Brand Design</a></h3>
-              <p class="eidtContent">In the Product Derivative Design course, under the guidance of Professor Yang Jing, we undertook a branding project for Xiao Mangtu Village, located in Yun County, Lincang City, Yunnan Province. As part of this project, we created a village brand identity and designed packaging for a local rice noodle brand.</p>
-              <p class="eidtContent">Teamwork<br>I was primarily responsible for preliminary research, rendering, and scene generation.</p>
-              <div style="margin-bottom: 50px;">
-                <a href="../files/project10/project10_1.pdf" class="specialbutton btn btn-outline btn-outline outline-dark" style="margin-bottom: 20px; margin-right: 20px;" target="_blank">Village Brand</a>
-                <a href="../files/project10/project10_2.pdf" class="specialbutton btn btn-outline btn-outline outline-dark" style="margin-bottom: 20px; margin-right: 20px;" target="_blank">Rice Noodles Brand</a>
-                <a href="../files/project10/project10_3.pdf" class="specialbutton btn btn-outline btn-outline outline-dark" style="margin-bottom: 20px;" target="_blank">Honorary Villager Certificate</a>
+            <div id="content24" data-section="content-24" class="data-section"> 
+              <div class="col-md-6">
+                <h3 class="eidtContent">Secetar (Secure Ice Tartar)</h3>
+                <p class="eidtContent">Secetar is designed to test the alcohol level of alcoholic drink and whether it contains date rape drugs, aiming to make sure that alcoholic drink is safe for people, especially women. The surface of it could reflect different colors of light depending on the alcohol level. It will sound an audible alarm when date rape drugs are detected.</p>
+                <p class="eidtContent" style="margin-bottom: 0px;">Teamwork<br>I was responsible for product scene construction, material design and rendering.</p>
+                <p class="eidtContent" style="margin-bottom: 0px;"><a href="https://www.productdesignaward.eu/winners/epda/2023/11380/" class="scroll" target="_blank">Winner in Beverage and Food/Catering Supplies, EPDA</a></p>
+                <p class="eidtContent"><a href="http://dzzs.cnyisai.com/fzs_show.aspx?id=276598" class="scroll" target="_blank">Bronze Final Level, G-CROSS Award</a></p>
+                <a href="files/project7.pdf" class="btn btn-outline btn-outline outline-dark" target="_blank">Design Details</a>
               </div>
             </div>
             <div class="col-md-6">
-              <a data-fancybox data-src="../files/works/project10.webp" data-caption="">
-                <img src="../files/works/project10.webp" class="image-zoom" style="width: 100%;"></img>
+              <a data-fancybox data-src="files/works/project7.webp" data-caption="">
+                <img src="files/works/project7.webp" class="image-zoom" style="width: 100%;"></img>
               </a>
-            </div>   
+            </div> 
           </div>
-        </div>
-        <div id="gitalk-container"></div>
+        </div><!-- end row -->
       </div>
     </section>
-    <!-- <section id="gallery" class="gallery section" style="margin: 0px; padding: 0px 0px 88px;">
+    <!-- <section id="gallery" class="gallery section" style="margin: 0px; padding: 0px 0px 50px;">
       <div class="container">
         <div class="section-header" style="padding-bottom: 50px;">
-          <h3 class="wow fadeInDown animated" style="margin: 0px;">Village Brand Design</h3>
+          <h3 class="wow fadeInDown animated" style="margin: 0px;">Design Details</h3>
         </div>
         <div class="row no-gutter" style="padding-bottom: 50px;">
-          <iframe src="https://drive.google.com/file/d/1mVMwqPJiYFqLF_nkWGjPR_nhwVf52EO7/preview" width="100%" height="480" allow="autoplay"></iframe>
+          <iframe src="https://drive.google.com/file/d/1dJISoYszyoIsl52vktRj-imkTfAuwaku/preview" width="100%" height="720" allow="autoplay"></iframe>
         </div>
-        <div class="section-header" style="padding-bottom: 50px;">
-          <h3 class="wow fadeInDown animated" style="margin: 0px;">Rice Noodles Brand</h3>
-        </div>
-        <div class="row no-gutter">
-          <iframe src="https://drive.google.com/file/d/1x5SoZVTcckSgzYP9uPZZ_MiRB-CEH08U/preview" width="100%" height="480" allow="autoplay"></iframe>
-        </div>
-        <div id="gitalk-container"></div>
       </div>
     </section> -->
     <footer class="footer-distributed">
@@ -113,7 +109,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <script src="../js/main.js"></script> 
+    <script src="js/main.js"></script> 
     <script type="text/javascript">
       Fancybox.bind("[data-fancybox]", {});  
     </script>
