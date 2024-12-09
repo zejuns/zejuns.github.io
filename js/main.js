@@ -106,9 +106,6 @@ function initHeaderScroll() {
 
 // 页面加载后初始化所有功能
 document.addEventListener('DOMContentLoaded', function() {
-    initNavigation();
-    initMobileNavigation();
-    initHeaderScroll();
     // Gitalk 初始化代码
     const gitalk = new Gitalk({
         clientID: '2658e1c2a15202f4ea1a',
@@ -120,6 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
         distractionFreeMode: false
     });
     gitalk.render('gitalk-container');
+    initNavigation();
+    initMobileNavigation();
+    initHeaderScroll();
 });
 
 $(window).on('load', function() {
