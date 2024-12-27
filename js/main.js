@@ -104,13 +104,9 @@ function initHeaderScroll() {
     });
 }
 
-// 页面加载后初始化所有功能
-document.addEventListener('DOMContentLoaded', function() {
-    initNavigation();
-    initMobileNavigation();
-    initHeaderScroll();
-    // Gitalk 初始化代码
-    const currentPath = location.pathname; // 当前页面路径
+// Gitalk 初始化功能
+function initGitalk() {
+    const currentPath = location.pathname;
     const oldPath = currentPath.replace('/project', '/works/project'); // 替换为旧路径
     const gitalk = new Gitalk({
         clientID: '2658e1c2a15202f4ea1a',
@@ -122,6 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
         distractionFreeMode: false
     });
     gitalk.render('gitalk-container');
+}
+
+// 页面加载后初始化所有功能
+document.addEventListener('DOMContentLoaded', function() {
+    initNavigation();
+    initMobileNavigation();
+    initHeaderScroll();
+    initGitalk();
 });
 
 $(window).on('load', function() {
