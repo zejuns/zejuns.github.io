@@ -109,6 +109,17 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initMobileNavigation();
     initHeaderScroll();
+    // Gitalk 初始化代码
+    const gitalk = new Gitalk({
+        clientID: '2658e1c2a15202f4ea1a',
+        clientSecret: 'efe03ae68db5b4aef7fa72a3aa7bbf249a143383',
+        repo: 'zejuns.github.io',
+        owner: 'zejuns',
+        admin: ['zejuns'],
+        id: location.pathname,
+        distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
 });
 
 $(window).on('load', function() {
