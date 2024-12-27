@@ -110,13 +110,15 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileNavigation();
     initHeaderScroll();
     // Gitalk 初始化代码
+    const currentPath = location.pathname; // 当前页面路径
+    const oldPath = currentPath.replace('/project', '/works/project'); // 替换为旧路径
     const gitalk = new Gitalk({
         clientID: '2658e1c2a15202f4ea1a',
         clientSecret: 'efe03ae68db5b4aef7fa72a3aa7bbf249a143383',
         repo: 'zejuns.github.io',
         owner: 'zejuns',
         admin: ['zejuns'],
-        id: location.pathname,
+        id: oldPath, // 动态生成的旧 ID
         distractionFreeMode: false
     });
     gitalk.render('gitalk-container');
