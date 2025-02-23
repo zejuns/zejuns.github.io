@@ -44,14 +44,6 @@
     color: #fff;
 }
 
-.gt-header-textarea .gt-comment-content {
-    background-color: #323232;
-}
-
-.gt-container .gt-header-textarea .gt-comment-admin .gt-comment-content:hover {
-    background-color: #323232;
-}
-
 #preloader {
     position: fixed;
     top: 0;
