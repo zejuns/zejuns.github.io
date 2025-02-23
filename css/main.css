@@ -44,6 +44,10 @@
     color: #fff;
 }
 
+.gt-container .gt-header-textarea {
+    background-color: transparent; /* 去掉背景颜色 */
+}
+
 #preloader {
     position: fixed;
     top: 0;
