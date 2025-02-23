@@ -10,11 +10,11 @@
     padding-top: 50px;
 }
 
-.gt-container .gt-header-textarea .gt-comment-content {
+.gt-container .gt-header-textarea .gt-comment-admin .gt-comment-content {
     background-color: #323232;
 }
 
-.gt-container .gt-header-textarea:hover {
+.gt-container .gt-header-textarea .gt-comment-admin .gt-comment-content:hover {
     background-color: #323232;
 }
 
