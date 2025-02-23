@@ -10,6 +10,14 @@
     padding-top: 50px;
 }
 
+.gt-container .gt-header-textarea .gt-comment-content {
+    background-color: #323232;
+}
+
+.gt-container .gt-header-textarea:hover {
+    background-color: #323232;
+}
+
 .gt-container .gt-btn {
     border-radius: 0px;
     border: 1px solid #323232;
@@ -498,7 +506,7 @@ ul li {
 
 .section-header {
     text-align: center;
-    padding-bottom: 30px
+    padding-bottom: 40px
 }
 
 .service-section {
