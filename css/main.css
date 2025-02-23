@@ -44,15 +44,14 @@
     color: #fff;
 }
 
-.gt-container .gt-header-textarea {
-    background-color: #323232 !important; /* 去掉背景颜色 */
-}
-.gt-container .gt-header-textarea:hover {
+/* 针对 .gt-header-textarea 的背景颜色 */
+.gt-container .gt-header-textarea,
+.gt-container .gt-header-textarea:hover,
+.gt-container .gt-comment-content,
+.gt-container .gt-comment-admin .gt-comment-content {
     background-color: #323232 !important;
 }
-.gt-container .gt-comment-content {
-    background-color: #323232 !important;
-  }
+
 #preloader {
     position: fixed;
     top: 0;
