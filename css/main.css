@@ -45,11 +45,14 @@
 }
 
 .gt-container .gt-header-textarea {
-    background-color: transparent; /* 去掉背景颜色 */
+    background-color: #323232; /* 去掉背景颜色 */
 }
 .gt-container .gt-header-textarea:hover {
-    background-color: #fbfbfb;
+    background-color: #323232;
 }
+.gt-container .gt-comment-content {
+    background-color: #323232;
+  }
 #preloader {
     position: fixed;
     top: 0;
