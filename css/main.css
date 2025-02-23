@@ -53,8 +53,8 @@
 }
 
 .gt-container .gt-comment-content:hover {
-    -webkit-box-shadow: 0 0.625em 3.75em 0 #323232 !important;
-            box-shadow: 0 0.625em 3.75em 0 #323232 !important;
+    -webkit-box-shadow: 0 0.625em 3.75em 0 #000 !important;
+            box-shadow: 0 0.625em 3.75em 0 #000 !important;
   }
 
 #preloader {
