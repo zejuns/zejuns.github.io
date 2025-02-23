@@ -47,7 +47,9 @@
 .gt-container .gt-header-textarea {
     background-color: transparent; /* 去掉背景颜色 */
 }
-
+.gt-container .gt-header-textarea:hover {
+    background-color: #fbfbfb;
+}
 #preloader {
     position: fixed;
     top: 0;
