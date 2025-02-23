@@ -10,6 +10,10 @@
     padding-top: 50px;
 }
 
+.gt-container .gt-meta {
+    border-bottom: none;
+}
+
 .gt-container .gt-btn {
     border-radius: 0px;
     border: 1px solid #323232;
