@@ -118,9 +118,3 @@ document.addEventListener('DOMContentLoaded', function() {
     initHeaderScroll();
     initGitalk();
 });
-
-// 等待页面完全加载后隐藏 preloader
-window.addEventListener('load', function() {
-    // 隐藏 preloader
-    document.getElementById('preloader').style.display = 'none';
-  });
