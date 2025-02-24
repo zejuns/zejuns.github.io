@@ -62,13 +62,11 @@ function initMobileNavigation() {
         $(this).toggleClass('close-nav');
         $('nav[role="navigation"]').toggleClass('open');
 
-        // 切换全屏菜单时禁止或恢复页面滚动
+        // 切换全屏菜单时直接显示/隐藏菜单，不改变页面滚动
         if ($('nav[role="navigation"]').hasClass('open')) {
             $('.fullscreen-menu').css('display', 'block');
-            $('body').css('overflow', 'hidden');
         } else {
             $('.fullscreen-menu').css('display', 'none');
-            $('body').css('overflow', 'auto');
         }
         return false;
     }
@@ -78,10 +76,9 @@ function initMobileNavigation() {
     $('nav[role="navigation"]').find('a').on('click', function() {
         toggleNav.apply($('.nav-toggle'));
 
-        // 关闭全屏菜单时恢复页面滚动
+        // 关闭全屏菜单时直接隐藏菜单，不改变页面滚动
         if (!$('nav[role="navigation"]').hasClass('open')) {
             $('.fullscreen-menu').css('display', 'none');
-            $('body').css('overflow', 'auto');
         }
     });
 }

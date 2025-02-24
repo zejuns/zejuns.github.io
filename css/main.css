@@ -71,19 +71,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeInBackground 1s forwards; /* 背景逐渐清晰动画 */
+    animation: fadeInBackground 2s forwards; /* 背景逐渐清晰动画 */
   }
   
   /* 渐变清晰效果 */
   @keyframes fadeInBackground {
     0% {
       backdrop-filter: saturate(100%) blur(10px); /* 开始时背景非常模糊 */
-      z-index: 99999999;
+      z-index: 1000;
     }
     100% {
       backdrop-filter: saturate(100%) blur(0px); /* 最终背景不再模糊 */
       opacity: 0;
-      z-index: -1000000;
+      z-index: -1000;
     }
   }
 
