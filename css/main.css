@@ -654,15 +654,12 @@ ul li {
 }
 
 .content-3-10 .image-container .background-image-holder {
-    background: url(../files/home/IMG_1254.webp) no-repeat center center, 
-                url(../files/home/IMG_1255.webp) no-repeat center center;
-    background-size: cover;
+    background: url(../files/home/IMG_1254.webp) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     height: 100%;
-    background-position: center center, calc(50% + 5px) center;
     transition: transform 0.3s ease-out; /* 添加动画效果 */
   }
   
