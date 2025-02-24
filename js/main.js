@@ -129,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileNavigation();
     initHeaderScroll();
     initGitalk();
-    initPageLoad();
 });
 
 window.addEventListener('load', function() {
