@@ -79,12 +79,10 @@
     0% {
       backdrop-filter: saturate(100%) blur(10px); /* 开始时背景非常模糊 */
       z-index: 99999999;
-      opacity: 1;
     }
     100% {
       backdrop-filter: saturate(100%) blur(0px); /* 最终背景不再模糊 */
       z-index: -1000000;
-      opacity: 0; /* 隐藏加载层 */
     }
   }
 
