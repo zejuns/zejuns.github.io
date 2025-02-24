@@ -82,6 +82,7 @@
     }
     100% {
       backdrop-filter: saturate(100%) blur(0px); /* 最终背景不再模糊 */
+      opacity: 0;
       z-index: -1000000;
     }
   }
