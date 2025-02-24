@@ -620,13 +620,13 @@ ul li {
 }
 
 .video-section {
-    padding: 88px 0 88px;
+    padding: 88px 0 50px;
     margin-top: 110px
 }
 
 .gallery {
     padding-top: 30px;
-    margin: 110px 0 88px
+    margin: 110px 0 50px
 }
 
 .gallery .row {
