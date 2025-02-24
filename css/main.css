@@ -68,12 +68,11 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.3); /* 背景颜色 */
-
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 1; /* 初始完全可见 */
-    animation: fadeInBackground 3s forwards; /* 背景逐渐清晰动画 */
+    animation: fadeInBackground 1s forwards; /* 背景逐渐清晰动画 */
   }
   
   /* 渐变清晰效果 */
