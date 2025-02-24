@@ -61,41 +61,33 @@
             box-shadow: 0 0.625em 3.75em 0 #000 !important;
   }
 
-:root {
-  --loader-bg-color: rgba(0, 0, 0, 0.3);
-  --loader-blur-start: 10px;
-  --loader-blur-end: 0px;
-}
-
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--loader-bg-color);
-  backdrop-filter: saturate(100%) blur(var(--loader-blur-start));
-  z-index: 99999999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  transition: backdrop-filter 3s ease, opacity 3s ease;
-}
-
-#preloader.hidden {
-  backdrop-filter: saturate(100%) blur(var(--loader-blur-end));
-  z-index: -100;
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
   #preloader {
-    transition: none;
-    backdrop-filter: none;
-    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* 背景颜色 */
+    backdrop-filter: saturate(100%) blur(10px); /* 初始模糊效果 */
+    z-index: 99999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1; /* 初始完全可见 */
+    animation: fadeInBackground 3s forwards; /* 背景逐渐清晰动画 */
   }
-}
+  
+  /* 渐变清晰效果 */
+  @keyframes fadeInBackground {
+    0% {
+      backdrop-filter: saturate(100%) blur(10px); /* 开始时背景非常模糊 */
+      opacity: 1;
+    }
+    100% {
+      backdrop-filter: saturate(100%) blur(0px); /* 最终背景不再模糊 */
+      opacity: 0; /* 隐藏加载层 */
+    }
+  }
 
 a {
     color: #6190e8;
