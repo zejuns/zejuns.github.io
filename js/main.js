@@ -131,3 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initGitalk();
     initPageLoad();
 });
+
+window.addEventListener('load', function() {
+    initPageLoad();
+});
