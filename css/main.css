@@ -85,6 +85,7 @@
 
 #preloader.hidden {
   backdrop-filter: saturate(100%) blur(var(--loader-blur-end));
+  z-index: -100;
   opacity: 0;
 }
 
