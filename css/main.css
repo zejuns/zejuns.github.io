@@ -72,7 +72,8 @@
     align-items: center;
     justify-content: center;
     animation: fadeInBackground 2s forwards; /* 背景逐渐清晰动画 */
-  }
+    z-index: 1000; /* 确保 preloader 在其他元素之上 */
+}
   
   /* 渐变清晰效果 */
   @keyframes fadeInBackground {
