@@ -56,12 +56,6 @@ function initNavigation() {
     });
 }
 
-// 初始化页面加载功能
-function initPageLoad() {
-    $('#preloader').fadeOut(0);
-    $('body').css({'overflow':'visible'});
-}
-
 // 初始化移动导航功能
 function initMobileNavigation() {
     function toggleNav() {
@@ -126,8 +120,4 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileNavigation();
     initHeaderScroll();
     initGitalk();
-});
-
-window.addEventListener('load', function() {
-    initPageLoad();
 });
