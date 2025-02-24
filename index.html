@@ -18,11 +18,8 @@
     </style>
   </head>
   <body>
-    <!-- <div id="preloader">
-      <div class="loader">
-        <div class="loader-dot"></div>
-      </div>
-    </div> -->
+    <div id="preloader">
+    </div>
     <section class="banner" role="banner">
       <header id="header">
         <div class="header-content clearfix"> <a class="logo" href="index.html">Zejun</a>
@@ -55,10 +52,16 @@
       <div class="f-carousel__slide"><img src="./files/home/1.webp" alt="" style="width: 100%;"></div>
       <div class="f-carousel__slide"><img src="./files/home/4.webp" alt="" style="width: 100%;"></div>
     </div> -->
-    <video class="video-background" style="width: 100%;" autoplay muted loop>
-      <source src="./files/home/0224.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div style="position: relative;">
+      <video class="video-background" style="width: 100%; object-fit: cover;" autoplay muted loop>
+        <source src="./files/home/0224.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div style="position: absolute; bottom: 0px; right: 0px; color: white; font-size: 10px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
+        Created by AI
+      </div>
+    </div>
+
     <section id="content-3-10" class="content-block data-section nopad content-3-10">
       <div class="image-container col-sm-4 col-xs-12 pull-left">
         <div class="background-image-holder"></div>
@@ -109,7 +112,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script> -->
     <script src="js/main.js"></script>
-    <script>
+    <!-- <script>
       new Carousel(document.getElementById("myCarousel"), {
         Dots: false,
         transition: "crossfade",
@@ -119,6 +122,6 @@
       }, {
         Autoplay
       });
-    </script>
+    </script> -->
   </body>
 </html>
