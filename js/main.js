@@ -58,9 +58,12 @@ function initNavigation() {
 
 // 初始化页面加载功能
 function initPageLoad() {
-    $('#preloader').fadeOut(0);
-    $('body').css({'overflow':'visible'});
-}
+    const preloader = document.getElementById('preloader');
+    // 添加 'hidden' 类来触发过渡效果
+    preloader.classList.add('hidden');
+    // 解锁页面滚动
+    document.body.style.overflow = 'visible';
+  }
 
 // 初始化移动导航功能
 function initMobileNavigation() {
@@ -128,6 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initGitalk();
 });
 
-$(window).on('load', function() {
+window.addEventListener('load', function() {
     initPageLoad();
 });
