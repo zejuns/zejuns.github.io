@@ -71,7 +71,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeInBackground 2s forwards; /* 背景逐渐清晰动画 */
+    animation: fadeInBackground 1.5s forwards; /* 背景逐渐清晰动画 */
   }
   
   /* 渐变清晰效果 */
