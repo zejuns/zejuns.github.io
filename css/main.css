@@ -184,7 +184,7 @@ ul li {
 }
 
 .no-gutter [class*=col-] {
-    padding: 20px;
+    padding: 10px;
 }
 
 #header {
