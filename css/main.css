@@ -10,7 +10,7 @@
 
 .fancybox__content {
     padding: 0 !important;
-    height: unset !important;  /* 强制设置高度 */
+    height: 90% !important;  /* 强制设置高度 */
 }
 
 .image-zoom {
