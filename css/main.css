@@ -12,6 +12,10 @@
     padding: 0 !important;
 }
 
+.fancybox__content iframe {
+    height: 90vh !important;  /* 强制设置高度 */
+}
+
 .image-zoom {
     cursor: pointer;
 }

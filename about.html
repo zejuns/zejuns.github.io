@@ -57,7 +57,7 @@
               <h3 class="eidtContent" style="margin-top: 0;">About</h3>
               <p class="eidtContent">Zejun Huang combines arts and technology, excelling in modeling, rendering, and animation. He has won design awards such as the EPDA Winner, G-CROSS Bronze Award, and was shortlisted for the Red Dot Design Award, along with holding multiple Chinese patents. With a dual degree in Computer Science and Technology, he is skilled in programming. The MAT program at UCSB aligns perfectly with his diverse background.</p>    
               <!-- Fancybox Link -->
-              <a href="./files/CV_zejun_huang.pdf" class="btn" data-fancybox="pdf" data-type="iframe">
+              <a href="./files/CV_zejun_huang.pdf" class="btn" data-fancybox data-type="iframe">
                 Curriculum Vitae
               </a>
             </div>
@@ -151,6 +151,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script>
     <script src="js/main.js"></script>
     <script> 
+      Fancybox.bind("[data-fancybox]", {});  
       new Carousel(document.getElementById("myCarousel"), {
         transition: "crossfade",
         Autoplay: {
@@ -158,17 +159,6 @@
         }
       }, {
         Autoplay
-      });
-    </script>
-    <script>
-      // Fancybox 配置，确保 iframe 支持滚动
-      Fancybox.bind("[data-fancybox='pdf']", {
-        iframe: {
-          css: {
-            height: '90vh',  // 使用视口的 90% 作为高度
-            overflow: 'auto' // 启用滚动
-          }
-        }
       });
     </script>
     <!-- <script>
