@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -54,12 +55,15 @@
           <div id="content24" data-section="content-24" class="data-section"> 
             <div class="col-md-6">
               <h3 class="eidtContent" style="margin-top: 0;">About</h3>
-              <p class="eidtContent">Zejun Huang combines arts and technology, excelling in modeling, rendering, and animation. He has won design awards such as the EPDA Winner, G-CROSS Bronze Award, and was shortlisted for the Red Dot Design Award, along with holding multiple Chinese patents. With a dual degree in Computer Science and Technology, he is skilled in programming. The MAT program at UCSB aligns perfectly with his diverse background.</p>
-              <a href="./files/CV_zejun_huang.pdf" class="btn btn-outline btn-outline outline-dark" target="_blank">Curriculum Vitae</a>
+              <p class="eidtContent">Zejun Huang combines arts and technology, excelling in modeling, rendering, and animation. He has won design awards such as the EPDA Winner, G-CROSS Bronze Award, and was shortlisted for the Red Dot Design Award, along with holding multiple Chinese patents. With a dual degree in Computer Science and Technology, he is skilled in programming. The MAT program at UCSB aligns perfectly with his diverse background.</p>    
+              <!-- Fancybox Link -->
+              <a href="./files/CV_zejun_huang.pdf" class="btn" data-fancybox data-type="iframe">
+                Curriculum Vitae
+              </a>
             </div>
             <div class="col-md-6">
               <div class="embed-responsive embed-responsive-16by9" style="position: relative;">
-                <video class="embed-responsive-item" autoplay muted loop playsinline poster="../files/about.webp" style="object-fit: cover;">
+                <video class="embed-responsive-item" autoplay muted loop playsinline style="object-fit: cover;">
                   <source src="./files/about.mp4" type="video/mp4">
                 </video>
                 <div style="position: absolute; bottom: 0px; right: 0px; color: white; font-size: 10px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
@@ -81,15 +85,15 @@
                 </div>
                 <div class="f-carousel__slide">
                     <h1 style="padding: 0px 15%; text-align: center;">"As an undergraduate student, he exhibits mature and disciplined qualities, laying a solid foundation for his future development." </h1>
-                    <p>Kristean velnly</p>
+                    <p>Xiangdong Huang</p>
                 </div>
                 <div class="f-carousel__slide">
                     <h1 style="padding: 0px 15%; text-align: center;">"His interest in human-computer interaction and media arts gives him unique insights and innovative thinking in this field." </h1>
-                    <p>Markus Denny</p>
+                    <p>Yunuo Feng</p>
                 </div>
                 <div class="f-carousel__slide">
                     <h1 style="padding: 0px 15%; text-align: center;">"Pursuing a dual degree in product design and computer science technology at South China University of Technology, he has shown exceptional learning capabilities and a diligent work ethic." </h1>
-                    <p>John Doe</p>
+                    <p>Junming Li</p>
                 </div>
           </div>
         </div>
@@ -142,10 +146,12 @@
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script>
     <script src="js/main.js"></script>
     <script> 
+      Fancybox.bind("[data-fancybox]", {});  
       new Carousel(document.getElementById("myCarousel"), {
         transition: "crossfade",
         Autoplay: {
@@ -155,13 +161,13 @@
         Autoplay
       });
     </script>
-    <script>
+    <!-- <script>
         document.getElementById("submit").addEventListener("click", function(event) {
         event.preventDefault();
         var email = document.getElementById("email").value;
         var comments = document.getElementById("comments").value;     
         window.open("mailto:hzj020117@outlook.com?subject=" + email + "&body=" + comments);
       });
-    </script>
+    </script> -->
   </body>
 </html>

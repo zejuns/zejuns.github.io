@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -110,7 +111,7 @@
           </div>
           <div class="col-md-4 col-sm-6 work">
             <div class="workbox">
-              <a rel="gallery" href="./files/project2.pdf" class="work-box" title="" target="_blank">
+              <a rel="gallery" href="./files/project2.pdf" data-fancybox data-type="iframe" class="work-box" title="" target="_blank">
                 <img src="./files/works/project2.webp"></img>
                 <div class="overlay">
                   <div class="overlay-caption">
@@ -227,6 +228,10 @@
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="js/main.js"></script> 
+    <script>
+      Fancybox.bind("[data-fancybox]", {});  
+    </script>
   </body>
 </html>

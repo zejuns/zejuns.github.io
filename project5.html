@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -51,7 +52,7 @@
                 <h3 class="eidtContent">Library Management System</h3>
                 <p class="eidtContent">The project is developed in Visual Studio Code, using Python 3.9 as the programming language, with MySQL as the database managed and modified using Navicat Premium.</p>
                 <p class="eidtContent">Bootstrap, with a dependency on jQuery, serves as the front-end framework for page creation. The Django ORM functionality is employed for object-oriented operations to manipulate data in the database.</p>
-                <a href="files/Library management system.pdf" class="btn btn-outline btn-outline outline-dark" style="margin-right: 20px;" target="_blank">Document</a>
+                <a href="files/Library management system.pdf" data-fancybox data-type="iframe" class="btn btn-outline btn-outline outline-dark" style="margin-right: 20px;" target="_blank">Document</a>
                 <a href="https://github.com/zejuns/Library-Management-System.git" class="btn btn-outline btn-outline outline-dark" target="_blank">Github</a>
               </div>
             </div>
@@ -97,7 +98,11 @@
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      Fancybox.bind("[data-fancybox]", {});  
+    </script>
   </body>
 </html>
