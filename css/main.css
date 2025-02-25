@@ -11,7 +11,7 @@
 .fancybox__content {
     /* Optional: Remove any padding or margin inside content */
     padding: 0 !important;
-    height: 90%;
+    height: unset;
 }
 
 .image-zoom {
