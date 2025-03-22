@@ -1022,3 +1022,52 @@ h5 {
     left: 50%;
     transform: translate(-50%, -50%)
 }
+
+.project8_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.box {
+    border: 2px solid white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    min-width: 240px;
+    text-align: center;
+}
+
+.box h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.box ul {
+    list-style: none;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.box ul li {
+    color: white;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.arrow {
+    font-size: 24px;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .project8_container {
+    flex-direction: column;
+    }
+
+    .arrow {
+    transform: rotate(90deg);
+    }
+}
