@@ -125,26 +125,45 @@
         </div>
       </div>
     </section>
-    <section class="video-section" style="padding: 50px 0px; margin-top: 0px;">
+    <section class="video-section" style="margin-top: 0;">
       <div class="container"> 
         <div class="row">
-            <div id="content24" data-section="content-24" class="data-section"> 
-              <div class="col-md-6">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <a data-fancybox="gallery" data-src="files/project8/无标题2.png" data-caption="">
-                    <img src="files/project8/无标题2.png" class="image-zoom" style="width: 100%;"></img>
-                  </a>
-                </div>
-              </div>
+          <div id="content24" data-section="content-24" class="data-section"> 
+            <div class="col-md-5">
+              <p class="eidtContent" style="margin-bottom: 20px;">
+                <strong>Left: Smart Pickup & Storage System</strong><br>
+                Multiple independent compartments with sliding trays.
+                Each tray receives printed items from the right conveyor.
+                A mix of fast pickup and categorized storage for user self-service.
+              </p>
+              <p class="eidtContent" style="margin-bottom: 20px;">
+                <strong>Right: 3D Printing Module (with Control System)</strong><br>
+                Uses FFF (Fused Filament Fabrication) printhead with precise X/Y/Z motion.
+                Touchscreen for model selection, status monitoring, and control.
+                Horizontal conveyor transports finished prints to the storage side.
+              </p>
             </div>
-            <div class="col-md-6">
-              <div class="embed-responsive embed-responsive-16by9">
-                <a data-fancybox="gallery" data-src="files/project8/无标题5.png" data-caption="">
-                  <img src="files/project8/无标题5.png" class="image-zoom" style="width: 100%;"></img>
-                </a>
-              </div>
-            </div> 
           </div>
+          <div class="col-md-7">
+            <div class="embed-responsive embed-responsive-16by9">
+              <a data-fancybox="gallery" data-src="files/project8/无标题2.png" data-caption="">
+                <img src="files/project8/无标题2.png" class="image-zoom" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+              </a>
+              <a data-fancybox="gallery" data-src="files/project8/无标题5.png" data-caption="">
+                <img id="fading-image" src="files/project8/无标题5.png" class="image-zoom" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+              </a>
+            </div>
+          </div> 
+          <script>
+            window.addEventListener("scroll", function() {
+              const image = document.getElementById("fading-image");
+              const rect = image.getBoundingClientRect();
+              const windowHeight = window.innerHeight;
+              const offset = (rect.top - windowHeight * 0.29) / windowHeight;
+              const opacity = Math.max(0, 1 - offset * 8);
+              image.style.opacity = opacity;
+            });
+          </script>
         </div>
       </div>
     </section>
@@ -171,6 +190,11 @@
         <div>
           <a data-fancybox="gallery" data-src="files/project8/project8_4.png" data-caption="">
             <img src="files/project8/project8_4.png" class="image-zoom"></img>
+          </a>
+        </div>
+        <div>
+          <a data-fancybox="gallery" data-src="files/project8/project8_5.png" data-caption="">
+            <img src="files/project8/project8_5.png" class="image-zoom"></img>
           </a>
         </div>
         <div id="gitalk-container"></div>
