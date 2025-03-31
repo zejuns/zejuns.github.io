@@ -206,9 +206,8 @@ ul li {
 
 #header .header-content {
     margin: 0 auto;
-    max-width: 1170px;
     padding: 40px 0;
-    width: 100%;
+    width: 85%;
     -moz-transition: padding .3s;
     -o-transition: padding .3s;
     -webkit-transition: padding .3s;
@@ -223,7 +222,6 @@ ul li {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-left: 50px
 }
 
 #header.fixed {
@@ -274,10 +272,6 @@ ul li {
 .navigation a:hover {
     color: #000;
     background-color: #fff
-}
-
-.navigation li:last-child a {
-    margin-right: 50px
 }
 
 .dropdown-menu a {
@@ -810,7 +804,7 @@ h5 {
     width: 100%;
     text-align: left;
     font: bold 14px sans-serif;
-    padding: 105px 50px;
+    padding: 105px 0px;
     margin: 0;
     display: flex;
     justify-content: center
@@ -939,36 +933,8 @@ h5 {
 
 .footer-contain {
     display: flex;
-    justify-content: center
-}
-
-@media (max-width:1024px) {
-    .footer-contain {
-        display: block;
-        justify-content: center
-    }
-
-    .footer-distributed {
-        font: bold 14px sans-serif;
-        padding: 50px 40px
-    }
-
-    .footer-distributed .footer-left {
-        margin-left: 0
-    }
-
-    .footer-distributed .footer-center,
-    .footer-distributed .footer-left,
-    .footer-distributed .footer-right {
-        display: block;
-        width: 100%;
-        margin-bottom: 40px;
-        text-align: left
-    }
-
-    .footer-distributed .footer-center i {
-        margin-left: 0
-    }
+    justify-content: space-between;
+    width: 85%;
 }
 
 .f-progress {
