@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animated-section {
+        animation: fadeInUp 1s ease forwards;
+      }
+    </style>
 	  <title>Works | Zejun Huang</title>
   </head>
   <body>
@@ -42,7 +57,7 @@
           <a href="#" class="nav-toggle">Menu<span></span></a> </div>
       </header>
     </section>
-    <div id="gallery" class="gallery section">
+    <div id="gallery" class="gallery section" style="margin-bottom: 0px;">
       <div class="container">
         <div class="section-header" style="padding-bottom: 20px;">
           <h3 class="wow fadeInDown animated">Design</h3>
@@ -145,7 +160,7 @@
             </div>
           </div>
           <div class="section-header" style="width:100%; padding: 20px 0px 40px 0px;">
-            <h3 class="wow fadeInDown animated">Computer Technology</h3>
+            <h3 class="wow fadeInDown animated">Computer Science & Technology</h3>
           </div>
           <div class="col-md-4 col-sm-6 work">
             <div class="workbox">
@@ -185,6 +200,18 @@
           </div>
           <div class="col-md-4 col-sm-6 work">
             <div class="workbox">
+              <a rel="gallery" href="project15.html" class="work-box" title="">
+                <img src="./files/works/project15.webp"></img>
+                <div class="overlay">
+                  <div class="overlay-caption">
+                      <p>Taxi Fare Meter</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 work">
+            <div class="workbox">
               <a rel="gallery" href="https://ai.zejuns.com" class="work-box" title="">
                 <img src="./files/works/project13.webp"></img>
                 <div class="overlay">
@@ -196,6 +223,35 @@
             </div>
           </div>
         </div>
+        <div class="section-header" style="width:100%; padding: 40px 0px; display: flex; align-items: center; justify-content: center;">
+          <div id="easter-egg-trigger" style="display: inline-block;">
+            <div id="hold-button" style="display: flex; align-items: center; justify-content: center; background-color: #2d2d2d; color: white; padding: 12px 12px 12px 24px; border-radius: 999px; font-size: 16px; font-weight: 500; cursor: pointer; gap: 12px;">
+              <span style="white-space: nowrap;">Others</span>
+              <div style="width: 36px; height: 36px; background-color: #007aff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <span style="color: white; font-size: 20px; line-height: 0;">+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div id="easter-egg-section" style="display: none; animation: fadeInUp 1s ease forwards;">
+          <div class="row no-gutter">
+            <div class="col-md-4 col-sm-6 work">
+              <div class="workbox">
+                <a rel="gallery" href="project14.html" class="work-box" title="">
+                  <img src="./files/works/project14.webp"></img>
+                  <div class="overlay">
+                    <div class="overlay-caption">
+                        <p>A Ballad of Tenacious Life</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>  
     
@@ -230,7 +286,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="js/main.js"></script> 
     <script>
-      Fancybox.bind("[data-fancybox]", {});  
+      const button = document.getElementById('hold-button');
+      const section = document.getElementById('easter-egg-section');
+      const iconSpan = button.querySelector('span + div span'); // Selects the "+" span inside the circle
+
+      let isShown = false;
+
+      const toggleEasterEgg = () => {
+        if (!isShown) {
+          section.style.display = 'block';
+          section.classList.add('animated-section');
+          iconSpan.textContent = '−';
+          section.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          section.style.display = 'none';
+          iconSpan.textContent = '+';
+        }
+        isShown = !isShown;
+      };
+
+      button.addEventListener('click', toggleEasterEgg);
     </script>
   </body>
 </html>
