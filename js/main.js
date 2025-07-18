@@ -70,6 +70,7 @@ const Site = {
         // 切换导航菜单的显示/隐藏
         $navToggle.on('click', function() {
             // 使用 CSS class 控制状态，将样式与逻辑分离
+            event.preventDefault();
             $(this).toggleClass('close-nav');
             $navMenu.toggleClass('open');
         });
