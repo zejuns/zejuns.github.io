@@ -63,6 +63,10 @@ const Site = {
         const $navToggle = $('.nav-toggle');
         const $navMenu = $('nav[role="navigation"]');
 
+        // 新增代码：在移动导航初始化时，直接隐藏所有下拉子菜单和箭头
+        $navMenu.find('.dropdown-menu').hide();
+        $navMenu.find('.caret').hide();
+
         // 切换导航菜单的显示/隐藏
         $navToggle.on('click', function() {
             // 使用 CSS class 控制状态，将样式与逻辑分离
@@ -111,39 +115,38 @@ const Site = {
     initThemeToggle: function() {
         const $themeToggle = $('#darkModeToggle');
         const $body = $('body');
-        const storageKey = 'theme'; // 定义一个用于 localStorage 的键名，方便管理
+        const $slider = $themeToggle.find('.slider'); // 获取到滑块元素
+        const storageKey = 'theme';
 
         /**
          * 功能：仅根据主题名称，在 body 上应用或移除 'light-mode' class
          * @param {string} theme - 要应用的主题 ('light' 或 'dark')
          */
         function applyTheme(theme) {
-            // 使用 toggleClass 的第二个参数，代码更简洁
             $body.toggleClass('light-mode', theme === 'light');
         }
 
         // --- 页面加载时执行 ---
-        // 1. 从 localStorage 读取已保存的主题偏好
-        const savedTheme = localStorage.getItem(storageKey);
+        // 1. 从 localStorage 读取已保存的主题偏好，若无则默认为 'light'
+        const savedTheme = localStorage.getItem(storageKey) || 'light';
         
-        // 2. 如果有保存的偏好，则应用它；否则，默认应用白色模式
-        if (savedTheme) {
-            applyTheme(savedTheme);
-        } else {
-            // 默认设置为白色模式
-            applyTheme('light');
-        }
+        // 2. 直接应用主题。因为此时 .slider 没有 transition，所以会瞬间切换，不会有动画。
+        applyTheme(savedTheme);
 
         // --- 监听按钮点击事件 ---
         $themeToggle.on('click', function() {
-            // 判断当前是否是白色模式，以确定切换后的新主题
+            // 3. 在用户点击时，首先给滑块加上带动画的 class，让它“准备好”播放动画
+            // 这个动作只需要执行一次，addClass 内部会处理，不会重复添加
+            $slider.addClass('transition-active');
+
+            // 4. 判断当前是否是白色模式，以确定切换后的新主题
             const isLight = $body.hasClass('light-mode');
             const newTheme = isLight ? 'dark' : 'light';
 
-            // 应用新主题
+            // 5. 应用新主题，此时因为有了 transition-active 类，会平滑过渡
             applyTheme(newTheme);
 
-            // 将新的主题偏好保存到 localStorage
+            // 6. 将新的主题偏好保存到 localStorage
             localStorage.setItem(storageKey, newTheme);
         });
     }

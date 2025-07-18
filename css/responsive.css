@@ -18,8 +18,13 @@
 }
 
 @media screen and (max-width:768px) {
-    .dropdown-toggle b.caret {
-        display: none;
+    .navigation .dropdown-menu {
+        display: none !important;
+    }
+
+    /* 同时，将下拉菜单的指示箭头也隐藏掉，避免用户误以为可以点击 */
+    .navigation .dropdown .caret {
+        display: none !important;
     }
     
     .banner-text {

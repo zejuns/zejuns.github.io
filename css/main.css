@@ -234,8 +234,7 @@ ul li {
 }
 
 #header.fixed .nav-toggle {
-    top: 18px;
-    color: #000
+    color: #000;
 }
 
 .primary-nav {
@@ -1136,9 +1135,9 @@ body.light-mode h4 {
 } */
 
 /* 链接颜色 */
-body.light-mode a, body.light-mode a:focus, body.light-mode a:active {
+/* body.light-mode a, body.light-mode a:focus, body.light-mode a:active {
     color: #007bff;
-}
+} */
 
 body.light-mode a:hover {
     color: #0056b3;
@@ -1156,10 +1155,10 @@ body.light-mode .btn:hover {
 }
 
 /* 头部和导航 */
-body.light-mode #header:not(.fixed) .logo,
+/* body.light-mode #header:not(.fixed) .logo,
 body.light-mode #header:not(.fixed) .navigation a {
     color: #ffffff;
-}
+} */
 
 body.light-mode #header:not(.fixed) .dropdown-menu a {
     color: #000;
@@ -1300,7 +1299,11 @@ body.light-mode .gt-container .gt-comment-admin .gt-comment-content {
     left: 5px;
     height: 22px; /* 滑塊大小 */
     width: 22px;
-    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 核心動畫效果 */
+    /* transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); */
+}
+
+.theme-toggle .slider.transition-active {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 /* 當 body 是亮色模式時，移動滑塊 */
@@ -1336,3 +1339,16 @@ body.light-mode .timeline-connector {
 /* 卡片內部的文字（如 h2, p, hr）顏色本來就是黑色的，
   所以在亮色模式下看起來是正常的，無需額外修改。
 */
+@media screen and (max-width: 768px) {
+    body.light-mode .navigation.open{
+        background-color: #fff;
+    }
+    body.light-mode #header .navigation a:hover,
+    body.light-mode #header .navigation a.active {
+        color: #7e7e7e !important; 
+        background-color: transparent;
+    }
+    body.light-mode .navigation a{
+        color: #000;
+    }
+}
