@@ -206,7 +206,7 @@ ul li {
 
 #header .header-content {
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 0 !important;
     width: 85%;
     -moz-transition: padding .3s;
     -o-transition: padding .3s;
