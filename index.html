@@ -9,14 +9,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
     <style>
       html {
         scroll-behavior: smooth;
-      }
-      body.light-mode #header:not(.fixed) .logo,
-      body.light-mode #header:not(.fixed) .navigation a {
-          color: #000;
       }
       @keyframes fadeInUp {
         0% {
@@ -314,6 +309,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="js/main.js"></script> 
     <script>
+      Fancybox.bind("[data-fancybox]", {});  
       const button = document.getElementById('hold-button');
       const section = document.getElementById('easter-egg-section');
       const iconSpan = button.querySelector('span + div span'); // Selects the "+" span inside the circle
