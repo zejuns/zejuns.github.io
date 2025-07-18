@@ -83,6 +83,11 @@
         height: 100vh; /* 使父容器占满视口高度 */
     }
 
+    .theme-toggle {
+        position: fixed;
+        right: 20%;
+    }
+
     .navigation li {
         display: block;
         margin-bottom: 1px

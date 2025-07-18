@@ -12,12 +12,18 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>Works | Zejun Huang</title>
+    <style>
+      body.light-mode #header:not(.fixed) .logo,
+      body.light-mode #header:not(.fixed) .navigation a {
+          color: #000;
+      }
+    </style>
   </head>
   <body>
     <div id="preloader">
     </div>
     <section class="banner" role="banner">
-      <header id="header" style="background-color: black;">
+      <header id="header">
         <div class="header-content clearfix"> <a class="logo" href="index.html">Zejun</a>
           <nav class="navigation" role="navigation">
             <ul class="primary-nav">
@@ -40,6 +46,11 @@
               <li><a href="about.html">About</a></li>
             </ul>
           </nav>
+          <button id="darkModeToggle" class="theme-toggle" aria-label="Toggle theme">
+              <i class="fa fa-sun-o"></i>
+              <i class="fa fa-moon-o"></i>
+              <span class="slider"></span>
+          </button>
           <a href="#" class="nav-toggle">Menu<span></span></a> </div>
       </header>
     </section>
@@ -108,11 +119,11 @@
           <div class="footer-center-box">
             <div>
               <i class="fa fa-envelope"></i>
-              <p><span>hzj020117@outlook.com</span></p>
+              <p><span>zejunhuang@ucsb.edu</span></p>
             </div>
             <div>
-              <i class="fa fa-phone"></i>
-              <p><span>+1 805-284-1630</span></p>
+              <i class="fa fa-map-marker"></i>
+              <p><span>Santa Barbara, California</span></p>
             </div>
           </div>
         </div>

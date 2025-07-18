@@ -239,7 +239,7 @@ ul li {
 }
 
 .primary-nav {
-    padding: 5px 0
+    padding: 5px 0px 5px 20px
 }
 
 .navigation.open {
@@ -855,7 +855,7 @@ h5 {
 .footer-distributed .footer-center i {
     background-color: #323232;
     color: #fff;
-    font-size: 20px;
+    font-size: 25px;
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -1037,3 +1037,302 @@ h5 {
     transform: rotate(90deg);
     }
 }
+
+/* T-shaped Capability Section Styles */
+.capability-section {
+    background-color: black;
+    color: white;
+    padding: 20px 0 80px 0;
+}
+
+.capability-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 70px;
+    color: white;
+    text-align: center;
+}
+
+.education-card {
+    background: white;
+    color: black;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 0 auto;
+}
+
+/* 針對 UCSB 卡片的特定樣式 */
+.education-card--ucsb {
+    max-width: 500px;
+}
+
+.institution-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.degree-info {
+    font-style: italic;
+    margin: 8px 0;
+    color: black;
+    font-size: 15px;
+}
+
+.education-card hr {
+    border: 0;
+    border-top: 1px dashed black;
+    margin: 16px 0;
+}
+
+.course-list {
+    color: black;
+    font-size: 15px;
+}
+
+/* 移除課程列表最後一項的下邊距 */
+.course-list:last-of-type {
+    margin-bottom: 0;
+}
+
+.timeline-connector {
+    width: 2px;
+    height: 40px;
+    background: white;
+    margin: 0 auto;
+}
+
+/* =================================================== */
+/* ============== Light Mode Styles ================== */
+/* 当 body 有 'light-mode' class 时，以下样式生效 */
+/* =================================================== */
+
+/* 整体背景和文字颜色 */
+body.light-mode {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* 段落和标题颜色 */
+body.light-mode p,
+body.light-mode h3,
+body.light-mode h5,
+body.light-mode .box ul li {
+  color: #333333;
+}
+
+body.light-mode .f-carousel p{
+  color: #fff;
+}
+
+body.light-mode .overlay-caption p{
+  color: #fff;
+}
+
+/* body.light-mode h1,
+body.light-mode h2,
+body.light-mode h4 {
+    color: #000;
+} */
+
+/* 链接颜色 */
+body.light-mode a, body.light-mode a:focus, body.light-mode a:active {
+    color: #007bff;
+}
+
+body.light-mode a:hover {
+    color: #0056b3;
+}
+
+/* 按钮样式 */
+body.light-mode .btn {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+body.light-mode .btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* 头部和导航 */
+body.light-mode #header:not(.fixed) .logo,
+body.light-mode #header:not(.fixed) .navigation a {
+    color: #ffffff;
+}
+
+body.light-mode #header:not(.fixed) .dropdown-menu a {
+    color: #000;
+}
+
+body.light-mode #header.fixed .logo,
+body.light-mode #header.fixed .navigation a {
+    color: #000000;
+}
+
+body.light-mode #header.fixed {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+body.light-mode #header .navigation a:hover,
+body.light-mode #header .navigation a.active {
+    color: #fff !important; 
+    background-color: #000;
+}
+
+body.light-mode .nav-toggle span:after,
+body.light-mode .nav-toggle span:before {
+    background-color: #000; 
+}
+
+/* 下拉菜单 */
+body.light-mode .agile_short_dropdown {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+body.light-mode .agile_short_dropdown li a {
+    color: #333;
+    border-bottom-color: #e9ecef;
+}
+
+body.light-mode .agile_short_dropdown>li>a:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+
+/* 内容区域 */
+body.light-mode .services-content {
+    background: #f8f9fa;
+}
+
+/* Footer 底部 */
+body.light-mode .footer-distributed {
+    background: #f8f9fa;
+}
+
+body.light-mode .footer-distributed .footer-company-name,
+body.light-mode .footer-distributed .footer-center p,
+body.light-mode .footer-distributed .footer-center p span {
+    color: #555;
+}
+
+body.light-mode .footer-distributed .footer-center i {
+    background-color: #e9ecef;
+    color: #333;
+}
+
+body.light-mode .footer-distributed .footer-icons a {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.light-mode .footer-distributed .footer-icons a:hover {
+    background-color: #d4d4d4;
+}
+
+/* Gitalk 评论区亮色模式 */
+body.light-mode .gt-container .gt-btn {
+    border: 1px solid #e1e4e8;
+    background-color: #f6f8fa;
+    color: #24292e;
+}
+body.light-mode .gt-container .gt-svg svg {
+    fill: #24292e;
+}
+body.light-mode .gt-container .gt-btn:hover {
+    background-color: #e9ecef;
+}
+body.light-mode .gt-container .gt-header-textarea,
+body.light-mode .gt-container .gt-header-textarea:hover,
+body.light-mode .gt-container .gt-comment-content,
+body.light-mode .gt-container .gt-comment-admin .gt-comment-content {
+    background-color: #ffffff !important;
+    border: 1px solid #d1d5da;
+    color: #24292e;
+}
+
+
+/* =================================================== */
+/* ============== 新的滑動開關按鈕樣式 =============== */
+/* =================================================== */
+
+.theme-toggle {
+    background-color: #2d3033; /* 按鈕背景色 */
+    border: 0px;
+    border-radius: 30px; /* 圓角 */
+    cursor: pointer;
+    display: flex; /* 使用 flexbox 佈局 */
+    align-items: center;
+    justify-content: space-between; /* 讓圖標分佈在兩側 */
+    padding: 6px;
+    position: relative;
+    width: 60px; /* 按鈕寬度 */
+    height: 32px; /* 按鈕高度 */
+    vertical-align: middle; /* 垂直居中對齊 */
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+}
+
+/* 亮色模式下的按鈕背景 */
+
+/* 圖標的通用樣式 */
+.theme-toggle i {
+    color: #fff; /* 圖標顏色，比如太陽用金色 */
+    font-size: 14px;
+    line-height: 1;
+    z-index: 1;
+}
+
+/* 月亮圖標的特定顏色 */
+.theme-toggle .fa-moon-o {
+    color: #fff; /* 比如月亮用天藍色 */
+}
+
+/* 滑塊的樣式 */
+.theme-toggle .slider {
+    background-color: #fff;
+    border-radius: 50%; /* 圓形 */
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    height: 22px; /* 滑塊大小 */
+    width: 22px;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 核心動畫效果 */
+}
+
+/* 當 body 是亮色模式時，移動滑塊 */
+body.light-mode .theme-toggle .slider {
+    transform: translateX(28px); /* 向右滑動的距離 */
+}
+
+/* =================================================== */
+/* == "T-shaped" Capability Section -- Light Mode == */
+/* =================================================== */
+
+/* 區塊主體背景變為淺灰色 */
+body.light-mode .capability-section {
+    background-color: #ffffff; 
+}
+
+/* 區塊標題文字變為深色 */
+body.light-mode .capability-title {
+    color: #212529;
+}
+
+/* 教育背景卡片：背景依然是白色，但增加一個細邊框使其更突出 */
+body.light-mode .education-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+/* 連接線從白色變為深灰色 */
+body.light-mode .timeline-connector {
+    background: #343a40;
+}
+
+/* 卡片內部的文字（如 h2, p, hr）顏色本來就是黑色的，
+  所以在亮色模式下看起來是正常的，無需額外修改。
+*/
