@@ -1252,7 +1252,12 @@ body.light-mode .gt-container .gt-comment-admin .gt-comment-content {
     border: 1px solid #d1d5da;
     color: #24292e;
 }
-
+body.light-mode .box {
+    border: 2px solid black;
+}
+body.light-mode .arrow {
+    color: black;
+}
 
 /* =================================================== */
 /* ============== 新的滑動開關按鈕樣式 =============== */
