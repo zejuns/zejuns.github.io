@@ -18,6 +18,9 @@
 }
 
 @media screen and (max-width:768px) {
+    .primary-nav {
+        padding: 5px 0px 5px 0px
+    }
     .navigation .dropdown-menu {
         display: none !important;
     }
