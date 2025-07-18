@@ -848,6 +848,16 @@ h5 {
     border: 0px;
 }
 
+.divider{
+    text-align: center; position: relative; margin: 20px 0;
+}
+
+.divider hr{
+    border: none; height: 1px; width: 100%;
+}
+.divider span {
+position: absolute; top: -10px; left: 50%; padding: 0 10px; transform: translateX(-50%); font-weight: bold;
+}
 /* ===================================================================
  * 淺色模式 (Light Mode)
  * =================================================================== */
@@ -987,7 +997,12 @@ body.light-mode .gt-container .gt-comment-content,
 body.light-mode .gt-container .gt-comment-admin .gt-comment-content {
     background-color: #f8f9fa;
 }
-
+body.light-mode .divider hr{
+    background-color: #181818;
+}
+body.light-mode .divider span {
+background: #fff; color: #181818;
+}
 /* ===================================================================
  * 深色模式 (Dark Mode)
  * =================================================================== */
@@ -1194,7 +1209,12 @@ body.dark-mode .gt-container .gt-btn:hover  {
     background-color: #fff;
     color: #000;
 }
-
+body.dark-mode .divider hr{
+    background-color: #fff;
+}
+body.dark-mode .divider span {
+background: #181818; color: #fff; 
+}
 @media screen and (max-width: 768px) {
     body.dark-mode .navigation {
         background-color: #000;
