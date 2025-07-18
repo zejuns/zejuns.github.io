@@ -65,7 +65,7 @@ const Site = {
 
         // 新增代码：在移动导航初始化时，直接隐藏所有下拉子菜单和箭头
         $navMenu.find('.dropdown-menu').hide();
-        $navMenu.find('.caret').hide();
+        // $navMenu.find('.caret').hide();
 
         // 切换导航菜单的显示/隐藏
         $navToggle.on('click', function() {

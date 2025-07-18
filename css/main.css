@@ -72,31 +72,29 @@
             box-shadow: 0 0.625em 3.75em 0 #000 !important;
   }
 
-  #preloader {
+#preloader {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* 背景颜色 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeInBackground 1.5s forwards; /* 背景逐渐清晰动画 */
-  }
-  
-  /* 渐变清晰效果 */
-  @keyframes fadeInBackground {
-    0% {
-      backdrop-filter: saturate(100%) blur(10px); /* 开始时背景非常模糊 */
-      z-index: 1000;
+    background-color: #efefef; /* 使用一个纯色背景，通常比模糊效果加载更快、更干净 */
+    z-index: 9999;
+    /* 调用下面的淡出动画 */
+    animation: fadeOut 0.5s forwards; /* 动画持续1秒 */
+    animation-delay: 0.3s; /* 延迟0.3秒后再开始动画，给页面一点缓冲时间 */
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
     }
-    100% {
-      backdrop-filter: saturate(100%) blur(0px); /* 最终背景不再模糊 */
-      opacity: 0;
-      z-index: -1000;
+    to {
+        opacity: 0;
+        /* 动画结束后彻底隐藏，防止干扰后续操作 */
+        visibility: hidden;
     }
-  }
+}
 
 a, a:focus, a:active {
     color: #6190e8;
@@ -206,7 +204,7 @@ ul li {
 
 #header .header-content {
     margin: 0 auto;
-    padding: 40px 0 !important;
+    padding: 40px 0;
     width: 85%;
     -moz-transition: padding .3s;
     -o-transition: padding .3s;
@@ -238,7 +236,7 @@ ul li {
 }
 
 .primary-nav {
-    padding: 5px 0px 5px 20px
+    padding: 5px 0px 5px 50px
 }
 
 .navigation.open {
@@ -263,7 +261,7 @@ ul li {
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
-    padding: 5.5px 18px;
+    padding: 9px 18px;
     margin: 0 7px
 }
 
@@ -279,12 +277,12 @@ ul li {
 
 .nav-toggle {
     display: none;
-    height: 44px;
+    height: 30px;
     overflow: hidden;
     position: fixed;
     right: 5%;
     text-indent: 100%;
-    top: 32px;
+    /* top: 32px; */
     white-space: nowrap;
     width: 44px;
     z-index: 99999;
@@ -664,11 +662,6 @@ ul li {
     -o-background-size: cover;
     background-size: cover;
     height: 100%;
-    transition: transform 0.3s ease-out; /* 添加动画效果 */
-  }
-  
-  .content-3-10 .image-container:hover .background-image-holder {
-    transform: translateX(20px); /* 向下移动50px */
   }
 
 .content-3-10 .content {
@@ -1177,7 +1170,7 @@ body.light-mode #header.fixed {
 body.light-mode #header .navigation a:hover,
 body.light-mode #header .navigation a.active {
     color: #fff !important; 
-    background-color: #000;
+    background-color: rgb(45, 48, 51);
 }
 
 body.light-mode .nav-toggle span:after,
