@@ -79,6 +79,7 @@ const loadComponent = (n, e) =>
         this.initGitalk(),
         this.initFancybox(),
         this.initCarousel();
+        this.initLazyLoadAndAnimate();
     },
     cleanupPageContent: function () {
       console.log(">> Cleaning Up Page Content (Before Swup Transition)"),
@@ -129,4 +130,39 @@ const loadComponent = (n, e) =>
           { Autoplay: Autoplay }
         ));
     },
-  };
+  initLazyLoadAndAnimate: function() {
+    const targets = document.querySelectorAll('.work');
+    if (!targets.length) return;
+
+    const observerCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        // 當元素進入可視區域
+        if (entry.isIntersecting) {
+          // 1. 觸發動畫
+          entry.target.classList.add('is-visible');
+
+          // 2. 懶加載圖片
+          const img = entry.target.querySelector('img[data-src]');
+          if (img) {
+            img.src = img.dataset.src; // 將 data-src 的內容賦值給 src
+            img.removeAttribute('data-src'); // 載入後移除 data-src
+          }
+          
+          // 3. 停止觀察此元素，動畫只觸發一次
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null, // 相對於瀏覽器視窗
+      threshold: 0.1 // 當元素 10% 可見時觸發
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    targets.forEach(target => {
+      observer.observe(target);
+    });
+  }
+};
