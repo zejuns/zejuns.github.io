@@ -1308,9 +1308,7 @@ background: #181818; color: #fff;
     .services-content {
         display: inline-block;
         margin-bottom: 0;
-    }
-    .gallery {
-        margin-bottom: 0;
+        margin: 15px;
     }
     .work {
         flex: 0 0 100%;
