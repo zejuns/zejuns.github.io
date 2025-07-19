@@ -1,86 +1,132 @@
-const Site = {
-  init: function () {
-    $(".navigation").length && this.initDesktopNavigation(),
-      $(".nav-toggle").length && this.initMobileNavigation(),
-      $("#header").length && this.initHeaderScroll(),
-      $("#gitalk-container").length && this.initGitalk(),
-      $("#darkModeToggle").length && this.initThemeToggle();
-  },
-  initDesktopNavigation: function () {
-    function e() {
-      clearTimeout(o);
-      const e = $(this).next(".dropdown-menu");
-      e.show().siblings(".dropdown-menu").hide();
-    }
-    function n() {
-      o = setTimeout(function () {
-        t.hide();
-      }, 300);
-    }
-    const i = $(".navigation a"),
-      t = $(".dropdown-menu");
-    let o;
-    t
-      .on("mouseenter", function () {
-        clearTimeout(o);
+const loadComponent = (n, e) =>
+    fetch(e)
+      .then((n) => {
+        if (!n.ok)
+          throw new Error("Network response was not ok " + n.statusText);
+        return n.text();
       })
-      .on("mouseleave", function () {
-        $(this).hide();
-      }),
-      i.on("mouseenter", e),
-      i.on("mouseleave", n);
-  },
-  initMobileNavigation: function () {
-    const e = $(".nav-toggle"),
-      n = $('nav[role="navigation"]');
-    n.find(".dropdown-menu").hide(),
-      e.on("click", function () {
-        $(this).toggleClass("close-nav"), n.toggleClass("open");
-      }),
-      n.find("a").on("click", function () {
-        e.trigger("click");
-      });
-  },
-  initHeaderScroll: function () {
-    const e = $(window),
-      n = $("#header"),
-      i = 50;
-    e.on("scroll", function () {
-      n.toggleClass("fixed", e.scrollTop() >= i);
+      .then((e) => {
+        const o = document.querySelector(n);
+        o && (o.innerHTML = e);
+      })
+      .catch((n) => console.error(`Error loading ${e}:`, n)),
+  Site = {
+    instances: { carousel: null },
+    initHeaderComponents: function () {
+      console.log(">> Initializing Header Components (One-Time)"),
+        $(".navigation").length && this.initDesktopNavigation(),
+        $(".nav-toggle").length && this.initMobileNavigation(),
+        $("#header").length && this.initHeaderScroll(),
+        $("#darkModeToggle").length && this.initThemeToggle();
+    },
+    initDesktopNavigation: function () {
+      let n;
+      const e = $(".dropdown-menu");
+      e
+        .on("mouseenter", () => clearTimeout(n))
+        .on("mouseleave", () => e.hide()),
+        $(".navigation a")
+          .on("mouseenter", function () {
+            clearTimeout(n),
+              $(this)
+                .next(".dropdown-menu")
+                .show()
+                .siblings(".dropdown-menu")
+                .hide();
+          })
+          .on("mouseleave", () => {
+            n = setTimeout(() => e.hide(), 300);
+          });
+    },
+    initMobileNavigation: function () {
+      const n = $(".nav-toggle"),
+        e = $('nav[role="navigation"]');
+      e.find(".dropdown-menu").hide(),
+        n.on("click", function () {
+          $(this).toggleClass("close-nav"), e.toggleClass("open");
+        }),
+        e.find("a").on("click", function () {
+          n.trigger("click");
+        });
+    },
+    initHeaderScroll: function () {
+    const n = $(window),
+        e = $("#header"),
+        o = 50;
+    n.on("scroll", function () {
+        e.toggleClass("fixed", n.scrollTop() >= o);
     });
-  },
-  initGitalk: function () {
-    const e = location.pathname,
-      n = e.replace("/project", "/works/project"),
-      i = new Gitalk({
-        clientID: "2658e1c2a15202f4ea1a",
-        clientSecret: "efe03ae68db5b4aef7fa72a3aa7bbf249a143383",
-        repo: "zejuns.github.io",
-        owner: "zejuns",
-        admin: ["zejuns"],
-        id: n,
-        distractionFreeMode: !1,
+
+    n.trigger("scroll"); // 新增这行：在页面加载时手动触发一次滚动事件
+    },
+    initThemeToggle: function () {
+      function n(n) {
+        o.removeClass("light-mode dark-mode").addClass(n + "-mode");
+      }
+      const e = $("#darkModeToggle"),
+        o = $("body"),
+        t = "theme",
+        i = localStorage.getItem(t) || "light";
+      n(i),
+        e.on("click", function () {
+          const e = o.hasClass("light-mode") ? "dark" : "light";
+          n(e), localStorage.setItem(t, e);
+        });
+    },
+    initPageContent: function () {
+      console.log(">> Initializing Page Content (After Swup Transition)"),
+        this.setActiveNav(),
+        this.initGitalk(),
+        this.initFancybox(),
+        this.initCarousel();
+    },
+    cleanupPageContent: function () {
+      console.log(">> Cleaning Up Page Content (Before Swup Transition)"),
+        this.instances.carousel &&
+          (this.instances.carousel.destroy(), (this.instances.carousel = null)),
+        Fancybox.close();
+    },
+    setActiveNav: function () {
+      const n = window.location.pathname;
+      $(".primary-nav a, .dropdown-menu a").each(function () {
+        const e = $(this),
+          o = e.attr("href");
+        e.removeClass("active"),
+          e.closest(".dropdown").find(".dropdown-toggle").removeClass("active"),
+          o === n &&
+            (e.addClass("active"),
+            e.closest(".dropdown").length &&
+              e
+                .closest(".dropdown")
+                .find(".dropdown-toggle")
+                .first()
+                .addClass("active"));
       });
-    i.render("gitalk-container");
-  },
-  initThemeToggle: function () {
-    function e(e) {
-      "light" === e
-        ? i.removeClass("dark-mode").addClass("light-mode")
-        : i.removeClass("light-mode").addClass("dark-mode");
-    }
-    const n = $("#darkModeToggle"),
-      i = $("body"),
-      t = "theme",
-      o = localStorage.getItem(t) || "light";
-    e(o),
-      n.on("click", function () {
-        const n = i.hasClass("light-mode"),
-          o = n ? "dark" : "light";
-        e(o), localStorage.setItem(t, o);
-      });
-  },
-};
-$(document).ready(function () {
-  Site.init();
-});
+    },
+    initGitalk: function () {
+      if ($("#gitalk-container").length) {
+        const n = new Gitalk({
+          clientID: "2658e1c2a15202f4ea1a",
+          clientSecret: "efe03ae68db5b4aef7fa72a3aa7bbf249a143383",
+          repo: "zejuns.github.io",
+          owner: "zejuns",
+          admin: ["zejuns"],
+          id: location.pathname,
+          distractionFreeMode: !1,
+        });
+        n.render("gitalk-container");
+      }
+    },
+    initFancybox: function () {
+      Fancybox.bind("[data-fancybox]", {});
+    },
+    initCarousel: function () {
+      const n = document.getElementById("myCarousel");
+      n &&
+        (this.instances.carousel = new Carousel(
+          n,
+          { transition: "crossfade", Autoplay: { timeout: 3e3 } },
+          { Autoplay: Autoplay }
+        ));
+    },
+  };

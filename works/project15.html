@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Works | Zach</title>
+</head>
+<body>
+    <div id="preloader">
+    </div>
+    <section class="banner" role="banner">
+      <div id="header-placeholder"></div>
+    </section>
+    <main id="swup" class="transition-scale">
+      <section class="video-section" style="padding-bottom: 65px;">
+        <div class="container"> 
+          <div class="row">
+              <div id="content24" data-section="content-24" class="data-section"> 
+                <div class="col-md-6">
+                  <h3 class="eidtContent">Taxi Fare Meter - AT89C52 Microcontroller Project</h3>
+                  <p class="eidtContent">A functional taxi fare meter built with the 8052 microcontroller. It counts wheel rotations to calculate distance, measures real-time speed using precise 1-second intervals, and computes fare based on a tiered pricing model: ¥8 for the first 2 km, then ¥2.6/km. Implements dual-byte arithmetic, BCD conversion, and dynamic 7-segment display.</p>
+                  <a href="/files/project15/project15.pdf" class="btn" data-fancybox data-type="iframe" style="margin-right: 20px;">
+                    Document
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <video class="embed-responsive-item" controls autoplay muted loop playsinline>
+                    <source src="/files/project15/project15.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="gallery" class="gallery section" style="margin: 0px; padding: 0px 0px 50px;">
+        <div class="container">
+          <div class="section-header" style="padding-bottom: 50px;">
+            <h3 class="wow fadeInDown animated" style="margin: 0px;">Code</h3>
+          </div>
+          <div id="code-md-output" style="background: #f3f3f3; padding: 15px; border-radius: 8px;"></div>
+          <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+          <script>
+            fetch('/files/project15/code.md')
+              .then(res => res.text())
+              .then(md => {
+                const html = marked.parse(md);
+                document.getElementById('code-md-output').innerHTML = html;
+                document.querySelectorAll('pre code').forEach((el) => {
+                  hljs.highlightElement(el);
+                });
+              });
+          </script>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer-placeholder" class="footer-distributed"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script src="https://unpkg.com/swup@4"></script>  
+    <script src="/js/main.js"></script>
+    <script>
+      // 初始化 Swup
+      const swup = new Swup();
+
+      // 执行一次性初始化 (加载页头页脚等)
+      function runOneTimeSetup() {
+        const headerPromise = loadComponent("#header-placeholder", "/components/header.html");
+        const footerPromise = loadComponent("#footer-placeholder", "/components/footer.html");
+
+        headerPromise.then(() => {
+          Site.initHeaderComponents();
+          Site.setActiveNav(); // 首次加载也需要设置导航状态
+        });
+      }
+      runOneTimeSetup();
+
+      // 首次加载时，初始化页面内容
+      Site.initPageContent();
+
+      // 将方法绑定到 Swup 的生命周期钩子
+      swup.hooks.on('animation:out:end', Site.cleanupPageContent.bind(Site)); 
+      swup.hooks.on('page:view', Site.initPageContent.bind(Site));
+    </script>
+</body>
+</html>

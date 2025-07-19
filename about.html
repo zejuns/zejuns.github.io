@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-	  <title>About | Zejun Huang</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+	  <title>About | Zach</title>
     <style>
       #myCarousel {
         --f-progress-color: none;
@@ -21,151 +21,112 @@
     <div id="preloader">
     </div>
     <section class="banner" role="banner">
-      <header id="header">
-        <div class="header-content clearfix"> <a class="logo" href="index.html">Zejun</a>
-          <nav class="navigation" role="navigation">
-            <ul class="primary-nav">
-              <li class="dropdown">
-                <a href="index.html" class="dropdown-toggle">Works <b class="caret"></b></a>
-                <ul class="dropdown-menu agile_short_dropdown">
-                  <li><a href="project6.html" class="scroll">Elderly Body Fat Scale</a></li>
-                  <li><a href="project3.html" class="scroll">Accessible Vehicle Seat</a></li>
-                  <li><a href="project7.html" class="scroll">Secetar (Secure Ice Tartar)</a></li>
-                  <li><a href="project4.html" class="scroll">Ceramic Aesthetic Education</a></li>
-                  <li><a href="project8.html" class="scroll">NFT Marketplace: VoxelTide (Web3)</a></li>
-                  <li><a href="project5.html" class="scroll">Library Management System (Web2)</a></li>
-                  <li><a href="project11.html" class="scroll">Color Network Model</a></li>
-                </ul>
-              </li>
-              <li><a href="publications.html">Publications</a></li> 
-              <li><a href="about.html" class="active">About</a></li>
-            </ul>
-          </nav>
-          <button id="darkModeToggle" class="theme-toggle" aria-label="Toggle theme">
-              <i class="fa fa-sun-o"></i>
-              <i class="fa fa-moon-o"></i>
-              <span class="slider"></span>
-          </button>
-          <a href="#" class="nav-toggle">Menu<span></span></a> </div>
-      </header>
-    </section>
-    <section class="video-section" style="padding-bottom: 60px;">
-      <div class="container"> 
-        <div class="row">  
-          <div id="content24" data-section="content-24" class="data-section"> 
-            <div class="col-md-6">
-              <h3 class="eidtContent" style="margin-top: 0;">About</h3>
-              <p class="eidtContent">Zejun Huang combines arts and technology, excelling in modeling, rendering, and animation. He has won design awards such as the EPDA Winner, G-CROSS Bronze Award, and was shortlisted for the Red Dot Design Award, along with holding multiple Chinese patents. With a dual degree in Computer Science and Technology, he is skilled in programming. The MAT program at UCSB aligns perfectly with his diverse background.</p>    
-              <!-- Fancybox Link -->
-              <a href="./files/CV_zejun_huang.pdf" class="btn" data-fancybox data-type="iframe" style="margin-right: 20px;">
-                Curriculum Vitae
-              </a>
-              <a href="./files/简历.pdf" class="btn" data-fancybox data-type="iframe">
-                简历
-              </a>
-            </div>
-            <div class="col-md-6">
-              <div class="embed-responsive embed-responsive-16by9" style="position: relative;">
-                <video class="embed-responsive-item" autoplay muted loop playsinline style="object-fit: cover;">
-                  <source src="./files/about.mp4" type="video/mp4">
-                </video>
-                <div style="position: absolute; bottom: 0px; right: 0px; color: white; font-size: 10px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
-                  First time learning Blender
-                </div>
+      <div id="header-placeholder"></div>
+    </section>    
+    <main id="swup" class="transition-scale">
+      <section class="video-section" style="padding-bottom: 60px;">
+        <div class="container"> 
+          <div class="row">  
+            <div id="content24" data-section="content-24" class="data-section"> 
+              <div class="col-md-6">
+                <h3 class="eidtContent" style="margin-top: 0;">About</h3>
+                <p class="eidtContent">Zejun Huang combines arts and technology, excelling in modeling, rendering, and animation. He has won design awards such as the EPDA Winner, G-CROSS Bronze Award, and was shortlisted for the Red Dot Design Award, along with holding multiple Chinese patents. With a dual degree in Computer Science and Technology, he is skilled in programming. The MAT program at UCSB aligns perfectly with his diverse background.</p>    
+                <!-- Fancybox Link -->
+                <a href="/files/CV_zejun_huang.pdf" class="btn" data-fancybox data-type="iframe" style="margin-right: 20px;">
+                  Curriculum Vitae
+                </a>
+                <a href="/files/简历.pdf" class="btn" data-fancybox data-type="iframe">
+                  简历
+                </a>
               </div>
-            </div>      
+              <div class="col-md-6">
+                <div class="embed-responsive embed-responsive-16by9" style="position: relative;">
+                  <video class="embed-responsive-item" autoplay muted loop playsinline style="object-fit: cover;">
+                    <source src="/files/about.mp4" type="video/mp4">
+                  </video>
+                  <div style="position: absolute; bottom: 0px; right: 0px; color: white; font-size: 10px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
+                    First time learning Blender
+                  </div>
+                </div>
+              </div>      
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="capability-section">
-      <div class="container">
-        <h1 class="capability-title">“T-shaped” capability</h1>
+      </section>
+      <section class="capability-section">
+        <div class="container">
+          <h1 class="capability-title">“T-shaped” capability</h1>
+          <div class="education-card">
+            <h2 class="institution-name">South China University of Technology</h2>
+            <p class="degree-info">B.F.A. in Product Design & B.E. in Computer Science and Technology</p>
+            <hr />
+            <p class="course-list">Design: Modeling Foundation, Brand Analysis, Fabric Redesign, Design Psychology, Engineering Drawing, Visual Communication Design, Design Presentation, Interaction Design, Product Innovation Design, System Design</p>
+            <p class="course-list">Computer Science: C++, Python, Discrete Mathematics, Data Structures, Algorithm Design and Analysis, Operating Systems, Computer Network, Database, Artificial Intelligence, 8051 Microcontroller (Assembly Language)</p>
+          </div>
+          <div class="timeline-connector"></div>
+          <div class="education-card education-card--ucsb">
+            <h2 class="institution-name">University of California, Santa Barbara</h2>
+            <p class="degree-info">M.S. in Media Arts and Technology (Expected)</p>
+            <hr />
+            <p class="course-list">Multimedia Engineering, Computer Imaging, Human-Computer Interaction, VR/AR Development</p>
+          </div>
+        </div>
+      </section>
+      <section id="testimonials" class="section testimonials no-padding">
+        <div class="container-fluid">
+          <div class="row no-gutter" style="padding: 100px 0px">
+            <div class="f-carousel" id="myCarousel" >
+              <div class="f-carousel__slide" >
+                  <h1 style="padding: 0px 15%; text-align: center;">"He is a creative and passionate undergraduate student, with a strong love for human-computer interaction and media arts." </h1>
+                  <p>Jinfu Li</p>
+              </div>
+              <div class="f-carousel__slide">
+                  <h1 style="padding: 0px 15%; text-align: center;">"As an undergraduate student, he exhibits mature and disciplined qualities, laying a solid foundation for his future development." </h1>
+                  <p>Xiangdong Huang</p>
+              </div>
+              <div class="f-carousel__slide">
+                  <h1 style="padding: 0px 15%; text-align: center;">"His interest in human-computer interaction and media arts gives him unique insights and innovative thinking in this field." </h1>
+                  <p>Yunuo Feng</p>
+              </div>
+              <div class="f-carousel__slide">
+                  <h1 style="padding: 0px 15%; text-align: center;">"Pursuing a dual degree in product design and computer science technology at South China University of Technology, he has shown exceptional learning capabilities and a diligent work ethic." </h1>
+                  <p>Junming Li</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-        <div class="education-card">
-          <h2 class="institution-name">South China University of Technology</h2>
-          <p class="degree-info">B.F.A. in Product Design & B.E. in Computer Science and Technology</p>
-          <hr />
-          <p class="course-list"><strong>Design:</strong> Modeling Foundation, Brand Analysis, Fabric Redesign, Design Psychology, Engineering Drawing, Visual Communication Design, Design Presentation, Interaction Design, Product Innovation Design, System Design</p>
-          <p class="course-list"><strong>Computer Science:</strong> C++, Python, Discrete Mathematics, Data Structures, Algorithm Design and Analysis, Operating Systems, Computer Network, Database, Artificial Intelligence, 8051 Microcontroller (Assembly Language)</p>
-        </div>
-
-        <div class="timeline-connector"></div>
-
-        <div class="education-card education-card--ucsb">
-          <h2 class="institution-name">University of California, Santa Barbara</h2>
-          <p class="degree-info">M.S. in Media Arts and Technology (Expected)</p>
-          <hr />
-          <p class="course-list"><strong>Academic:</strong> Multimedia Engineering, Computer Imaging, Human-Computer Interaction, VR/AR Development</p>
-        </div>
-      </div>
-    </section>
-    <section id="testimonials" class="section testimonials no-padding">
-      <div class="container-fluid">
-        <div class="row no-gutter" style="padding: 100px 0px">
-          <div class="f-carousel" id="myCarousel" >
-            <div class="f-carousel__slide" >
-                <h1 style="padding: 0px 15%; text-align: center;">"He is a creative and passionate undergraduate student, with a strong love for human-computer interaction and media arts." </h1>
-                <p>Jinfu Li</p>
-            </div>
-            <div class="f-carousel__slide">
-                <h1 style="padding: 0px 15%; text-align: center;">"As an undergraduate student, he exhibits mature and disciplined qualities, laying a solid foundation for his future development." </h1>
-                <p>Xiangdong Huang</p>
-            </div>
-            <div class="f-carousel__slide">
-                <h1 style="padding: 0px 15%; text-align: center;">"His interest in human-computer interaction and media arts gives him unique insights and innovative thinking in this field." </h1>
-                <p>Yunuo Feng</p>
-            </div>
-            <div class="f-carousel__slide">
-                <h1 style="padding: 0px 15%; text-align: center;">"Pursuing a dual degree in product design and computer science technology at South China University of Technology, he has shown exceptional learning capabilities and a diligent work ethic." </h1>
-                <p>Junming Li</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="footer-distributed">
-      <div class="footer-contain">
-        <div class="footer-left">
-          <p class="footer-company-name">© 2025 by Zejun Huang</p>
-        </div>
-        <div class="footer-center">
-          <div class="footer-center-box">
-            <div>
-              <i class="fa fa-envelope"></i>
-              <p><span>zejunhuang@ucsb.edu</span></p>
-            </div>
-            <div>
-              <i class="fa fa-map-marker"></i>
-              <p><span>Santa Barbara, California</span></p>
-            </div>
-          </div>
-        </div>
-        <div class="footer-right">
-          <div class="footer-icons">
-            <a href="https://www.facebook.com/profile.php?id=100046179534151" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="https://x.com/zejun_s" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/zejuns" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="https://github.com/zejuns" target="_blank"><i class="fa fa-github"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <footer id="footer-placeholder" class="footer-distributed"></footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script>
-    <script src="js/main.js"></script>
-    <script> 
-      Fancybox.bind("[data-fancybox]", {});  
-      new Carousel(document.getElementById("myCarousel"), {
-        transition: "crossfade",
-        Autoplay: {
-          timeout : 3000
-        }
-      }, {
-        Autoplay
-      });
+    <script src="https://unpkg.com/swup@4"></script>  
+    <script src="/js/main.js"></script>
+    <script>
+      // 初始化 Swup
+      const swup = new Swup();
+
+      // 执行一次性初始化 (加载页头页脚等)
+      function runOneTimeSetup() {
+        const headerPromise = loadComponent("#header-placeholder", "/components/header.html");
+        const footerPromise = loadComponent("#footer-placeholder", "/components/footer.html");
+
+        headerPromise.then(() => {
+          Site.initHeaderComponents();
+          Site.setActiveNav(); // 首次加载也需要设置导航状态
+        });
+      }
+      runOneTimeSetup();
+
+      // 首次加载时，初始化页面内容
+      Site.initPageContent();
+
+      // 将方法绑定到 Swup 的生命周期钩子
+      swup.hooks.on('animation:out:end', Site.cleanupPageContent.bind(Site)); 
+      swup.hooks.on('page:view', Site.initPageContent.bind(Site));
     </script>
   </body>
 </html>
