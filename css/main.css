@@ -949,7 +949,9 @@ body.light-mode .agile_short_dropdown li a {
     color: #333;
     border-bottom-color: #e9ecef;
 }
-
+body.light-mode .f-carousel__dots button {
+    color: #000;
+}
 body.light-mode .services-content {
     background: #f8f9fa;
 }
