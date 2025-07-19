@@ -926,7 +926,7 @@ body.light-mode #header.fixed .navigation a {
 body.light-mode #header .navigation a.active,
 body.light-mode #header .navigation a:hover {
     color: #fff !important;
-    background-color: #2d3033;
+    background-color: #181818;
 }
 
 body.light-mode .nav-toggle span:after,
