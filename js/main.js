@@ -27,6 +27,7 @@ const Site = {
   // 用于存放需要手动管理状态的组件实例
   instances: {
     carousel: null,
+    lazyLoadObserver: null,
   },
 
   // =============================================
@@ -51,11 +52,7 @@ const Site = {
     $(".navigation a")
       .on("mouseenter", function () {
         clearTimeout(hoverTimeout);
-        $(this)
-          .next(".dropdown-menu")
-          .show()
-          .siblings(".dropdown-menu")
-          .hide();
+        $(this).next(".dropdown-menu").show().siblings(".dropdown-menu").hide();
       })
       .on("mouseleave", () => {
         hoverTimeout = setTimeout(() => dropdownMenus.hide(), 300);
@@ -65,7 +62,6 @@ const Site = {
   initMobileNavigation: function () {
     const navToggle = $(".nav-toggle");
     const navigation = $('nav[role="navigation"]');
-    
     navigation.find(".dropdown-menu").hide(); // 初始隐藏
 
     navToggle.on("click", function () {
@@ -130,17 +126,19 @@ const Site = {
    */
   cleanupPageContent: function () {
     console.log(">> Cleaning Up Page Content (Before Swup Transition)");
-    
     // 销毁旧页面的 Carousel 实例，防止内存泄漏和冲突
     if (this.instances.carousel) {
       this.instances.carousel.destroy();
       this.instances.carousel = null;
     }
-    
+    if (this.instances.lazyLoadObserver) {
+      this.instances.lazyLoadObserver.disconnect();
+      this.instances.lazyLoadObserver = null;
+      console.log("Lazy Load Observer disconnected.");
+    }
     // 关闭可能打开的 Fancybox 弹窗
     Fancybox.close();
   },
-  
   // =============================================
   // 各个组件的初始化方法
   // =============================================
@@ -223,35 +221,48 @@ const Site = {
   },
 
   /**
-   * 初始化图片懒加载和入场动画
+   * 初始化懒加载和入场动画 (最终版 - 容器动画)
    */
-  initLazyLoadAndAnimate: function() {
-    const targets = document.querySelectorAll('.work');
-    if (!targets.length) return;
+  initLazyLoadAndAnimate: function () {
+    // 1. 选择所有带 .lazy-load-element 类的容器元素
+    const animatedElements = document.querySelectorAll(".lazy-load-element");
+    if (!animatedElements.length) return;
 
     const observerCallback = (entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
+        // 2. 当容器元素进入视口时
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          const element = entry.target;
 
-          const img = entry.target.querySelector('img[data-src]');
+          // 3. 给容器添加 is-visible 类，触发 CSS 动画
+          element.classList.add("is-visible");
+
+          // 4. 查找容器内的图片并加载它
+          const img = element.querySelector("img[data-src]");
           if (img) {
             img.src = img.dataset.src;
-            img.removeAttribute('data-src');
+            img.removeAttribute("data-src");
           }
-          
-          observer.unobserve(entry.target);
+          // 5. 完成后，停止观察该容器
+          observer.unobserve(element);
         }
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, {
-      root: null,
-      threshold: 0.1
-    });
+    this.instances.lazyLoadObserver = new IntersectionObserver(
+      observerCallback,
+      {
+        root: null,
+        threshold: 0.3,
+      }
+    );
 
-    targets.forEach(target => {
-      observer.observe(target);
+    // 使用实例化的 observer 开始观察
+    animatedElements.forEach((element) => {
+      this.instances.lazyLoadObserver.observe(element);
     });
-  }
+    console.log(
+      `Lazy Load Observer created and watching ${animatedElements.length} elements.`
+    );
+  },
 };
