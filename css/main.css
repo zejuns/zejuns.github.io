@@ -350,29 +350,28 @@ ul li {
     height: 230px;
 }
 /* 懒加载元素的入场动画 */
-.lazy-load-element {
+/* .lazy-load-element {
   opacity: 0;
-  transform: scale(0.95); /* 初始狀態稍微縮小 */
+  transform: scale(0.95);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .lazy-load-element.is-visible {
   opacity: 1;
   transform: scale(1);
-}
+} */
 
 /* 交错延迟动画 (适用于3列网格) */
 /* 注意：这需要 .lazy-load-element 是其父容器的直接子元素才能准确生效 */
 
 /* 每排的第二个元素延遲 0.1s */
-.lazy-load-element:nth-child(3n+2) {
+/* .lazy-load-element:nth-child(3n+2) {
   transition-delay: 0.15s;
 }
 
-/* 每排的第三個元素延遲 0.2s */
 .lazy-load-element:nth-child(3n+3) {
   transition-delay: 0.3s;
-}
+} */
 .workbox {
     overflow: hidden;
 }
@@ -1314,6 +1313,11 @@ background: #181818; color: #fff;
   }
 }
 @media screen and (max-width: 768px) {
+    .no-gutter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     .navigation.open {
         opacity: .9;
     }
@@ -1438,7 +1442,10 @@ background: #181818; color: #fff;
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 650px) {
+    .no-gutter [class*=col-] {
+        width: 100%;
+    }
     .testimonials p {
         font-size: 12px;
     }
