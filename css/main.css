@@ -352,10 +352,13 @@ ul li {
 /* 懒加载元素的入场动画 */
 .lazy-load-element {
   opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .lazy-load-element.is-visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
 /* 交错延迟动画 (适用于3列网格) */
