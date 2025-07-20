@@ -371,7 +371,7 @@ ul li {
 
 /* 每排的第三個元素延遲 0.2s */
 .lazy-load-element:nth-child(3n+3) {
-  transition-delay: 0.3s;
+  transition-delay: 0.2s;
 }
 .workbox {
     overflow: hidden;
