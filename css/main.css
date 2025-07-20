@@ -966,7 +966,7 @@ body.light-mode .agile_short_dropdown {
 
 body.light-mode #header:not(.fixed) .logo,
 body.light-mode #header:not(.fixed) .navigation a {
-    color: #2d3033;
+    color: #181818;
 }
 
 body.light-mode .agile_short_dropdown li a {
