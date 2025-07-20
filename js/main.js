@@ -273,7 +273,7 @@ const Site = {
         observerCallback,
         {
           root: null,
-          threshold: 0.15, // 保持你原来的设置
+          threshold: 0.1, // 保持你原来的设置
         }
       );
 
