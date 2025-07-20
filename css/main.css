@@ -844,7 +844,7 @@ h5 {
     border-radius: 50%;
     position: absolute;
     top: 4px;
-    left: 5px;
+    right: 5px;
     height: 22px;
     width: 22px;
     transition: transform .3s ease;
@@ -1016,8 +1016,8 @@ body.light-mode .arrow {
     color: #000;
 }
 
-body.light-mode .theme-toggle .slider {
-    transform: translateX(28px);
+body.dark-mode .theme-toggle .slider {
+    transform: translateX(-28px);
 }
 
 body.light-mode .capability-title {
