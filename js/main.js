@@ -119,6 +119,15 @@ const Site = {
     this.initCarousel();
     this.initGitalk();
     this.initLazyLoadAndAnimate();
+
+    // 如果当前页面包含 model-viewer，则懒加载其模块
+    if (document.querySelector("model-viewer")) {
+      import("https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/+esm")
+        .then(() => {
+          console.log("model-viewer module loaded");
+        })
+        .catch((err) => console.error("Failed to load model-viewer module:", err));
+    }
   },
 
   /**
