@@ -224,45 +224,55 @@ const Site = {
    * 初始化懒加载和入场动画 (最终版 - 容器动画)
    */
   initLazyLoadAndAnimate: function () {
-    // 1. 选择所有带 .lazy-load-element 类的容器元素
-    const animatedElements = document.querySelectorAll(".lazy-load-element");
-    if (!animatedElements.length) return;
+      const animatedElements = document.querySelectorAll(".lazy-load-element");
+      if (!animatedElements.length) return;
 
-    const observerCallback = (entries, observer) => {
-      entries.forEach((entry) => {
-        // 2. 当容器元素进入视口时
-        if (entry.isIntersecting) {
-          const element = entry.target;
+      // 修改这里的回调逻辑
+      const observerCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            const img = element.querySelector("img[data-src]");
 
-          // 3. 给容器添加 is-visible 类，触发 CSS 动画
-          element.classList.add("is-visible");
+            if (img) {
+              // 监听图片加载完成事件
+              img.onload = () => {
+                // 图片加载完成后，再触发动画
+                element.classList.add("is-visible");
+              };
+              // 如果图片加载失败，也显示容器，避免布局错乱
+              img.onerror = () => {
+                element.classList.add("is-visible");
+              };
+              
+              // 开始加载图片
+              img.src = img.dataset.src;
+              img.removeAttribute("data-src");
 
-          // 4. 查找容器内的图片并加载它
-          const img = element.querySelector("img[data-src]");
-          if (img) {
-            img.src = img.dataset.src;
-            img.removeAttribute("data-src");
+            } else {
+              // 如果容器内没有图片，直接播放动画
+              element.classList.add("is-visible");
+            }
+            
+            // 停止观察该容器
+            observer.unobserve(element);
           }
-          // 5. 完成后，停止观察该容器
-          observer.unobserve(element);
+        });
+      };
+
+      this.instances.lazyLoadObserver = new IntersectionObserver(
+        observerCallback,
+        {
+          root: null,
+          threshold: 0.1, // 保持你原来的设置
         }
+      );
+
+      animatedElements.forEach((element) => {
+        this.instances.lazyLoadObserver.observe(element);
       });
-    };
-
-    this.instances.lazyLoadObserver = new IntersectionObserver(
-      observerCallback,
-      {
-        root: null,
-        threshold: 0.2,
-      }
-    );
-
-    // 使用实例化的 observer 开始观察
-    animatedElements.forEach((element) => {
-      this.instances.lazyLoadObserver.observe(element);
-    });
-    console.log(
-      `Lazy Load Observer created and watching ${animatedElements.length} elements.`
-    );
+      console.log(
+        `Lazy Load Observer created and watching ${animatedElements.length} elements.`
+      );
   },
 };
