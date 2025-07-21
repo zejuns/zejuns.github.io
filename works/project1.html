@@ -5,9 +5,6 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="icon" href="/favicon.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
     <title>Works | Zach</title>
@@ -34,7 +31,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="embed-responsive embed-responsive-16by9">
+                <div class="embed-responsive embed-responsive-16by9" style="--aspect-ratio: 16 / 9;">
                   <video class="embed-responsive-item" controls playsinline data-poster="/files/works/project1.webp" style="object-fit: cover;">
                     <source src="/files/project1/project1.mp4" type="video/mp4">
                   </video>
@@ -48,7 +45,7 @@
         <div class="container"> 
           <div class="row">  
             <div id="content24" data-section="content-24" class="data-section"> 
-              <div class="col-md-4">
+              <div class="col-md-4" >
                 <div class="f-carousel" id="myCarousel">
                   <div class="f-carousel__slide"><img src="/files/project1/project1_1.webp" alt="" style="width: 100%;"></div>
                   <div class="f-carousel__slide"><img src="/files/project1/project1_2.webp" alt="" style="width: 100%;"></div>
@@ -71,34 +68,34 @@
             <p class="wow fadeInDown animated">After experimenting in a 25*25 area, I applied these redesigned fabrics to handbags.</p>
           </div>
           <div class="row no-gutter">
-            <div class="col-md-4 col-sm-6 lazy-load-element">
+            <div class="col-md-4 col-sm-6 lazy-load-element" style="--aspect-ratio: 4 / 3;">
               <a data-fancybox="gallery" data-src="/files/project1/project1_5.webp" data-caption="">
-                <img src="/files/null2.webp" data-src="/files/project1/project1_5.webp" class="image-zoom">
+                <img data-src="/files/project1/project1_5.webp" class="image-zoom">
               </a>
             </div>
-            <div class="col-md-4 col-sm-6 lazy-load-element">
+            <div class="col-md-4 col-sm-6 lazy-load-element" style="--aspect-ratio: 4 / 3;">
               <a data-fancybox="gallery" data-src="/files/project1/project1_6.webp" data-caption="">
-                <img src="/files/null2.webp" data-src="/files/project1/project1_6.webp" class="image-zoom">
+                <img data-src="/files/project1/project1_6.webp" class="image-zoom">
               </a>
             </div>
-            <div class="col-md-4 col-sm-6 lazy-load-element">
+            <div class="col-md-4 col-sm-6 lazy-load-element" style="--aspect-ratio: 4 / 3;">
               <a data-fancybox="gallery" data-src="/files/project1/project1_7.webp" data-caption="Comparison of fabric types and inflation levels">
-                <img src="/files/null2.webp" data-src="/files/project1/project1_7.webp" class="image-zoom">
+                <img data-src="/files/project1/project1_7.webp" class="image-zoom">
               </a>
             </div>
-            <div class="col-md-4 col-sm-6 lazy-load-element">
+            <div class="col-md-4 col-sm-6 lazy-load-element" style="--aspect-ratio: 4 / 3;">
               <a data-fancybox="gallery" data-src="/files/project1/project1_8.webp" data-caption="">
-                <img src="/files/null2.webp" data-src="/files/project1/project1_8.webp" class="image-zoom">
+                <img data-src="/files/project1/project1_8.webp" class="image-zoom">
               </a>
             </div>
-            <div class="col-md-4 col-sm-6 lazy-load-element">
+            <div class="col-md-4 col-sm-6 lazy-load-element" style="--aspect-ratio: 4 / 3;">
               <a data-fancybox="gallery" data-src="/files/project1/project1_9.webp" data-caption="">
-                <img src="/files/null2.webp" data-src="/files/project1/project1_9.webp" class="image-zoom">
+                <img data-src="/files/project1/project1_9.webp" class="image-zoom">
               </a>
             </div>
-            <div class="col-md-4 col-sm-6 lazy-load-element">
+            <div class="col-md-4 col-sm-6 lazy-load-element" style="--aspect-ratio: 4 / 3;">
               <a data-fancybox="gallery" data-src="/files/project1/project1_10.webp" data-caption="">
-                <img src="/files/null2.webp" data-src="/files/project1/project1_10.webp" class="image-zoom">
+                <img data-src="/files/project1/project1_10.webp" class="image-zoom">
               </a>
             </div>
           </div>
@@ -108,34 +105,7 @@
     </main>
 
     <footer id="footer-placeholder" class="footer-distributed"></footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script>
     <script src="https://unpkg.com/swup@4"></script>  
     <script src="/js/main.js"></script> 
-    <script>
-      // 初始化 Swup
-      const swup = new Swup();
-
-      // 执行一次性初始化 (加载页头页脚等)
-      function runOneTimeSetup() {
-        const headerPromise = loadComponent("#header-placeholder", "/components/header.html");
-        const footerPromise = loadComponent("#footer-placeholder", "/components/footer.html");
-
-        headerPromise.then(() => {
-          Site.initHeaderComponents();
-          Site.setActiveNav(); // 首次加载也需要设置导航状态
-        });
-      }
-      runOneTimeSetup();
-
-      // 首次加载时，初始化页面内容
-      Site.initPageContent();
-
-      // 将方法绑定到 Swup 的生命周期钩子
-      swup.hooks.on('animation:out:end', Site.cleanupPageContent.bind(Site));
-      swup.hooks.on('page:view', Site.initPageContent.bind(Site));
-    </script>
   </body>
 </html>

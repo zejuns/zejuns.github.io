@@ -1,3 +1,77 @@
+/*
+ * 通用占位符规则
+ * 适用于任何设置了 --aspect-ratio 变量的元素
+ */
+
+/* 步骤 1: 为设置了变量的容器创建占位空间 */
+[style*="--aspect-ratio"] {
+  /* 读取并应用元素的宽高比 */
+  aspect-ratio: var(--aspect-ratio);
+  /* 设置一个浅灰色背景作为占位符 */
+  background-color: #eee;
+  /* 确保容器内的内容不会溢出 */
+  overflow: hidden;
+}
+
+/* 步骤 2: 让容器内的图片填充整个空间 */
+[style*="--aspect-ratio"] > * {
+  /* 让图片宽度和高度都撑满容器 */
+  width: 100%;
+  height: 100%;
+  /* 关键属性：确保图片保持自身比例，填满空间，
+    多余部分会被裁剪，但图片不会被拉伸变形。
+  */
+  object-fit: cover;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon.woff?p85v7e') format('woff'); /* 只保留这一行 */
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="fa-"], [class*=" fa-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-envelope:before {
+  content: "\e900";
+}
+.fa-location-dot:before {
+  content: "\e901";
+}
+.fa-moon:before {
+  content: "\e902";
+}
+.fa-sun:before {
+  content: "\e903";
+}
+.fa-facebook:before {
+  content: "\e904";
+}
+.fa-github:before {
+  content: "\e905";
+}
+.fa-linkedin-in:before {
+  content: "\e906";
+}
+.fa-x-twitter:before {
+  content: "\e907";
+}
+
 /* ===================================================================
  * 通用樣式 (Common Styles)
  * =================================================================== */
@@ -101,9 +175,6 @@ ul li {
     padding: 0;
 }
 
-.no-gutter [class*=col-] {
-    padding: 10px;
-}
 
 #header {
     position: fixed;
@@ -351,7 +422,7 @@ ul li {
 }
 /* 懒加载元素的入场动画 */
 .lazy-load-element {
-  opacity: 0;
+  opacity: 0.2;
   transform: scale(0.95);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
@@ -377,17 +448,11 @@ ul li {
 }
 
 .work .overlay {
-    opacity: 0;
-    position: absolute;
-    top: 10px;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    -moz-transition: opacity, .3s;
-    -o-transition: opacity, .3s;
-    -webkit-transition: opacity, .3s;
-    transition: opacity, .3s;
-    background: rgba(0, 0, 0, .7);
+  opacity: 0;
+  position: absolute;
+  inset: 0; /* shorthand for top, right, bottom, left = 0 */
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 0.3s ease; /* 简化 transition，增加缓动函数 */
 }
 
 .work .overlay-caption {
@@ -665,6 +730,7 @@ h5 {
 }
 
 .footer-distributed .footer-center i {
+    display: inline-block;
     font-size: 23px;
     width: 38px;
     height: 38px;
@@ -1300,6 +1366,7 @@ background: #181818; color: #fff;
 /* ===================================================================
  * Media Queries - 響應式設計
  * =================================================================== */
+
 @media screen and (max-width: 1024px) {
     .col-md-6 a {
         margin-bottom: 88px;
@@ -1316,6 +1383,11 @@ background: #181818; color: #fff;
     }
 }
 @media only screen and (min-width: 768px) {
+        .col-sm-6 {
+    width: calc(50% - 20px); /* 减去左右 margin */
+    padding: 0;
+    margin: 10px;
+}
     #code-md-output {
         padding: 30px;
     }
@@ -1328,6 +1400,10 @@ background: #181818; color: #fff;
   }
 }
 @media screen and (max-width: 768px) {
+.no-gutter [class*=col-] {
+    margin: 10px;
+    padding: 0;
+}
     #code-md-output {
         padding: 15px;
     }
@@ -1478,5 +1554,18 @@ background: #181818; color: #fff;
 @media screen and (max-width: 320px) {
     .testimonials p {
         font-size: 12px;
+    }
+}
+@media screen and (min-width: 1024px) {
+
+ .col-md-4 {
+    width: calc(33.3333% - 20px); /* 减去左右 margin */
+    padding: 0;
+                margin: 10px;
+}
+    .col-md-6 {
+        width: calc(50% - 30px);
+            padding: 0;
+            margin: 15px;
     }
 }
