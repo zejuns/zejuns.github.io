@@ -214,18 +214,45 @@ const Site = {
     });
   },
 
-  initGitalk: function () {
-    if ($("#gitalk-container").length) {
-      const gitalk = new Gitalk({
-        clientID: "2658e1c2a15202f4ea1a",
-        clientSecret: "efe03ae68db5b4aef7fa72a3aa7bbf249a143383",
-        repo: "zejuns.github.io",
-        owner: "zejuns",
-        admin: ["zejuns"],
-        id: location.pathname,
-        distractionFreeMode: false,
+initGitalk: function () {
+    // 检查页面是否存在 Gitalk 容器
+    if (document.getElementById("gitalk-container")) {
+      console.log("Gitalk container found, loading resources...");
+
+      // 定义资源 URL
+      const gitalkCssUrl = "/css/gitalk.css";
+      const gitalkJsUrl = "https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js";
+
+      // 并行加载 CSS 和 JS 文件
+      Promise.all([
+        loadCss(gitalkCssUrl),
+        loadScript(gitalkJsUrl)
+      ])
+      .then(() => {
+        // 当两个文件都加载成功后，再执行初始化
+        console.log("Gitalk resources loaded successfully. Initializing...");
+        
+        // 确保 Gitalk 构造函数已在全局可用
+        if (typeof Gitalk === 'undefined') {
+            console.error('Gitalk is not defined after loading the script.');
+            return;
+        }
+        
+        const gitalk = new Gitalk({
+          clientID: "2658e1c2a15202f4ea1a",
+          clientSecret: "efe03ae68db5b4aef7fa72a3aa7bbf249a143383",
+          repo: "zejuns.github.io",
+          owner: "zejuns",
+          admin: ["zejuns"],
+          id: location.pathname,
+          distractionFreeMode: false,
+        });
+        gitalk.render("gitalk-container");
+      })
+      .catch(error => {
+        // 如果加载失败，打印错误
+        console.error("Failed to load Gitalk resources:", error);
       });
-      gitalk.render("gitalk-container");
     }
   },
   
