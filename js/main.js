@@ -328,8 +328,7 @@ const Site = {
       flag: 'markdownLibsLoaded',
       js: [
         "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js", // 加載 highlight.js 核心
-        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/x86asm.min.js"
+        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js",
       ],
       callback: render
     });
