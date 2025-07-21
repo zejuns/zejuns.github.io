@@ -1,4 +1,51 @@
 /**
+ * =============================================
+ * 资源动态加载工具
+ * =============================================
+ */
+
+/**
+ * 动态加载一个 CSS 文件
+ * @param {string} url - CSS 文件的 URL
+ */
+const loadCss = (url) => {
+  // 防止重复加载同一个 CSS
+  if (document.querySelector(`link[href="${url}"]`)) {
+    return;
+  }
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = url;
+  document.head.appendChild(link);
+};
+
+/**
+ * 动态加载一个 JS 文件，并返回一个 Promise
+ * @param {string} url - JS 文件的 URL
+ * @returns {Promise<void>}
+ */
+const loadScript = (url) => {
+  // 防止重复加载同一个 JS
+  if (document.querySelector(`script[src="${url}"]`)) {
+    return Promise.resolve();
+  }
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error(`Script load error for ${url}`));
+    document.head.appendChild(script);
+  });
+};
+
+
+/**
+ * =============================================
+ * 原有网站功能模块
+ * =============================================
+ */
+
+/**
  * 加载 HTML 组件到指定的选择器中
  * @param {string} selector - 目标容器的 CSS 选择器 (e.g., "#header-placeholder")
  * @param {string} url - 要加载的 HTML 文件的路径 (e.g., "/components/header.html")
@@ -29,6 +76,8 @@ const Site = {
     carousel: null,
     lazyLoadObserver: null,
   },
+  // 用于跟踪 Markdown 库是否已加载
+  markdownLibsLoaded: false,
 
   // =============================================
   // 一次性初始化 (仅在首次加载时运行)
@@ -83,7 +132,7 @@ const Site = {
       $header.toggleClass("fixed", $window.scrollTop() >= scrollThreshold);
     });
 
-    $window.trigger("scroll"); // 页面加载时立即执行一次，确保初始状态正确
+    $window.trigger("scroll");
   },
 
   initThemeToggle: function () {
@@ -109,9 +158,6 @@ const Site = {
   // Swup 生命周期钩子函数
   // =============================================
 
-  /**
-   * 初始化页面内容 (在每个新页面载入后运行)
-   */
   initPageContent: function () {
     console.log(">> Initializing Page Content (After Swup Transition)");
     this.setActiveNav();
@@ -119,8 +165,8 @@ const Site = {
     this.initCarousel();
     this.initGitalk();
     this.initLazyLoadAndAnimate();
+    this.initMarkdownRenderer(); // 调用 Markdown 渲染器
 
-    // 如果当前页面包含 model-viewer，则懒加载其模块
     if (document.querySelector("model-viewer")) {
       import("https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/+esm")
         .then(() => {
@@ -130,12 +176,8 @@ const Site = {
     }
   },
 
-  /**
-   * 清理页面内容 (在离开当前页面前运行)
-   */
   cleanupPageContent: function () {
     console.log(">> Cleaning Up Page Content (Before Swup Transition)");
-    // 销毁旧页面的 Carousel 实例，防止内存泄漏和冲突
     if (this.instances.carousel) {
       this.instances.carousel.destroy();
       this.instances.carousel = null;
@@ -145,16 +187,11 @@ const Site = {
       this.instances.lazyLoadObserver = null;
       console.log("Lazy Load Observer disconnected.");
     }
-    // 关闭可能打开的 Fancybox 弹窗
     Fancybox.close();
   },
   // =============================================
   // 各个组件的初始化方法
   // =============================================
-
-  /**
-   * 根据当前 URL 高亮导航链接
-   */
   setActiveNav: function () {
     const currentPath = window.location.pathname;
     $(".primary-nav a, .dropdown-menu a").each(function () {
@@ -177,9 +214,6 @@ const Site = {
     });
   },
 
-  /**
-   * 初始化 Gitalk 评论系统
-   */
   initGitalk: function () {
     if ($("#gitalk-container").length) {
       const gitalk = new Gitalk({
@@ -194,25 +228,82 @@ const Site = {
       gitalk.render("gitalk-container");
     }
   },
-
+  
   /**
-   * 初始化 Fancybox
+   * 真正执行 Markdown 渲染的函数
    */
-  initFancybox: function () {
-    Fancybox.bind("[data-fancybox]", {
-      // 在这里可以添加 Fancybox 的全局配置
+  renderMarkdown: function() {
+    const container = document.getElementById('code-md-output');
+    if (!container || !container.dataset.mdSource) {
+      return;
+    }
+    
+    const mdUrl = container.dataset.mdSource;
+    console.log(`Rendering Markdown from: ${mdUrl}`);
+
+    fetch(mdUrl)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.text();
+      })
+      .then(md => {
+        container.innerHTML = marked.parse(md);
+        container.querySelectorAll('pre code').forEach((el) => {
+          hljs.highlightElement(el);
+        });
+        console.log("Markdown rendered and highlighted successfully.");
+      })
+      .catch(error => console.error(`Error fetching or rendering Markdown:`, error));
+  },
+  
+  /**
+   * 初始化 Markdown 渲染器，会先检查并加载所需库
+   */
+  initMarkdownRenderer: function() {
+    // 只有当页面上存在 markdown 容器时才继续
+    if (!document.getElementById('code-md-output')) {
+      return;
+    }
+    
+    // 如果库已经加载，直接渲染
+    if (this.markdownLibsLoaded) {
+      this.renderMarkdown();
+      return;
+    }
+    
+    // 如果库未加载，则先加载它们
+    console.log("Markdown libraries not found, loading them now...");
+    
+    const markedUrl = "https://cdn.jsdelivr.net/npm/marked/marked.min.js";
+    const hljsUrl = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/x86asm.min.js";
+    // const hljsCssUrl = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css";
+    
+    // // 加载 CSS
+    // loadCss(hljsCssUrl);
+    
+    // 并行加载 JS 库
+    Promise.all([
+      loadScript(markedUrl),
+      loadScript(hljsUrl)
+    ])
+    .then(() => {
+      console.log("Markdown libraries loaded successfully.");
+      this.markdownLibsLoaded = true; // 标记为已加载
+      this.renderMarkdown(); // 加载完成后立即渲染
+    })
+    .catch(error => {
+      console.error("Failed to load one or more Markdown libraries:", error);
     });
   },
 
-  /**
-   * 初始化 Carousel
-   */
+  initFancybox: function () {
+    Fancybox.bind("[data-fancybox]", {});
+  },
+
   initCarousel: function () {
     const carouselContainer = document.getElementById("myCarousel");
-    // 只有当页面上存在 #myCarousel 元素时才初始化
     if (carouselContainer) {
       console.log("Carousel container found, initializing...");
-      // 创建新的实例并保存
       this.instances.carousel = new Carousel(
         carouselContainer,
         {
@@ -222,21 +313,16 @@ const Site = {
           },
         },
         {
-          // 注册 Autoplay 插件
           Autoplay: Autoplay,
         }
       );
     }
   },
 
-  /**
-   * 初始化懒加载和入场动画 (最终版 - 容器动画)
-   */
   initLazyLoadAndAnimate: function () {
       const animatedElements = document.querySelectorAll(".lazy-load-element");
       if (!animatedElements.length) return;
 
-      // 修改这里的回调逻辑
       const observerCallback = (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -244,26 +330,13 @@ const Site = {
             const img = element.querySelector("img[data-src]");
 
             if (img) {
-              // 监听图片加载完成事件
-              img.onload = () => {
-                // 图片加载完成后，再触发动画
-                element.classList.add("is-visible");
-              };
-              // 如果图片加载失败，也显示容器，避免布局错乱
-              img.onerror = () => {
-                element.classList.add("is-visible");
-              };
-              
-              // 开始加载图片
+              img.onload = () => { element.classList.add("is-visible"); };
+              img.onerror = () => { element.classList.add("is-visible"); };
               img.src = img.dataset.src;
               img.removeAttribute("data-src");
-
             } else {
-              // 如果容器内没有图片，直接播放动画
               element.classList.add("is-visible");
             }
-            
-            // 停止观察该容器
             observer.unobserve(element);
           }
         });
@@ -271,10 +344,7 @@ const Site = {
 
       this.instances.lazyLoadObserver = new IntersectionObserver(
         observerCallback,
-        {
-          root: null,
-          threshold: 0.1, // 保持你原来的设置
-        }
+        { root: null, threshold: 0.1, }
       );
 
       animatedElements.forEach((element) => {
@@ -285,3 +355,28 @@ const Site = {
       );
   },
 };
+
+
+// =============================================
+//  主执行逻辑
+// =============================================
+
+const swup = new Swup();
+
+function runOneTimeSetup() {
+  const headerPromise = loadComponent("#header-placeholder", "/components/header.html");
+  const footerPromise = loadComponent("#footer-placeholder", "/components/footer.html");
+
+  headerPromise.then(() => {
+    Site.initHeaderComponents();
+    Site.setActiveNav();
+  });
+}
+runOneTimeSetup();
+
+// 首次加载时，初始化页面内容
+Site.initPageContent();
+
+// 将方法绑定到 Swup 的生命周期钩子
+swup.hooks.on('animation:out:end', Site.cleanupPageContent.bind(Site)); 
+swup.hooks.on('page:view', Site.initPageContent.bind(Site));

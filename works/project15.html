@@ -48,21 +48,11 @@
           <div class="section-header" style="padding-bottom: 50px;">
             <h3 class="wow fadeInDown animated" style="margin: 0px;">Code</h3>
           </div>
-          <div id="code-md-output" style="background: #f3f3f3; padding: 15px; border-radius: 8px;"></div>
-          <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-          <script>
-            fetch('/files/project15/code.md')
-              .then(res => res.text())
-              .then(md => {
-                const html = marked.parse(md);
-                document.getElementById('code-md-output').innerHTML = html;
-                document.querySelectorAll('pre code').forEach((el) => {
-                  hljs.highlightElement(el);
-                });
-              });
-          </script>
+          <div id="code-md-output" 
+              data-md-source="/files/project15/code.md" 
+              style="border-radius: 8px;">
+          </div>
+
         </div>
       </section>
     </main>

@@ -904,6 +904,10 @@ html.is-leaving .transition-scale {
 .f-html {
     background: transparent;
 }
+#code-md-output pre {
+    display: block;
+    overflow-x: auto;
+}
 /* ===================================================================
  * 淺色模式 (Light Mode)
  * =================================================================== */
@@ -1055,9 +1059,17 @@ body.light-mode .divider hr{
 body.light-mode .divider span {
 background: #fff; color: #181818;
 }
+body.light-mode #code-md-output{
+    background: #f8f9fa;
+    color: #181818;
+}
 /* ===================================================================
  * 深色模式 (Dark Mode)
  * =================================================================== */
+body.dark-mode #code-md-output{
+    background: #2f2f2f;
+    color: #fff;
+}
 body.dark-mode {
     color: #6c7279;
     background-color: #181818;
@@ -1304,6 +1316,9 @@ background: #181818; color: #fff;
     }
 }
 @media only screen and (min-width: 768px) {
+    #code-md-output {
+        padding: 30px;
+    }
   .content-3-10 .image-container {
     height: 100%;
   }
@@ -1313,6 +1328,9 @@ background: #181818; color: #fff;
   }
 }
 @media screen and (max-width: 768px) {
+    #code-md-output {
+        padding: 15px;
+    }
     .no-gutter {
         display: flex;
         flex-wrap: wrap;
