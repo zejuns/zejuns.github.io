@@ -1,30 +1,8 @@
-function updateAssetPaths() {
-  console.log(">> Smart updating asset paths...");
-  const ASSET_BASE_URL = 'https://www.zejuns.com';
-
-  // 1. 定義要檢查的元素和屬性
-  // 我們要找圖片、影片、音訊、連結等元素的資源路徑
-  const elements = document.querySelectorAll('img, source, video, a, link');
-  const attributesToCheck = ['src', 'href', 'poster', 'data-src', 'data-poster'];
-
-  // 2. 遍歷所有找到的元素
-  elements.forEach(el => {
-    // 3. 遍歷每個元素需要檢查的屬性
-    attributesToCheck.forEach(attr => {
-      // 檢查元素是否有這個屬性 (e.g., <video> 有 poster 但 <img> 沒有)
-      if (el.hasAttribute(attr)) {
-        const originalPath = el.getAttribute(attr);
-
-        // 4. 只修改以 /assets/ 開頭的相對路徑
-        if (originalPath && originalPath.startsWith('/assets/')) {
-          const newPath = ASSET_BASE_URL + originalPath;
-          el.setAttribute(attr, newPath);
-          // console.log(`Rewrote ${attr} for ${el.tagName}: ${originalPath} -> ${newPath}`);
-        }
-      }
-    });
-  });
-}
+/**
+ * =============================================
+ * 資源動態加載工具
+ * =============================================
+ */
 
 /**
  * 動態加載一個 CSS 文件
@@ -245,7 +223,6 @@ const Site = {
 
   initPageContent: function () {
     console.log(">> Initializing Page Content (After Swup Transition)");
-    updateAssetPaths();
     this.setActiveNav();
     this.initFancybox();
     this.initCarousel();
