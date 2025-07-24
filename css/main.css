@@ -8,7 +8,7 @@
   /* 读取并应用元素的宽高比 */
   aspect-ratio: var(--aspect-ratio);
   /* 设置一个浅灰色背景作为占位符 */
-  background-color: #eee;
+background-color: rgba(180, 180, 180, 0.3);  /* 最后一个参数是透明度，范围0~1 */
   /* 确保容器内的内容不会溢出 */
   overflow: hidden;
 }
