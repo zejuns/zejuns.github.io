@@ -283,7 +283,7 @@ const Site = {
       selector: '#gitalk-container',
       flag: 'gitalkLoaded',
       css: ['/css/gitalk.css'],
-      js: ['https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js'],
+      js: ['/js/gitalk.min.js'],
       callback: () => {
         if (typeof Gitalk === 'undefined') {
           console.error('Gitalk is not defined.');
@@ -327,8 +327,8 @@ const Site = {
       selector: '#code-md-output',
       flag: 'markdownLibsLoaded',
       js: [
-        "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js",
+        "/js/marked.min.js",
+        "/js/highlight.min.js",
       ],
       callback: render
     });
@@ -339,8 +339,8 @@ const Site = {
       name: 'Fancybox',
       selector: '[data-fancybox]',
       flag: 'fancyboxLoaded',
-      css: ['https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css'],
-      js: ['https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js'],
+      css: ['/css/fancybox.css'],
+      js: ['/js/fancybox.umd.js'],
       callback: () => {
         if (typeof Fancybox !== 'undefined') {
           Fancybox.bind("[data-fancybox]", {});
@@ -354,10 +354,10 @@ const Site = {
       name: 'Carousel',
       selector: '#myCarousel',
       flag: 'carouselLoaded',
-      css: ['https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css'],
+      css: ['/css/carousel.css'],
       js: [
-        'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js',
-        'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js'
+        '/js/carousel.umd.js',
+        '/js/carousel.autoplay.umd.js'
       ],
       callback: function() { // 使用 function() 確保 this 指向 Site
         if (typeof Carousel === 'undefined' || typeof Autoplay === 'undefined') {
