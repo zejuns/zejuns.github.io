@@ -26,7 +26,7 @@ background-color: rgba(180, 180, 180, 0.3);  /* 最后一个参数是透明度�
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('icomoon.woff?p85v7e') format('woff'); /* 只保留这一行 */
+  src:  url('/assets/icomoon.woff?p85v7e') format('woff'); /* 只保留这一行 */
   font-weight: normal;
   font-style: normal;
   font-display: block;
