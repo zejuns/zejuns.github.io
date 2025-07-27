@@ -156,6 +156,7 @@ h5 {
     display: inline-block;
     text-transform: uppercase;
     padding: 10px 15px;
+    border-radius: 100px;
 }
 
 body {
@@ -384,7 +385,6 @@ ul li {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .agile_short_dropdown > li:not(:last-child) {
   border-bottom: 1px solid #ececef;
 }
