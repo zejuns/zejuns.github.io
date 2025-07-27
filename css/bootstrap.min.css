@@ -235,11 +235,6 @@ code {
   margin-right: auto;
   margin-left: auto;
 }
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
 @media (min-width: 1024px) {
   .container {
     width: 970px;
@@ -247,7 +242,7 @@ code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 85%;
+    width: 90%;
   }
 }
 .container-fluid {
@@ -556,6 +551,7 @@ input[type="search"] {
 }
 .embed-responsive-16by9 {
   padding-bottom: 56.25%;
+  border-radius: 16px;
 }
 .carousel {
   position: relative;

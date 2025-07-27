@@ -259,22 +259,22 @@ const Site = {
   // =============================================
   setActiveNav: function () {
     const currentPath = window.location.pathname;
-    document.querySelectorAll(".primary-nav a, .dropdown-menu a").forEach(link => {
-      link.classList.remove("active");
-      const dropdownParent = link.closest(".dropdown");
-      if (dropdownParent) {
-          const toggle = dropdownParent.querySelector('.dropdown-toggle');
-          if(toggle) toggle.classList.remove("active");
-      }
 
-      if (link.getAttribute("href") === currentPath) {
-        link.classList.add("active");
-        if (dropdownParent) {
-          const toggle = dropdownParent.querySelector('.dropdown-toggle');
-          if(toggle) toggle.classList.add("active");
-        }
-      }
+    document.querySelectorAll(".primary-nav .active").forEach(activeEl => {
+      activeEl.classList.remove("active");
     });
+
+    if (currentPath === '/' || currentPath.startsWith('/works/')) {
+      const worksToggle = document.querySelector('.primary-nav a[href="/"]');
+      if (worksToggle) {
+        worksToggle.classList.add('active');
+      }
+    }
+
+    const activeLink = document.querySelector(`.primary-nav a[href="${currentPath}"]`);
+    if (activeLink) {
+      activeLink.classList.add("active");
+    }
   },
 
   initGitalk: function() {
