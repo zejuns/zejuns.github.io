@@ -1030,7 +1030,6 @@ body.light-mode #header.fixed {
   background: rgba(255, 255, 255, 0.5); /* 半透明背景 */
   backdrop-filter: blur(10px) saturate(100%); /* 模糊 + 饱和度提升 */
   -webkit-backdrop-filter: blur(10px) saturate(100%); /* Safari 支持 */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* 可选边框 */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -1184,7 +1183,6 @@ body.dark-mode .fixed {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px) saturate(100%);
   -webkit-backdrop-filter: blur(10px) saturate(100%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
 }
 
