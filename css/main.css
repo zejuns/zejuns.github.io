@@ -1409,6 +1409,10 @@ background: #181818; color: #fff;
   }
 }
 @media screen and (max-width: 768px) {
+    .services img {
+        height: 230px;
+        border-radius: 16px 16px 0 0;
+    }
     #code-md-output {
         padding: 15px;
     }
