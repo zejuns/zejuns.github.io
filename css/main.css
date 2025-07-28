@@ -1027,10 +1027,8 @@ body.light-mode .btn:hover {
 }
 
 body.light-mode #header.fixed {
-  background: rgba(255, 255, 255, 0.5); /* 半透明背景 */
-  backdrop-filter: blur(10px) saturate(100%); /* 模糊 + 饱和度提升 */
-  -webkit-backdrop-filter: blur(10px) saturate(100%); /* Safari 支持 */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
 }
 
 body.light-mode #header .logo,
@@ -1175,19 +1173,16 @@ body.dark-mode .btn:hover {
     color: #181818;
 }
 
-body.dark-mode .logo {
+body.dark-mode #header .logo {
     color: #fff;
 }
 
-body.dark-mode .fixed {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px) saturate(100%);
-  -webkit-backdrop-filter: blur(10px) saturate(100%);
-  color: white;
+body.dark-mode #header.fixed {
+    background-color: #181818;
 }
 
-body.dark-mode .fixed .nav-toggle {
-    color: #000; /* This seems odd, but preserved from original */
+body.dark-mode #header.fixed .nav-toggle {
+    color: #000;
 }
 
 body.dark-mode .navigation a {
