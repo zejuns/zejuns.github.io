@@ -1340,13 +1340,13 @@ background: #181818; color: #fff;
 }
 @media screen and (max-width: 768px) {
     body.dark-mode .navigation {
-        background-color: #000;
+        background-color: #181818;
     }
 
     body.dark-mode .navigation a.active,
     body.dark-mode .navigation a:hover {
         color: #7e7e7e;
-        background-color: #000;
+        background-color: transparent;
     }
     
     body.dark-mode .agile_short_dropdown {
