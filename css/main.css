@@ -207,13 +207,17 @@ ul ul {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   cursor: pointer;
+  background-image: none;
+  border: 0;
+  border-radius: 100px;
+}
+
+.btn span {
+  pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-image: none;
-  border: 0;
-  border-radius: 100px;
 }
 .btn.active:focus,
 .btn:active.focus,
