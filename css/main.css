@@ -215,6 +215,7 @@ ul ul {
   border: 0;
   border-radius: 100px;
   -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; 
 }
 /* 将全局的文本选中背景色设置为透明 */
 ::selection {
