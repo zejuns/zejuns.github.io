@@ -1114,7 +1114,7 @@ body.light-mode p {
 body.light-mode .overlay-caption p {
   color: #fff;
 }
-body.light-mode .btn
+body.light-mode .btn,
 body.light-mode .btn:active {
   background-color: #f0f0f0;
   color: #181818;
