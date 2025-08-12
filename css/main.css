@@ -381,20 +381,6 @@ ul ul {
   object-fit: cover;
 }
 @font-face {
-  font-family: "Glyphicons Halflings";
-  src: url(https://zejuns.com/fonts/glyphicons-halflings-regular.eot);
-  src: url(https://zejuns.com/fonts/glyphicons-halflings-regular.eot?#iefix)
-      format("embedded-opentype"),
-    url(https://zejuns.com/fonts/glyphicons-halflings-regular.woff2)
-      format("woff2"),
-    url(https://zejuns.com/fonts/glyphicons-halflings-regular.woff)
-      format("woff"),
-    url(https://zejuns.com/fonts/glyphicons-halflings-regular.ttf)
-      format("truetype"),
-    url(https://zejuns.com/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular)
-      format("svg");
-}
-@font-face {
   font-family: icomoon;
   src: url(/assets/icomoon.woff?p85v7e) format("woff");
   font-weight: 400;
