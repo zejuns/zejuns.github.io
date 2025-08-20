@@ -845,6 +845,7 @@ ul ul {
   width: 500px;
   display: flex;
   justify-content: center;
+  margin-right: 30px;
 }
 .footer-center-box {
   display: block;
