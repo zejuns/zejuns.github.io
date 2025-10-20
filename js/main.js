@@ -118,28 +118,23 @@ const loadCss = (e) => {
       window.addEventListener("scroll", o), o();
     },
     initThemeToggle: function () {
-      const toggleButton = document.getElementById("darkModeToggle");
-      if (!toggleButton) return;
-
+      const btn = document.getElementById("darkModeToggle");
       const body = document.body;
-      const themeKey = "theme";
-
-      const applyTheme = (theme) => {
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      const apply = t => {
         body.classList.remove("light-mode", "dark-mode");
-        body.classList.add(theme + "-mode");
+        body.classList.add(t + "-mode");
       };
-      let initialTheme = localStorage.getItem(themeKey);
-
-      if (!initialTheme) {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        initialTheme = prefersDark ? 'dark' : 'light';
+      const getTheme = (matches) => (matches ? "dark" : "light");
+      apply(getTheme(mq.matches));
+      if (btn) {
+        btn.onclick = () => {
+          const isLight = body.classList.contains("light-mode");
+          apply(isLight ? "dark" : "light");
+        };
       }
-
-      applyTheme(initialTheme);
-      toggleButton.addEventListener("click", () => {
-        const newTheme = body.classList.contains("light-mode") ? "dark" : "light";
-        applyTheme(newTheme);
-        localStorage.setItem(themeKey, newTheme);
+      mq.addEventListener("change", e => {
+        apply(getTheme(e.matches));
       });
     },
     initPageContent: function () {
