@@ -118,20 +118,29 @@ const loadCss = (e) => {
       window.addEventListener("scroll", o), o();
     },
     initThemeToggle: function () {
-      const e = document.getElementById("darkModeToggle");
-      if (!e) return;
-      const t = document.body,
-        o = "theme",
-        n = (e) => {
-          t.classList.remove("light-mode", "dark-mode"),
-            t.classList.add(e + "-mode");
-        },
-        a = localStorage.getItem(o) || "light";
-      n(a),
-        e.addEventListener("click", () => {
-          const e = t.classList.contains("light-mode") ? "dark" : "light";
-          n(e), localStorage.setItem(o, e);
-        });
+      const toggleButton = document.getElementById("darkModeToggle");
+      if (!toggleButton) return;
+
+      const body = document.body;
+      const themeKey = "theme";
+
+      const applyTheme = (theme) => {
+        body.classList.remove("light-mode", "dark-mode");
+        body.classList.add(theme + "-mode");
+      };
+      let initialTheme = localStorage.getItem(themeKey);
+
+      if (!initialTheme) {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        initialTheme = prefersDark ? 'dark' : 'light';
+      }
+
+      applyTheme(initialTheme);
+      toggleButton.addEventListener("click", () => {
+        const newTheme = body.classList.contains("light-mode") ? "dark" : "light";
+        applyTheme(newTheme);
+        localStorage.setItem(themeKey, newTheme);
+      });
     },
     initPageContent: function () {
       console.log(">> Initializing Page Content (After Swup Transition)"),
