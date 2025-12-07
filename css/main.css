@@ -622,8 +622,9 @@ ul ul {
   padding: 20px 20px 20px 30px;
 }
 .services img {
-  height: 230px;
-  border-radius: 16px 0 0 16px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .lazy-load-element {
   opacity: 0.2;
@@ -1120,6 +1121,24 @@ body.light-mode .f-carousel__dots button {
 body.light-mode .services-content {
   background: #f8f9fa;
 }
+body.light-mode .services-content:hover {
+  background-color: #f4f5f6;
+}
+.services-content .lazy-load-element {
+  overflow: hidden;
+}
+.services-content img {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+.services-content:hover img {
+  transform: scale(1.08);
+}
+.paper-thumb {
+  width: 30%;
+  flex-shrink: 0;
+  border-radius: 16px 0 0 16px;
+}
 body.light-mode .testimonials {
   background-color: #e9ecef;
 }
@@ -1136,14 +1155,14 @@ body.light-mode .footer-distributed .footer-center i {
   color: #333;
 }
 body.light-mode .footer-distributed .footer-center i:hover {
-  background-color: #d7dadd;
+  background-color: #dfe1e4;
 }
 body.light-mode .footer-distributed .footer-icons a {
   background-color: #e9ecef;
   color: #333;
 }
 body.light-mode .footer-distributed .footer-icons a:hover {
-  background-color: #d7dadd;
+  background-color: #dfe1e4;
 }
 body.light-mode .box {
   border: 2px solid #000;
@@ -1247,6 +1266,9 @@ body.dark-mode .f-carousel__dots button {
 }
 body.dark-mode .services-content {
   background: #212121;
+}
+body.dark-mode .services-content:hover {
+  background-color: #313131;
 }
 body.dark-mode .work h5,
 body.dark-mode .work p,
@@ -1439,6 +1461,9 @@ body.dark-mode .divider span {
   }
 }
 @media (min-width: 1024px) {
+  .services img {
+    max-height: 230px;
+  }
   .container {
     width: 970px;
   }
@@ -1500,15 +1525,14 @@ body.dark-mode .divider span {
   .testimonials p {
     font-size: 12px;
   }
-  .services img {
-    height: 250px;
-  }
+
 }
 @media screen and (max-width: 768px) {
-  .services img {
-    width: 100%;
-    height: auto;
+  .services .paper-thumb {
     border-radius: 16px 16px 0 0;
+  }
+  .paper-thumb {
+    width: 100%;
   }
   #code-md-output {
     padding: 15px;
