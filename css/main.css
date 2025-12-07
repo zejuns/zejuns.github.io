@@ -1459,11 +1459,11 @@ body.dark-mode .divider span {
     margin-top: 0;
     padding: 80px 50px 80px 70px;
   }
+  .services img {
+    max-height: 220px;
+  }
 }
 @media (min-width: 1024px) {
-  .services img {
-    max-height: 230px;
-  }
   .container {
     width: 970px;
   }
@@ -1508,6 +1508,9 @@ body.dark-mode .divider span {
   .col-lg-12 {
     float: left;
     width: 100%;
+  }
+  .services .paper-thumb {
+      width: 25%;
   }
 }
 @media screen and (max-width: 1024px) {
