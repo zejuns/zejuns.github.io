@@ -664,7 +664,7 @@ ul ul {
 .work h5,
 .work img,
 .work p {
-  transition: all, 0.5s;
+  transition: all, 0.3s;
 }
 .work h5,
 .work p {
