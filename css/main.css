@@ -614,6 +614,7 @@ ul ul {
   flex: 1;
   border-radius: 16px;
   margin: 15px 15px 50px;
+  position: relative; 
 }
 .services-content h5 {
   margin-bottom: 20px;
@@ -1679,4 +1680,32 @@ body.dark-mode .divider span {
   .testimonials p {
     font-size: 12px;
   }
+}
+
+.main-link .clickable-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* 覆盖在卡片最底层 */
+  content: '';
+}
+
+.main-link {
+  color: inherit; 
+  text-decoration: none;
+}
+.main-link:hover {
+  color: inherit; 
+}
+
+.inner-link {
+  position: relative;
+  z-index: 2;
+  color: #6190e8; 
+}
+
+.inner-link:hover {
+  text-decoration: underline;
 }
