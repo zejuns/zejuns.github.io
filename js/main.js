@@ -137,6 +137,12 @@ const loadCss = (e) => {
         apply(getTheme(e.matches));
       });
     },
+    initVideoAutoplay: function() {
+      const videos = document.querySelectorAll('video[autoplay]');
+      videos.forEach(video => {
+        const playPromise = video.play();
+      });
+    },
     initPageContent: function () {
       console.log(">> Initializing Page Content (After Swup Transition)"),
         this.setActiveNav(),
@@ -145,6 +151,7 @@ const loadCss = (e) => {
         this.initGitalk(),
         this.initLazyLoadAndAnimate(),
         this.initMarkdownRenderer(),
+        this.initVideoAutoplay(),
         document.querySelector("model-viewer") &&
           import("https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/+esm")
             .then(() => console.log("model-viewer module loaded"))
