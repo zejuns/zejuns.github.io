@@ -50,6 +50,7 @@ const Site = {
     fancyboxLoaded: false,
     carouselLoaded: false,
     gitalkLoaded: false,
+    roughNotationLoaded: false,
   },
   loadModule,
 
@@ -145,6 +146,7 @@ const Site = {
     this.initLazyLoadAndAnimate();
     this.initMarkdownRenderer();
     this.initVideoAutoplay();
+    this.initRoughNotation();
     
     if (document.querySelector("model-viewer")) {
       import("https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/+esm").catch(console.error);
@@ -168,6 +170,54 @@ const Site = {
       : document.querySelector(`.primary-nav a[href="${path}"]`);
       
     targetLink?.classList.add("active");
+  },
+
+  initRoughNotation() {
+    const styleMap = {
+      'rn-underline': { type: 'underline', color: '#FFD54F', strokeWidth: 2, multiline: true },
+      'rn-box':       { type: 'box', color: '#64B5F6', strokeWidth: 2, multiline: true },
+      'rn-highlight': { type: 'highlight', color: '#FFD54F', multiline: true, multiline: true },
+      'rn-circle':    { type: 'circle', color: '#81C784', strokeWidth: 2, multiline: true },
+      'rn-bracket':   { type: 'bracket', color: '#BA68C8', brackets: ['left', 'right'], strokeWidth: 2 },
+      'rn-strike':    { type: 'strike-through', color: '#EF5350', strokeWidth: 1, multiline: true },
+      'rn-crossed':   { type: 'crossed-off', color: '#EF5350', strokeWidth: 1, multiline: true }
+    };
+
+    const selectorStr = Object.keys(styleMap).map(c => `.${c}`).join(', ');
+
+    if (!document.querySelector(selectorStr)) return;
+
+    this.loadModule({
+      selector: "body",
+      flag: "roughNotationLoaded",
+      js: ["https://unpkg.com/rough-notation/lib/rough-notation.iife.js"],
+      callback: () => {
+        if (typeof RoughNotation === "undefined") return;
+        
+        const { annotate, annotationGroup } = RoughNotation;
+        const annotations = [];
+        const elements = document.querySelectorAll(selectorStr);
+
+        elements.forEach(el => {
+          const className = Object.keys(styleMap).find(cls => el.classList.contains(cls));
+          const config = styleMap[className];
+
+          if (config) {
+            annotations.push(annotate(el, {
+              type: config.type,
+              color: config.color,
+              animationDuration: 1000,
+              strokeWidth: config.strokeWidth || 1,
+              multiline: config.multiline || false,
+              brackets: config.brackets,
+              iterations: 3 
+            }));
+          }
+        });
+        const ag = annotationGroup(annotations);
+        setTimeout(() => {ag.show();}, 1000); 
+      }
+    });
   },
 
   initGitalk() {
