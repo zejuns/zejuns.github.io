@@ -637,12 +637,6 @@ ul ul {
   opacity: 1;
   transform: scale(1);
 }
-.lazy-load-element:nth-child(3n + 2) {
-  transition-delay: 0.2s;
-}
-.lazy-load-element:nth-child(3n + 3) {
-  transition-delay: 0.4s;
-}
 .workbox {
   overflow: hidden;
   border-radius: 16px;
@@ -1427,6 +1421,9 @@ body.dark-mode .divider span {
   }
 }
 @media (min-width: 768px) {
+  .lazy-load-element:nth-child(2n) {
+    transition-delay: 0.2s;
+  }
   .col-sm-12,
   .col-sm-4,
   .col-sm-6,
@@ -1465,6 +1462,12 @@ body.dark-mode .divider span {
   }
 }
 @media (min-width: 1024px) {
+  .lazy-load-element:nth-child(3n + 2) {
+    transition-delay: 0.2s;
+  }
+  .lazy-load-element:nth-child(3n + 3) {
+    transition-delay: 0.4s;
+  }
   .container {
     width: 970px;
   }

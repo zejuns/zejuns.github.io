@@ -1,313 +1,277 @@
-async function loadModule(e) {
-  const {
-    name: t,
-    selector: o,
-    flag: n,
-    css: a = [],
-    js: s = [],
-    callback: i,
-  } = e;
-  if (document.querySelector(o))
-    if (this[n]) i && i.call(this);
-    else {
-      console.log(`${t} elements found, loading resources...`);
-      try {
-        a.forEach((e) => loadCss(e));
-        for (const e of s) await loadScript(e);
-        console.log(`${t} resources loaded successfully. Initializing...`),
-          (this[n] = !0),
-          i && i.call(this);
-      } catch (e) {
-        console.error(`Failed to load ${t} resources:`, e);
-      }
-    }
-}
-const loadCss = (e) => {
-    if (document.querySelector(`link[href="${e}"]`)) return;
-    const t = document.createElement("link");
-    (t.rel = "stylesheet"), (t.href = e), document.head.appendChild(t);
-  },
-  loadScript = (e) =>
-    document.querySelector(`script[src="${e}"]`)
-      ? Promise.resolve()
-      : new Promise((t, o) => {
-          const n = document.createElement("script");
-          (n.src = e),
-            (n.onload = () => t()),
-            (n.onerror = () => o(new Error(`Script load error for ${e}`))),
-            document.head.appendChild(n);
-        }),
-  loadComponent = async (e, t) => {
+const loadCss = (href) => {
+  if (!document.querySelector(`link[href="${href}"]`)) {
+    const link = document.createElement("link");
+    Object.assign(link, { rel: "stylesheet", href });
+    document.head.appendChild(link);
+  }
+};
+
+const loadScript = (src) => 
+  document.querySelector(`script[src="${src}"]`) 
+    ? Promise.resolve() 
+    : new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        Object.assign(script, { src, onload: resolve, onerror: () => reject(new Error(`Load error: ${src}`)) });
+        document.head.appendChild(script);
+      });
+
+const loadComponent = async (selector, url) => {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(res.statusText);
+    const el = document.querySelector(selector);
+    if (el) el.innerHTML = await res.text();
+  } catch (e) {
+    console.error(`Load component error ${url}:`, e);
+  }
+};
+
+async function loadModule({ selector, flag, css = [], js = [], callback }) {
+  if (!document.querySelector(selector)) return;
+  
+  if (this[flag]) {
+    callback?.call(this);
+  } else {
     try {
-      const o = await fetch(t);
-      if (!o.ok)
-        throw new Error(`Network response was not ok: ${o.statusText}`);
-      const n = await o.text(),
-        a = document.querySelector(e);
-      a && (a.innerHTML = n);
+      css.forEach(loadCss);
+      await Promise.all(js.map(loadScript));
+      this[flag] = true;
+      callback?.call(this);
     } catch (e) {
-      console.error(`Error loading ${t}:`, e);
+      console.error(`Module load error:`, e);
+    }
+  }
+}
+
+const Site = {
+  instances: { carousel: null, lazyLoadObserver: null },
+  state: {
+    markdownLibsLoaded: false,
+    fancyboxLoaded: false,
+    carouselLoaded: false,
+    gitalkLoaded: false,
+  },
+  loadModule,
+
+  initHeaderComponents() {
+    if (document.querySelector(".navigation")) this.initDesktopNavigation();
+    if (document.querySelector(".nav-toggle")) this.initMobileNavigation();
+    if (document.getElementById("header")) this.initHeaderScroll();
+    if (document.getElementById("darkModeToggle")) this.initThemeToggle();
+  },
+
+  initDesktopNavigation() {
+    const nav = document.querySelector(".navigation");
+    let timer;
+    nav.addEventListener("mouseenter", () => clearTimeout(timer));
+    nav.addEventListener("mouseleave", () => {
+      timer = setTimeout(() => {
+        document.querySelectorAll(".dropdown-menu").forEach(el => el.style.display = "none");
+      }, 300);
+    });
+    nav.querySelectorAll("a").forEach(link => {
+      const menu = link.nextElementSibling;
+      if (menu?.classList.contains("dropdown-menu")) {
+        link.addEventListener("mouseenter", () => {
+          document.querySelectorAll(".dropdown-menu").forEach(el => el !== menu && (el.style.display = "none"));
+          menu.style.display = "block";
+        });
+      }
+    });
+  },
+
+  initMobileNavigation() {
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector('nav[role="navigation"]');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("close-nav");
+      nav.classList.toggle("open");
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (nav.classList.contains("open")) toggle.click();
+      });
+    });
+  },
+
+  initHeaderScroll() {
+    const header = document.getElementById("header");
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          header.classList.toggle("fixed", window.scrollY >= 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+  },
+
+  initThemeToggle() {
+    const btn = document.getElementById("darkModeToggle");
+    const body = document.body;
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const apply = (mode) => {
+      body.classList.remove("light-mode", "dark-mode");
+      body.classList.add(`${mode}-mode`);
+    };
+    
+    apply(mq.matches ? "dark" : "light");
+    mq.addEventListener("change", e => apply(e.matches ? "dark" : "light"));
+    
+    if (btn) {
+      btn.onclick = () => apply(body.classList.contains("light-mode") ? "dark" : "light");
     }
   },
-  Site = {
-    instances: { carousel: null, lazyLoadObserver: null },
-    state: {
-      markdownLibsLoaded: !1,
-      fancyboxLoaded: !1,
-      carouselLoaded: !1,
-      gitalkLoaded: !1,
-    },
-    loadModule: loadModule,
-    initHeaderComponents: function () {
-      console.log(">> Initializing Header Components (One-Time)"),
-        document.querySelector(".navigation") && this.initDesktopNavigation(),
-        document.querySelector(".nav-toggle") && this.initMobileNavigation(),
-        document.getElementById("header") && this.initHeaderScroll(),
-        document.getElementById("darkModeToggle") && this.initThemeToggle();
-    },
-    initDesktopNavigation: function () {
-      const e = document.querySelector(".navigation");
-      if (!e) return;
-      let t;
-      e.addEventListener("mouseenter", () => {
-        clearTimeout(t);
-      }),
-        e.addEventListener("mouseleave", () => {
-          t = setTimeout(() => {
-            document
-              .querySelectorAll(".dropdown-menu")
-              .forEach((e) => (e.style.display = "none"));
-          }, 300);
-        }),
-        document.querySelectorAll(".navigation a").forEach((e) => {
-          const t = e.nextElementSibling;
-          t &&
-            t.classList.contains("dropdown-menu") &&
-            e.addEventListener("mouseenter", function () {
-              document.querySelectorAll(".dropdown-menu").forEach((e) => {
-                e !== t && (e.style.display = "none");
-              }),
-                (t.style.display = "block");
-            });
-        });
-    },
-    initMobileNavigation: function () {
-      const e = document.querySelector(".nav-toggle"),
-        t = document.querySelector('nav[role="navigation"]');
-      e &&
-        t &&
-        (t
-          .querySelectorAll(".dropdown-menu")
-          .forEach((e) => (e.style.display = "none")),
-        e.addEventListener("click", function () {
-          this.classList.toggle("close-nav"), t.classList.toggle("open");
-        }),
-        t.querySelectorAll("a").forEach((o) => {
-          o.addEventListener("click", () => {
-            t.classList.contains("open") && e.click();
-          });
-        }));
-    },
-    initHeaderScroll: function () {
-      const e = document.getElementById("header");
-      if (!e) return;
-      const t = 50,
-        o = () => {
-          e.classList.toggle("fixed", window.scrollY >= t);
-        };
-      window.addEventListener("scroll", o), o();
-    },
-    initThemeToggle: function () {
-      const btn = document.getElementById("darkModeToggle");
-      const body = document.body;
-      const mq = window.matchMedia("(prefers-color-scheme: dark)");
-      const apply = t => {
-        body.classList.remove("light-mode", "dark-mode");
-        body.classList.add(t + "-mode");
-      };
-      const getTheme = (matches) => (matches ? "dark" : "light");
-      apply(getTheme(mq.matches));
-      if (btn) {
-        btn.onclick = () => {
-          const isLight = body.classList.contains("light-mode");
-          apply(isLight ? "dark" : "light");
-        };
-      }
-      mq.addEventListener("change", e => {
-        apply(getTheme(e.matches));
-      });
-    },
-    initVideoAutoplay: function() {
-      const videos = document.querySelectorAll('video[autoplay]');
-      videos.forEach(video => {
-        const playPromise = video.play();
-      });
-    },
-    initPageContent: function () {
-      console.log(">> Initializing Page Content (After Swup Transition)"),
-        this.setActiveNav(),
-        this.initFancybox(),
-        this.initCarousel(),
-        this.initGitalk(),
-        this.initLazyLoadAndAnimate(),
-        this.initMarkdownRenderer(),
-        this.initVideoAutoplay(),
-        document.querySelector("model-viewer") &&
-          import("https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/+esm")
-            .then(() => console.log("model-viewer module loaded"))
-            .catch((e) =>
-              console.error("Failed to load model-viewer module:", e)
-            );
-    },
-    cleanupPageContent: function () {
-      console.log(">> Cleaning Up Page Content (Before Swup Transition)"),
-        this.instances.carousel &&
-          (this.instances.carousel.destroy(), (this.instances.carousel = null)),
-        this.instances.lazyLoadObserver &&
-          (this.instances.lazyLoadObserver.disconnect(),
-          (this.instances.lazyLoadObserver = null),
-          console.log("Lazy Load Observer disconnected.")),
-        window.Fancybox && Fancybox.close();
-    },
-    setActiveNav: function () {
-      const e = window.location.pathname;
-      if (
-        (document.querySelectorAll(".primary-nav .active").forEach((e) => {
-          e.classList.remove("active");
-        }),
-        "/" === e || e.startsWith("/works/"))
-      ) {
-        const e = document.querySelector('.primary-nav a[href="/"]');
-        e && e.classList.add("active");
-      }
-      const t = document.querySelector(`.primary-nav a[href="${e}"]`);
-      t && t.classList.add("active");
-    },
-    initGitalk: function () {
-      this.loadModule.call(this, {
-        name: "Gitalk",
-        selector: "#gitalk-container",
-        flag: "gitalkLoaded",
-        css: ["/css/gitalk.css"],
-        js: ["/js/gitalk.min.js"],
-        callback: () => {
-          if ("undefined" == typeof Gitalk)
-            return void console.error("Gitalk is not defined.");
-          const e = new Gitalk({
-            clientID: "2658e1c2a15202f4ea1a",
-            clientSecret: "efe03ae68db5b4aef7fa72a3aa7bbf249a143383",
-            repo: "zejuh.github.io",
-            owner: "zejuh",
-            admin: ["zejuh"],
-            id: location.pathname,
-            distractionFreeMode: !1,
-          });
-          e.render("gitalk-container");
-        },
-      });
-    },
-    initMarkdownRenderer: function () {
-      const e = async () => {
-        const e = document.getElementById("code-md-output");
-        if (e && e.dataset.mdSource)
-          try {
-            const t = e.dataset.mdSource,
-              o = await fetch(t);
-            if (!o.ok) throw new Error(`HTTP error! status: ${o.status}`);
-            const n = await o.text();
-            (e.innerHTML = marked.parse(n)),
-              e.querySelectorAll("pre code").forEach((e) => {
-                hljs.highlightElement(e);
-              }),
-              console.log("Markdown rendered and highlighted successfully.");
-          } catch (e) {
-            console.error("Error fetching or rendering Markdown:", e);
-          }
-      };
-      this.loadModule.call(this, {
-        name: "Markdown Renderer",
-        selector: "#code-md-output",
-        flag: "markdownLibsLoaded",
-        js: ["/js/marked.min.js", "/js/highlight.min.js"],
-        callback: e,
-      });
-    },
-    initFancybox: function () {
-      this.loadModule.call(this, {
-        name: "Fancybox",
-        selector: "[data-fancybox]",
-        flag: "fancyboxLoaded",
-        css: ["/css/fancybox.css"],
-        js: ["/js/fancybox.umd.js"],
-        callback: () => {
-          "undefined" != typeof Fancybox &&
-            Fancybox.bind("[data-fancybox]", {});
-        },
-      });
-    },
-    initCarousel: function () {
-      this.loadModule.call(this, {
-        name: "Carousel",
-        selector: "#myCarousel",
-        flag: "carouselLoaded",
-        css: ["/css/carousel.css"],
-        js: ["/js/carousel.umd.js", "/js/carousel.autoplay.umd.js"],
-        callback: function () {
-          if ("undefined" == typeof Carousel || "undefined" == typeof Autoplay)
-            return void console.error("Carousel or Autoplay is not defined.");
-          const e = document.getElementById("myCarousel");
-          this.instances.carousel = new Carousel(
-            e,
-            { transition: "crossfade", Autoplay: { timeout: 3e3 } },
-            { Autoplay: Autoplay }
-          );
-        },
-      });
-    },
-    initLazyLoadAndAnimate: function () {
-      const e = document.querySelectorAll(".lazy-load-element");
-      if (!e.length) return;
-      const t = (e, t) => {
-        e.forEach((e) => {
-          if (e.isIntersecting) {
-            const o = e.target,
-              n = o.querySelector("img[data-src]");
-            n
-              ? ((n.onload = () => {
-                  o.classList.add("is-visible");
-                }),
-                (n.onerror = () => {
-                  o.classList.add("is-visible");
-                }),
-                (n.src = n.dataset.src),
-                n.removeAttribute("data-src"))
-              : o.classList.add("is-visible"),
-              t.unobserve(o);
-          }
-        });
-      };
-      (this.instances.lazyLoadObserver = new IntersectionObserver(t, {
-        root: null,
-        threshold: 0.1,
-      })),
-        e.forEach((e) => {
-          this.instances.lazyLoadObserver.observe(e);
-        }),
-        console.log(
-          `Lazy Load Observer created and watching ${e.length} elements.`
-        );
-    },
+
+  initVideoAutoplay() {
+    document.querySelectorAll('video[autoplay]').forEach(video => {
+      video.muted = true;
+      video.play().catch(() => {});
+    });
   },
-  swup = new Swup(),
-  runOneTimeSetup = async () => {
-    await loadComponent("#header-placeholder", "/components/header.html"),
-      Site.initHeaderComponents(),
-      Site.setActiveNav(),
-      loadComponent("#footer-placeholder", "/components/footer.html");
-  };
-runOneTimeSetup(),
-  Site.initPageContent(),
-  swup.hooks.on("animation:out:end", Site.cleanupPageContent.bind(Site)),
-  swup.hooks.on("page:view", () => {
-    Site.initPageContent(), Site.setActiveNav();
-  });
+
+  initPageContent() {
+    this.setActiveNav();
+    this.initFancybox();
+    this.initCarousel();
+    this.initGitalk();
+    this.initLazyLoadAndAnimate();
+    this.initMarkdownRenderer();
+    this.initVideoAutoplay();
+    
+    if (document.querySelector("model-viewer")) {
+      import("https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/+esm").catch(console.error);
+    }
+  },
+
+  cleanupPageContent() {
+    this.instances.carousel?.destroy();
+    this.instances.carousel = null;
+    this.instances.lazyLoadObserver?.disconnect();
+    this.instances.lazyLoadObserver = null;
+    window.Fancybox?.close();
+  },
+
+  setActiveNav() {
+    const path = window.location.pathname;
+    document.querySelectorAll(".primary-nav .active").forEach(el => el.classList.remove("active"));
+    
+    const targetLink = path === "/" || path.startsWith("/works/") 
+      ? document.querySelector('.primary-nav a[href="/"]') 
+      : document.querySelector(`.primary-nav a[href="${path}"]`);
+      
+    targetLink?.classList.add("active");
+  },
+
+  initGitalk() {
+    this.loadModule({
+      selector: "#gitalk-container",
+      flag: "gitalkLoaded",
+      css: ["/css/gitalk.css"],
+      js: ["/js/gitalk.min.js"],
+      callback: () => {
+        if (typeof Gitalk === "undefined") return;
+        new Gitalk({
+          clientID: "2658e1c2a15202f4ea1a",
+          clientSecret: "efe03ae68db5b4aef7fa72a3aa7bbf249a143383",
+          repo: "zejuh.github.io",
+          owner: "zejuh",
+          admin: ["zejuh"],
+          id: location.pathname,
+          distractionFreeMode: false,
+        }).render("gitalk-container");
+      },
+    });
+  },
+
+  initMarkdownRenderer() {
+    const output = document.getElementById("code-md-output");
+    if (!output?.dataset.mdSource) return;
+
+    this.loadModule({
+      selector: "#code-md-output",
+      flag: "markdownLibsLoaded",
+      js: ["/js/marked.min.js", "/js/highlight.min.js"],
+      callback: async () => {
+        try {
+          const res = await fetch(output.dataset.mdSource);
+          if (!res.ok) return;
+          output.innerHTML = marked.parse(await res.text());
+          output.querySelectorAll("pre code").forEach(hljs.highlightElement);
+        } catch (e) {
+          console.error("Markdown render error:", e);
+        }
+      },
+    });
+  },
+
+  initFancybox() {
+    this.loadModule({
+      selector: "[data-fancybox]",
+      flag: "fancyboxLoaded",
+      css: ["/css/fancybox.css"],
+      js: ["/js/fancybox.umd.js"],
+      callback: () => window.Fancybox?.bind("[data-fancybox]", {}),
+    });
+  },
+
+  initCarousel() {
+    this.loadModule({
+      selector: "#myCarousel",
+      flag: "carouselLoaded",
+      css: ["/css/carousel.css"],
+      js: ["/js/carousel.umd.js", "/js/carousel.autoplay.umd.js"],
+      callback: () => {
+        if (typeof Carousel === "undefined") return;
+        const el = document.getElementById("myCarousel");
+        this.instances.carousel = new Carousel(el, 
+          { transition: "crossfade", Autoplay: { timeout: 3000 } }, 
+          { Autoplay }
+        );
+      },
+    });
+  },
+
+  initLazyLoadAndAnimate() {
+    const els = document.querySelectorAll(".lazy-load-element");
+    if (!els.length) return;
+
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    els.forEach(el => obs.observe(el));
+    this.instances.lazyLoadObserver = obs;
+  },
+};
+
+const swup = new Swup();
+const runOneTimeSetup = async () => {
+  await Promise.all([
+    loadComponent("#header-placeholder", "/components/header.html"),
+    loadComponent("#footer-placeholder", "/components/footer.html")
+  ]);
+  Site.initHeaderComponents();
+  Site.setActiveNav();
+};
+
+runOneTimeSetup();
+Site.initPageContent();
+
+swup.hooks.on("animation:out:end", () => Site.cleanupPageContent());
+swup.hooks.on("page:view", () => {
+  Site.initPageContent();
+  Site.setActiveNav();
+});
