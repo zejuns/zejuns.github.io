@@ -138,6 +138,41 @@ const Site = {
     });
   },
 
+  initCreditNoticeBar() {
+    const noticeId = "site-credit-notice";
+    let notice = document.getElementById(noticeId);
+
+    if (!notice) {
+      notice = document.createElement("div");
+      notice.id = noticeId;
+      notice.className = "site-credit-notice";
+      notice.setAttribute("role", "status");
+      notice.setAttribute("aria-live", "polite");
+      notice.innerHTML = `
+        <p class="site-credit-notice-text">
+          <strong>
+            Try my new site:
+            <a class="site-credit-notice-inline-link" href="https://voxelt.com" target="_blank" rel="noopener noreferrer">voxelt.com</a>.
+          </strong>
+          Turn images into 3D voxel art — build and edit directly in your browser. Credits coming soon.
+        </p>
+        <a class="site-credit-notice-link" href="https://voxelt.com" target="_blank" rel="noopener noreferrer">
+          Try Voxelt
+        </a>
+        <button type="button" class="site-credit-notice-close" aria-label="Dismiss notice">&times;</button>
+      `;
+      document.body.appendChild(notice);
+    }
+
+    const closeBtn = notice.querySelector(".site-credit-notice-close");
+    if (closeBtn && !closeBtn.dataset.bound) {
+      closeBtn.dataset.bound = "1";
+      closeBtn.addEventListener("click", () => {
+        notice.hidden = true;
+      });
+    }
+  },
+
   initPageContent() {
     this.setActiveNav();
     this.initFancybox();
@@ -147,6 +182,7 @@ const Site = {
     this.initMarkdownRenderer();
     this.initVideoAutoplay();
     this.initRoughNotation();
+    this.initCreditNoticeBar();
     
     if (document.querySelector("model-viewer")) {
       import("https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/+esm").catch(console.error);
