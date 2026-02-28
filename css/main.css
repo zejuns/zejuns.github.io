@@ -1239,6 +1239,12 @@ body.light-mode .arrow {
 body.dark-mode .theme-toggle .slider {
   transform: translateX(-28px);
 }
+body.dark-mode .site-credit-notice {
+  background-color: #181818;
+}
+body.dark-mode .site-credit-notice{
+  border-top: 1px solid #212529;
+}
 body.light-mode .capability-title {
   color: #212529;
 }
